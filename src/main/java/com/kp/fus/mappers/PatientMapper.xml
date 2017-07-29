@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kp.fus.dao.PatientDao">
+  <resultMap id="PatientResult" type="com.kp.fus.model.Patient">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ticket_no" 			jdbcType="INTEGER" 		property="ticketNo" />
+    <result column="patient_no" 		jdbcType="INTEGER" 		property="patientNo" />
+    <result column="patient_id" 		jdbcType="INTEGER" 		property="patientId" />
+    <result column="patient_name" 		jdbcType="VARCHAR" 		property="patientName" />
+    <result column="patient_sex" 		jdbcType="INTEGER" 		property="patientSex" />
+    <result column="patient_age" 		jdbcType="INTEGER" 		property="patientAge" />
+    <result column="patient_career" 	jdbcType="VARCHAR" 		property="patientCareer" />
+    <result column="patient_contact" 	jdbcType="VARCHAR" 		property="patientContact" />
+    <result column="site_home" 			jdbcType="VARCHAR" 		property="siteHome" />
+    <result column="site_work" 			jdbcType="VARCHAR" 		property="siteWork" />
+    <result column="patient_education" 	jdbcType="VARCHAR" 		property="patientEducation" />
+    <result column="patient_married" 	jdbcType="VARCHAR" 		property="patientMarried" />
+    <result column="patient_child" 		jdbcType="VARCHAR" 		property="patientChild" />
+    <result column="patient_economy" 	jdbcType="VARCHAR" 		property="patientEconomy" />
+    <result column="patient_pay_mode" 	jdbcType="VARCHAR" 		property="patientPayMode" />
+    <result column="patient_group" 		jdbcType="VARCHAR" 		property="patientGroup" />
+    <result column="create_time" 		jdbcType="VARCHAR" 		property="createTime" />
+    <result column="update_time" 		jdbcType="VARCHAR" 		property="updateTime" />
+    <result column="operator" 			jdbcType="VARCHAR" 		property="operator" />
+  </resultMap>
+  <select id="patientCount" parameterType="Map" resultType="int">
+		select count(1) from patient
+		<where>
+			<if test="id!=null and id!='' ">
+				 and id like #{id}
+			</if>
+		</where>
+  </select>
+  <select id="patientPage" parameterType="java.lang.Integer" resultMap="PatientResult">
+   	select * from patient
+		<where>
+			<if test="id!=null and id!='' ">
+				 and id like #{id}
+			</if>
+		</where>
+		<if test="pageIndex!=null and pageSize!=null">
+		 	limit #{pageIndex},#{pageSize}
+		</if>
+  </select>
+  <select id="selectById" parameterType="java.lang.Integer" resultMap="PatientResult">
+    select *  from patient where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByQua" parameterType="java.lang.Integer" resultMap="PatientResult">
+    select *  from patient where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from patient where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertPatient" parameterType="com.kp.fus.model.Patient">
+    insert into patient (id, ticket_no, patient_no, 
+      patient_id, patient_name, patient_sex, 
+      patient_age, patient_career, patient_contact, 
+      site_home, site_work, patient_education, 
+      patient_married, patient_child, patient_economy, 
+      patient_pay_mode, patient_group, create_time, 
+      update_time, operator)
+    values (#{id,jdbcType=INTEGER}, #{ticketNo,jdbcType=INTEGER}, #{patientNo,jdbcType=INTEGER}, 
+      #{patientId,jdbcType=INTEGER}, #{patientName,jdbcType=VARCHAR}, #{patientSex,jdbcType=INTEGER}, 
+      #{patientAge,jdbcType=INTEGER}, #{patientCareer,jdbcType=VARCHAR}, #{patientContact,jdbcType=VARCHAR}, 
+      #{siteHome,jdbcType=VARCHAR}, #{siteWork,jdbcType=VARCHAR}, #{patientEducation,jdbcType=VARCHAR}, 
+      #{patientMarried,jdbcType=VARCHAR}, #{patientChild,jdbcType=VARCHAR}, #{patientEconomy,jdbcType=VARCHAR}, 
+      #{patientPayMode,jdbcType=VARCHAR}, #{patientGroup,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertPatientD" parameterType="com.kp.fus.model.Patient">
+    insert into patient
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="ticketNo != null">
+        ticket_no,
+      </if>
+      <if test="patientNo != null">
+        patient_no,
+      </if>
+      <if test="patientId != null">
+        patient_id,
+      </if>
+      <if test="patientName != null">
+        patient_name,
+      </if>
+      <if test="patientSex != null">
+        patient_sex,
+      </if>
+      <if test="patientAge != null">
+        patient_age,
+      </if>
+      <if test="patientCareer != null">
+        patient_career,
+      </if>
+      <if test="patientContact != null">
+        patient_contact,
+      </if>
+      <if test="siteHome != null">
+        site_home,
+      </if>
+      <if test="siteWork != null">
+        site_work,
+      </if>
+      <if test="patientEducation != null">
+        patient_education,
+      </if>
+      <if test="patientMarried != null">
+        patient_married,
+      </if>
+      <if test="patientChild != null">
+        patient_child,
+      </if>
+      <if test="patientEconomy != null">
+        patient_economy,
+      </if>
+      <if test="patientPayMode != null">
+        patient_pay_mode,
+      </if>
+      <if test="patientGroup != null">
+        patient_group,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="operator != null">
+        operator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ticketNo != null">
+        #{ticketNo,jdbcType=INTEGER},
+      </if>
+      <if test="patientNo != null">
+        #{patientNo,jdbcType=INTEGER},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="patientName != null">
+        #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSex != null">
+        #{patientSex,jdbcType=INTEGER},
+      </if>
+      <if test="patientAge != null">
+        #{patientAge,jdbcType=INTEGER},
+      </if>
+      <if test="patientCareer != null">
+        #{patientCareer,jdbcType=VARCHAR},
+      </if>
+      <if test="patientContact != null">
+        #{patientContact,jdbcType=VARCHAR},
+      </if>
+      <if test="siteHome != null">
+        #{siteHome,jdbcType=VARCHAR},
+      </if>
+      <if test="siteWork != null">
+        #{siteWork,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEducation != null">
+        #{patientEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="patientMarried != null">
+        #{patientMarried,jdbcType=VARCHAR},
+      </if>
+      <if test="patientChild != null">
+        #{patientChild,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEconomy != null">
+        #{patientEconomy,jdbcType=VARCHAR},
+      </if>
+      <if test="patientPayMode != null">
+        #{patientPayMode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientGroup != null">
+        #{patientGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByIdD" parameterType="com.kp.fus.model.Patient">
+    update patient
+    <set>
+      <if test="ticketNo != null">
+        ticket_no = #{ticketNo,jdbcType=INTEGER},
+      </if>
+      <if test="patientNo != null">
+        patient_no = #{patientNo,jdbcType=INTEGER},
+      </if>
+      <if test="patientId != null">
+        patient_id = #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="patientName != null">
+        patient_name = #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSex != null">
+        patient_sex = #{patientSex,jdbcType=INTEGER},
+      </if>
+      <if test="patientAge != null">
+        patient_age = #{patientAge,jdbcType=INTEGER},
+      </if>
+      <if test="patientCareer != null">
+        patient_career = #{patientCareer,jdbcType=VARCHAR},
+      </if>
+      <if test="patientContact != null">
+        patient_contact = #{patientContact,jdbcType=VARCHAR},
+      </if>
+      <if test="siteHome != null">
+        site_home = #{siteHome,jdbcType=VARCHAR},
+      </if>
+      <if test="siteWork != null">
+        site_work = #{siteWork,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEducation != null">
+        patient_education = #{patientEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="patientMarried != null">
+        patient_married = #{patientMarried,jdbcType=VARCHAR},
+      </if>
+      <if test="patientChild != null">
+        patient_child = #{patientChild,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEconomy != null">
+        patient_economy = #{patientEconomy,jdbcType=VARCHAR},
+      </if>
+      <if test="patientPayMode != null">
+        patient_pay_mode = #{patientPayMode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientGroup != null">
+        patient_group = #{patientGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateById" parameterType="com.kp.fus.model.Patient">
+    update patient
+    set ticket_no = #{ticketNo,jdbcType=INTEGER},
+      patient_no = #{patientNo,jdbcType=INTEGER},
+      patient_id = #{patientId,jdbcType=INTEGER},
+      patient_name = #{patientName,jdbcType=VARCHAR},
+      patient_sex = #{patientSex,jdbcType=INTEGER},
+      patient_age = #{patientAge,jdbcType=INTEGER},
+      patient_career = #{patientCareer,jdbcType=VARCHAR},
+      patient_contact = #{patientContact,jdbcType=VARCHAR},
+      site_home = #{siteHome,jdbcType=VARCHAR},
+      site_work = #{siteWork,jdbcType=VARCHAR},
+      patient_education = #{patientEducation,jdbcType=VARCHAR},
+      patient_married = #{patientMarried,jdbcType=VARCHAR},
+      patient_child = #{patientChild,jdbcType=VARCHAR},
+      patient_economy = #{patientEconomy,jdbcType=VARCHAR},
+      patient_pay_mode = #{patientPayMode,jdbcType=VARCHAR},
+      patient_group = #{patientGroup,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      operator = #{operator,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kp.fus.dao.PeopleDao">
+  <resultMap id="PeopleResult" type="com.kp.fus.model.People">
+    <id column="id" 					jdbcType="INTEGER" property="id" />
+    <result column="uuid" 				jdbcType="VARCHAR" property="uuid" />
+    <result column="user_name" 			jdbcType="VARCHAR" property="userName" />
+    <result column="user_password" 		jdbcType="VARCHAR" property="userPassword" />
+    <result column="first_name" 		jdbcType="VARCHAR" property="firstName" />
+    <result column="middle_name" 		jdbcType="VARCHAR" property="middleName" />
+    <result column="last_name" 			jdbcType="VARCHAR" property="lastName" />
+    <result column="sex" 				jdbcType="VARCHAR" property="sex" />
+    <result column="login_flag" 		jdbcType="VARCHAR" property="loginFlag" />
+    <result column="email" 				jdbcType="VARCHAR" property="email" />
+    <result column="telephone" 			jdbcType="VARCHAR" property="telephone" />
+    <result column="mobile" 			jdbcType="VARCHAR" property="mobile" />
+    <result column="phone" 				jdbcType="VARCHAR" property="phone" />
+    <result column="qq" 				jdbcType="VARCHAR" property="qq" />
+    <result column="wechat" 			jdbcType="VARCHAR" property="wechat" />
+    <result column="im" 				jdbcType="VARCHAR" property="im" />
+    <result column="user_company" 		jdbcType="VARCHAR" property="userCompany" />
+    <result column="user_company_id" 	jdbcType="VARCHAR" property="userCompanyId" />
+    <result column="user_department" 	jdbcType="VARCHAR" property="userDepartment" />
+    <result column="user_department_id" jdbcType="VARCHAR" property="userDepartmentId" />
+    <result column="user_office" 		jdbcType="VARCHAR" property="userOffice" />
+    <result column="user_office_id" 	jdbcType="VARCHAR" property="userOfficeId" />
+    <result column="user_group" 		jdbcType="VARCHAR" property="userGroup" />
+    <result column="user_group_id" 		jdbcType="VARCHAR" property="userGroupId" />
+    <result column="user_class" 		jdbcType="VARCHAR" property="userClass" />
+    <result column="user_class_id" 		jdbcType="VARCHAR" property="userClassId" />
+    <result column="user_groups" 		jdbcType="VARCHAR" property="userGroups" />
+    <result column="user_roles" 		jdbcType="VARCHAR" property="userRoles" />
+    <result column="user_site" 			jdbcType="VARCHAR" property="userSite" />
+    <result column="user_site_id" 		jdbcType="VARCHAR" property="userSiteId" />
+    <result column="valid" 				jdbcType="VARCHAR" property="valid" />
+    <result column="user_position" 		jdbcType="VARCHAR" property="userPosition" />
+    <result column="user_position_id" 	jdbcType="VARCHAR" property="userPositionId" />
+    <result column="create_time" 		jdbcType="VARCHAR" property="createTime" />
+    <result column="update_time" 		jdbcType="VARCHAR" property="updateTime" />
+  </resultMap>
+  <select id="userLogin" parameterType="Map" resultMap="PeopleResult">
+ 	select p.user_name,p.user_password,p.first_name,p.middle_name,p.last_name,p.sex,p.login_flag,p.email,p.telephone,p.mobile,p.phone,p.qq,p.wechat,p.im,p.user_company,p.user_company_id,user_department,p.user_department_id,p.user_office,p.user_office_id,p.user_group,p.user_group_id,p.user_class,p.user_class_id,p.user_groups,p.user_roles,p.user_site,p.user_site_id,p.valid,p.user_position,p.user_position_id 
+   	from people p
+    where p.user_name=#{userName} and
+		  p.user_password=#{passWord} 
+  </select>
+  <select id="smPeoplePage" parameterType="java.lang.Integer" resultMap="PeopleResult">
+   select * from people
+		<where>
+			<if test="id!=null and id!='' ">
+				 and id like #{id}
+			</if>
+		</where>
+		<if test="pageIndex!=null and pageSize!=null">
+		 	limit #{pageIndex},#{pageSize}
+		</if>
+  </select>
+  <delete id="deleteSMPeople" parameterType="java.util.List">
+	delete from people where id in
+	<foreach collection="list" item="id" index="index" open="(" separator="," close=")"> #{id} </foreach>
+  </delete>
+  <insert id="addSMPeople" parameterType="com.kp.fus.model.People">
+    insert into people (uuid, user_name, 
+      user_password, first_name, middle_name, last_name, sex, 
+      login_flag, email, telephone, 
+      mobile, phone, qq, 
+      wechat, im, user_company, 
+      user_company_id, user_department, user_department_id, 
+      user_office, user_office_id, user_group, 
+      user_group_id, user_class, user_class_id, 
+      user_groups, user_roles, user_site, 
+      user_site_id, valid, user_position, 
+      user_position_id,create_time)
+    values (#{uuid,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{userPassword,jdbcType=VARCHAR}, #{firstName,jdbcType=VARCHAR}, #{middleName,jdbcType=VARCHAR}, #{lastName,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{loginFlag,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
+      #{wechat,jdbcType=VARCHAR}, #{im,jdbcType=VARCHAR}, #{userCompany,jdbcType=VARCHAR}, 
+      #{userCompanyId,jdbcType=VARCHAR}, #{userDepartment,jdbcType=VARCHAR}, #{userDepartmentId,jdbcType=VARCHAR}, 
+      #{userOffice,jdbcType=VARCHAR}, #{userOfficeId,jdbcType=VARCHAR}, #{userGroup,jdbcType=VARCHAR}, 
+      #{userGroupId,jdbcType=VARCHAR}, #{userClass,jdbcType=VARCHAR}, #{userClassId,jdbcType=VARCHAR}, 
+      #{userGroups,jdbcType=VARCHAR}, #{userRoles,jdbcType=VARCHAR}, #{userSite,jdbcType=VARCHAR}, 
+      #{userSiteId,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{userPosition,jdbcType=VARCHAR}, 
+      #{userPositionId,jdbcType=VARCHAR},#{createTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kp.fus.model.People">
+    insert into people
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPassword != null">
+        user_password,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="loginFlag != null">
+        login_flag,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+      <if test="im != null">
+        im,
+      </if>
+      <if test="userCompany != null">
+        user_company,
+      </if>
+      <if test="userCompanyId != null">
+        user_company_id,
+      </if>
+      <if test="userDepartment != null">
+        user_department,
+      </if>
+      <if test="userDepartmentId != null">
+        user_department_id,
+      </if>
+      <if test="userOffice != null">
+        user_office,
+      </if>
+      <if test="userOfficeId != null">
+        user_office_id,
+      </if>
+      <if test="userGroup != null">
+        user_group,
+      </if>
+      <if test="userGroupId != null">
+        user_group_id,
+      </if>
+      <if test="userClass != null">
+        user_class,
+      </if>
+      <if test="userClassId != null">
+        user_class_id,
+      </if>
+      <if test="userGroups != null">
+        user_groups,
+      </if>
+      <if test="userRoles != null">
+        user_roles,
+      </if>
+      <if test="userSite != null">
+        user_site,
+      </if>
+      <if test="userSiteId != null">
+        user_site_id,
+      </if>
+      <if test="valid != null">
+        valid,
+      </if>
+      <if test="userPosition != null">
+        user_position,
+      </if>
+      <if test="userPositionId != null">
+        user_position_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="loginFlag != null">
+        #{loginFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="im != null">
+        #{im,jdbcType=VARCHAR},
+      </if>
+      <if test="userCompany != null">
+        #{userCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="userCompanyId != null">
+        #{userCompanyId,jdbcType=VARCHAR},
+      </if>
+      <if test="userDepartment != null">
+        #{userDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="userDepartmentId != null">
+        #{userDepartmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="userOffice != null">
+        #{userOffice,jdbcType=VARCHAR},
+      </if>
+      <if test="userOfficeId != null">
+        #{userOfficeId,jdbcType=VARCHAR},
+      </if>
+      <if test="userGroup != null">
+        #{userGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="userGroupId != null">
+        #{userGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="userClass != null">
+        #{userClass,jdbcType=VARCHAR},
+      </if>
+      <if test="userClassId != null">
+        #{userClassId,jdbcType=VARCHAR},
+      </if>
+      <if test="userGroups != null">
+        #{userGroups,jdbcType=VARCHAR},
+      </if>
+      <if test="userRoles != null">
+        #{userRoles,jdbcType=VARCHAR},
+      </if>
+      <if test="userSite != null">
+        #{userSite,jdbcType=VARCHAR},
+      </if>
+      <if test="userSiteId != null">
+        #{userSiteId,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null">
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="userPosition != null">
+        #{userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="userPositionId != null">
+        #{userPositionId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kp.fus.model.People">
+    update people
+    <set>
+      <if test="uuid != null">
+        uuid = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        user_password = #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="loginFlag != null">
+        login_flag = #{loginFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="im != null">
+        im = #{im,jdbcType=VARCHAR},
+      </if>
+      <if test="userCompany != null">
+        user_company = #{userCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="userCompanyId != null">
+        user_company_id = #{userCompanyId,jdbcType=VARCHAR},
+      </if>
+      <if test="userDepartment != null">
+        user_department = #{userDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="userDepartmentId != null">
+        user_department_id = #{userDepartmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="userOffice != null">
+        user_office = #{userOffice,jdbcType=VARCHAR},
+      </if>
+      <if test="userOfficeId != null">
+        user_office_id = #{userOfficeId,jdbcType=VARCHAR},
+      </if>
+      <if test="userGroup != null">
+        user_group = #{userGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="userGroupId != null">
+        user_group_id = #{userGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="userClass != null">
+        user_class = #{userClass,jdbcType=VARCHAR},
+      </if>
+      <if test="userClassId != null">
+        user_class_id = #{userClassId,jdbcType=VARCHAR},
+      </if>
+      <if test="userGroups != null">
+        user_groups = #{userGroups,jdbcType=VARCHAR},
+      </if>
+      <if test="userRoles != null">
+        user_roles = #{userRoles,jdbcType=VARCHAR},
+      </if>
+      <if test="userSite != null">
+        user_site = #{userSite,jdbcType=VARCHAR},
+      </if>
+      <if test="userSiteId != null">
+        user_site_id = #{userSiteId,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null">
+        valid = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="userPosition != null">
+        user_position = #{userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="userPositionId != null">
+        user_position_id = #{userPositionId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateSMPeople" parameterType="com.kp.fus.model.People">
+    update people
+    set uuid = #{uuid,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=VARCHAR},
+      first_name = #{firstName,jdbcType=VARCHAR},
+      middle_name = #{middleName,jdbcType=VARCHAR},
+      last_name = #{lastName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      login_flag = #{loginFlag,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      im = #{im,jdbcType=VARCHAR},
+      user_company = #{userCompany,jdbcType=VARCHAR},
+      user_company_id = #{userCompanyId,jdbcType=VARCHAR},
+      user_department = #{userDepartment,jdbcType=VARCHAR},
+      user_department_id = #{userDepartmentId,jdbcType=VARCHAR},
+      user_office = #{userOffice,jdbcType=VARCHAR},
+      user_office_id = #{userOfficeId,jdbcType=VARCHAR},
+      user_group = #{userGroup,jdbcType=VARCHAR},
+      user_group_id = #{userGroupId,jdbcType=VARCHAR},
+      user_class = #{userClass,jdbcType=VARCHAR},
+      user_class_id = #{userClassId,jdbcType=VARCHAR},
+      user_groups = #{userGroups,jdbcType=VARCHAR},
+      user_roles = #{userRoles,jdbcType=VARCHAR},
+      user_site = #{userSite,jdbcType=VARCHAR},
+      user_site_id = #{userSiteId,jdbcType=VARCHAR},
+      valid = #{valid,jdbcType=VARCHAR},
+      user_position = #{userPosition,jdbcType=VARCHAR},
+      user_position_id = #{userPositionId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="peopleCount" parameterType="Map" resultType="int">
+		select count(1) from people
+		<where>
+			<if test="id!=null and id!='' ">
+				 and id like #{id}
+			</if>
+		</where>
+	</select>
+</mapper>

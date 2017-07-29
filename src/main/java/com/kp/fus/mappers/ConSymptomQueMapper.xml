@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kp.fus.dao.ConSymptomQueDao">
+  <resultMap id="conSymptomQueResult" type="com.kp.fus.model.ConSymptomQue">
+    <id column="id" 					jdbcType="INTEGER" property="id" />
+    <result column="ticket_id" 			jdbcType="VARCHAR" property="ticketId" />
+    <result column="record_id" 			jdbcType="VARCHAR" property="recordId" />
+    <result column="patient_no" 		jdbcType="INTEGER" property="patientNo" />
+    <result column="patient_sex" 		jdbcType="INTEGER" property="patientSex" />
+    <result column="patient_age" 		jdbcType="INTEGER" property="patientAge" />
+    <result column="patient_career" 	jdbcType="VARCHAR" property="patientCareer" />
+    <result column="patient_contact" 	jdbcType="VARCHAR" property="patientContact" />
+    <result column="site_home" 			jdbcType="VARCHAR" property="siteHome" />
+    <result column="site_work" 			jdbcType="VARCHAR" property="siteWork" />
+    <result column="patient_education" 	jdbcType="VARCHAR" property="patientEducation" />
+    <result column="patient_married" 	jdbcType="VARCHAR" property="patientMarried" />
+    <result column="patient_child" 		jdbcType="VARCHAR" property="patientChild" />
+    <result column="patient_economy" 	jdbcType="VARCHAR" property="patientEconomy" />
+    <result column="patient_pay_mode" 	jdbcType="VARCHAR" property="patientPayMode" />
+    <result column="patient_group" 		jdbcType="VARCHAR" property="patientGroup" />
+    <result column="ventosity" 			jdbcType="VARCHAR" property="ventosity" />
+    <result column="stool_shape" 		jdbcType="VARCHAR" property="stoolShape" />
+    <result column="stool_hard" 		jdbcType="VARCHAR" property="stoolHard" />
+    <result column="stool_times" 		jdbcType="VARCHAR" property="stoolTimes" />
+    <result column="stool_endless" 		jdbcType="VARCHAR" property="stoolEndless" />
+    <result column="anus_block" 		jdbcType="VARCHAR" property="anusBlock" />
+    <result column="illness_last" 		jdbcType="VARCHAR" property="illnessLast" />
+    <result column="other_illness" 		jdbcType="VARCHAR" property="otherIllness" />
+    <result column="pre_check" 			jdbcType="VARCHAR" property="preCheck" />
+    <result column="pre_check_time" 	jdbcType="VARCHAR" property="preCheckTime" />
+    <result column="pre_check_result" 	jdbcType="VARCHAR" property="preCheckResult" />
+    <result column="is_cathartics" 		jdbcType="VARCHAR" property="isCathartics" />
+    <result column="cathartics_name" 	jdbcType="VARCHAR" property="catharticsName" />
+    <result column="cathartics_time" 	jdbcType="VARCHAR" property="catharticsTime" />
+    <result column="food_intake" 		jdbcType="VARCHAR" property="foodIntake" />
+    <result column="change_knowledge" 	jdbcType="VARCHAR" property="changeKnowledge" />
+    <result column="is_smoke" 			jdbcType="VARCHAR" property="isSmoke" />
+    <result column="smoke_amount" 		jdbcType="VARCHAR" property="smokeAmount" />
+    <result column="sleep_status" 		jdbcType="VARCHAR" property="sleepStatus" />
+    <result column="sport_status" 		jdbcType="VARCHAR" property="sportStatus" />
+    <result column="pressure_status" 	jdbcType="VARCHAR" property="pressureStatus" />
+    <result column="balloon_test_time" 	jdbcType="VARCHAR" property="balloonTestTime" />
+    <result column="biofeedback_start_time" jdbcType="VARCHAR" property="biofeedbackStartTime" />
+    <result column="biofeedback_course" jdbcType="VARCHAR" property="biofeedbackCourse" />
+    <result column="biofeedback_course_start" jdbcType="VARCHAR" property="biofeedbackCourseStart" />
+    <result column="remark" 			jdbcType="VARCHAR" property="remark" />
+    <result column="create_time" 		jdbcType="VARCHAR" property="createTime" />
+    <result column="update_time" 		jdbcType="VARCHAR" property="updateTime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="conSymptomQueResult">
+    select *  from con_symptom_que   where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByQua" parameterType="Map" resultMap="conSymptomQueResult">
+    select *  from con_symptom_que   where 1=1
+    <if test="recordId!=null||recordId!=''">
+    	and record_id = #{recordId}
+    </if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from con_symptom_que   where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kp.fus.model.ConSymptomQue">
+    insert into con_symptom_que (id, ticket_id, record_id, 
+      patient_no, patient_sex, patient_age, 
+      patient_career, patient_contact, site_home, 
+      site_work, patient_education, patient_married, 
+      patient_child, patient_economy, patient_pay_mode, 
+      patient_group, ventosity, stool_shape, 
+      stool_hard, stool_times, stoolEndless,anus_block, 
+      illness_last, other_illness, pre_check, 
+      pre_check_time, pre_check_result, is_cathartics, 
+      cathartics_name, cathartics_time, food_intake, 
+      change_knowledge, is_smoke, smoke_amount, 
+      sleep_status, sport_status, pressure_status, 
+      balloon_test_time, biofeedback_start_time, 
+      biofeedback_course, biofeedback_course_start, 
+      remark, create_time, update_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{ticketId,jdbcType=VARCHAR}, #{recordId,jdbcType=VARCHAR}, 
+      #{patientNo,jdbcType=INTEGER}, #{patientSex,jdbcType=INTEGER}, #{patientAge,jdbcType=INTEGER}, 
+      #{patientCareer,jdbcType=VARCHAR}, #{patientContact,jdbcType=VARCHAR}, #{siteHome,jdbcType=VARCHAR}, 
+      #{siteWork,jdbcType=VARCHAR}, #{patientEducation,jdbcType=VARCHAR}, #{patientMarried,jdbcType=VARCHAR}, 
+      #{patientChild,jdbcType=VARCHAR}, #{patientEconomy,jdbcType=VARCHAR}, #{patientPayMode,jdbcType=VARCHAR}, 
+      #{patientGroup,jdbcType=VARCHAR}, #{ventosity,jdbcType=VARCHAR}, #{stoolShape,jdbcType=VARCHAR}, 
+      #{stoolHard,jdbcType=VARCHAR}, #{stoolTimes,jdbcType=VARCHAR}, #{stoolEndless,jdbcType=VARCHAR}, #{anusBlock,jdbcType=VARCHAR}, 
+      #{illnessLast,jdbcType=VARCHAR}, #{otherIllness,jdbcType=VARCHAR}, #{preCheck,jdbcType=VARCHAR}, 
+      #{preCheckTime,jdbcType=TIMESTAMP}, #{preCheckResult,jdbcType=VARCHAR}, #{isCathartics,jdbcType=VARCHAR}, 
+      #{catharticsName,jdbcType=VARCHAR}, #{catharticsTime,jdbcType=VARCHAR}, #{foodIntake,jdbcType=VARCHAR}, 
+      #{changeKnowledge,jdbcType=VARCHAR}, #{isSmoke,jdbcType=VARCHAR}, #{smokeAmount,jdbcType=VARCHAR}, 
+      #{sleepStatus,jdbcType=VARCHAR}, #{sportStatus,jdbcType=VARCHAR}, #{pressureStatus,jdbcType=VARCHAR}, 
+      #{balloonTestTime,jdbcType=VARCHAR}, #{biofeedbackStartTime,jdbcType=TIMESTAMP}, 
+      #{biofeedbackCourse,jdbcType=VARCHAR}, #{biofeedbackCourseStart,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kp.fus.model.ConSymptomQue">
+    insert into con_symptom_que
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ticketId != null">
+        ticket_id,
+      </if>
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="patientNo != null">
+        patient_no,
+      </if>
+      <if test="patientSex != null">
+        patient_sex,
+      </if>
+      <if test="patientAge != null">
+        patient_age,
+      </if>
+      <if test="patientCareer != null">
+        patient_career,
+      </if>
+      <if test="patientContact != null">
+        patient_contact,
+      </if>
+      <if test="siteHome != null">
+        site_home,
+      </if>
+      <if test="siteWork != null">
+        site_work,
+      </if>
+      <if test="patientEducation != null">
+        patient_education,
+      </if>
+      <if test="patientMarried != null">
+        patient_married,
+      </if>
+      <if test="patientChild != null">
+        patient_child,
+      </if>
+      <if test="patientEconomy != null">
+        patient_economy,
+      </if>
+      <if test="patientPayMode != null">
+        patient_pay_mode,
+      </if>
+      <if test="patientGroup != null">
+        patient_group,
+      </if>
+      <if test="ventosity != null">
+        ventosity,
+      </if>
+      <if test="stoolShape != null">
+        stool_shape,
+      </if>
+      <if test="stoolHard != null">
+        stool_hard,
+      </if>
+      <if test="stoolTimes != null">
+        stool_times,
+      </if>
+      <if test="stoolEndless != null">
+        stool_Endless,
+      </if>
+      <if test="anusBlock != null">
+        anus_block,
+      </if>
+      <if test="illnessLast != null">
+        illness_last,
+      </if>
+      <if test="otherIllness != null">
+        other_illness,
+      </if>
+      <if test="preCheck != null">
+        pre_check,
+      </if>
+      <if test="preCheckTime != null || preCheckTime != ''">
+        pre_check_time,
+      </if>
+      <if test="preCheckResult != null">
+        pre_check_result,
+      </if>
+      <if test="isCathartics != null">
+        is_cathartics,
+      </if>
+      <if test="catharticsName != null">
+        cathartics_name,
+      </if>
+      <if test="catharticsTime != null">
+        cathartics_time,
+      </if>
+      <if test="foodIntake != null">
+        food_intake,
+      </if>
+      <if test="changeKnowledge != null">
+        change_knowledge,
+      </if>
+      <if test="isSmoke != null">
+        is_smoke,
+      </if>
+      <if test="smokeAmount != null">
+        smoke_amount,
+      </if>
+      <if test="sleepStatus != null">
+        sleep_status,
+      </if>
+      <if test="sportStatus != null">
+        sport_status,
+      </if>
+      <if test="pressureStatus != null">
+        pressure_status,
+      </if>
+      <if test="balloonTestTime != null">
+        balloon_test_time,
+      </if>
+      <if test="biofeedbackStartTime != null || biofeedbackStartTime != ''">
+        biofeedback_start_time,
+      </if>
+      <if test="biofeedbackCourse != null">
+        biofeedback_course,
+      </if>
+      <if test="biofeedbackCourseStart != null || biofeedbackCourseStart != ''">
+        biofeedback_course_start,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ticketId != null">
+        #{ticketId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordId != null">
+        #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientNo != null">
+        #{patientNo,jdbcType=INTEGER},
+      </if>
+      <if test="patientSex != null">
+        #{patientSex,jdbcType=INTEGER},
+      </if>
+      <if test="patientAge != null">
+        #{patientAge,jdbcType=INTEGER},
+      </if>
+      <if test="patientCareer != null">
+        #{patientCareer,jdbcType=VARCHAR},
+      </if>
+      <if test="patientContact != null">
+        #{patientContact,jdbcType=VARCHAR},
+      </if>
+      <if test="siteHome != null">
+        #{siteHome,jdbcType=VARCHAR},
+      </if>
+      <if test="siteWork != null">
+        #{siteWork,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEducation != null">
+        #{patientEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="patientMarried != null">
+        #{patientMarried,jdbcType=VARCHAR},
+      </if>
+      <if test="patientChild != null">
+        #{patientChild,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEconomy != null">
+        #{patientEconomy,jdbcType=VARCHAR},
+      </if>
+      <if test="patientPayMode != null">
+        #{patientPayMode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientGroup != null">
+        #{patientGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="ventosity != null">
+        #{ventosity,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolShape != null">
+        #{stoolShape,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolHard != null">
+        #{stoolHard,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolTimes != null">
+        #{stoolTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolEndless != null">
+        #{stoolEndless,jdbcType=VARCHAR},
+      </if>
+      <if test="anusBlock != null">
+        #{anusBlock,jdbcType=VARCHAR},
+      </if>
+      <if test="illnessLast != null">
+        #{illnessLast,jdbcType=VARCHAR},
+      </if>
+      <if test="otherIllness != null">
+        #{otherIllness,jdbcType=VARCHAR},
+      </if>
+      <if test="preCheck != null">
+        #{preCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="preCheckTime != null || preCheckTime != ''">
+        #{preCheckTime,jdbcType=VARCHAR},
+      </if>
+      <if test="preCheckResult != null">
+        #{preCheckResult,jdbcType=VARCHAR},
+      </if>
+      <if test="isCathartics != null">
+        #{isCathartics,jdbcType=VARCHAR},
+      </if>
+      <if test="catharticsName != null">
+        #{catharticsName,jdbcType=VARCHAR},
+      </if>
+      <if test="catharticsTime != null">
+        #{catharticsTime,jdbcType=VARCHAR},
+      </if>
+      <if test="foodIntake != null">
+        #{foodIntake,jdbcType=VARCHAR},
+      </if>
+      <if test="changeKnowledge != null">
+        #{changeKnowledge,jdbcType=VARCHAR},
+      </if>
+      <if test="isSmoke != null">
+        #{isSmoke,jdbcType=VARCHAR},
+      </if>
+      <if test="smokeAmount != null">
+        #{smokeAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="sleepStatus != null">
+        #{sleepStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="sportStatus != null">
+        #{sportStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="pressureStatus != null">
+        #{pressureStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="balloonTestTime != null">
+        #{balloonTestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="biofeedbackStartTime != null || biofeedbackStartTime != ''">
+        #{biofeedbackStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="biofeedbackCourse != null">
+        #{biofeedbackCourse,jdbcType=VARCHAR},
+      </if>
+      <if test="biofeedbackCourseStart != null || biofeedbackCourseStart != ''">
+        #{biofeedbackCourseStart,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null || createTime != ''">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null || updateTime != ''">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kp.fus.model.ConSymptomQue">
+    update con_symptom_que
+    <set>
+      <if test="patientNo != null">
+        patient_no = #{patientNo,jdbcType=INTEGER},
+      </if>
+      <if test="patientSex != null">
+        patient_sex = #{patientSex,jdbcType=INTEGER},
+      </if>
+      <if test="patientAge != null">
+        patient_age = #{patientAge,jdbcType=INTEGER},
+      </if>
+      <if test="patientCareer != null">
+        patient_career = #{patientCareer,jdbcType=VARCHAR},
+      </if>
+      <if test="patientContact != null">
+        patient_contact = #{patientContact,jdbcType=VARCHAR},
+      </if>
+      <if test="siteHome != null">
+        site_home = #{siteHome,jdbcType=VARCHAR},
+      </if>
+      <if test="siteWork != null">
+        site_work = #{siteWork,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEducation != null">
+        patient_education = #{patientEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="patientMarried != null">
+        patient_married = #{patientMarried,jdbcType=VARCHAR},
+      </if>
+      <if test="patientChild != null">
+        patient_child = #{patientChild,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEconomy != null">
+        patient_economy = #{patientEconomy,jdbcType=VARCHAR},
+      </if>
+      <if test="patientPayMode != null">
+        patient_pay_mode = #{patientPayMode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientGroup != null">
+        patient_group = #{patientGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="ventosity != null">
+        ventosity = #{ventosity,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolShape != null">
+        stool_shape = #{stoolShape,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolHard != null">
+        stool_hard = #{stoolHard,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolTimes != null">
+        stool_times = #{stoolTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolEndless != null">
+        stool_endless = #{stoolEndless,jdbcType=VARCHAR},
+      </if>
+      <if test="anusBlock != null">
+        anus_block = #{anusBlock,jdbcType=VARCHAR},
+      </if>
+      <if test="illnessLast != null">
+        illness_last = #{illnessLast,jdbcType=VARCHAR},
+      </if>
+      <if test="otherIllness != null">
+        other_illness = #{otherIllness,jdbcType=VARCHAR},
+      </if>
+      <if test="preCheck != null">
+        pre_check = #{preCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="preCheckTime != null">
+        pre_check_time = #{preCheckTime,jdbcType=VARCHAR},
+      </if>
+      <if test="preCheckResult != null">
+        pre_check_result = #{preCheckResult,jdbcType=VARCHAR},
+      </if>
+      <if test="isCathartics != null">
+        is_cathartics = #{isCathartics,jdbcType=VARCHAR},
+      </if>
+      <if test="catharticsName != null">
+        cathartics_name = #{catharticsName,jdbcType=VARCHAR},
+      </if>
+      <if test="catharticsTime != null">
+        cathartics_time = #{catharticsTime,jdbcType=VARCHAR},
+      </if>
+      <if test="foodIntake != null">
+        food_intake = #{foodIntake,jdbcType=VARCHAR},
+      </if>
+      <if test="changeKnowledge != null">
+        change_knowledge = #{changeKnowledge,jdbcType=VARCHAR},
+      </if>
+      <if test="isSmoke != null">
+        is_smoke = #{isSmoke,jdbcType=VARCHAR},
+      </if>
+      <if test="smokeAmount != null">
+        smoke_amount = #{smokeAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="sleepStatus != null">
+        sleep_status = #{sleepStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="sportStatus != null">
+        sport_status = #{sportStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="pressureStatus != null">
+        pressure_status = #{pressureStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="balloonTestTime != null">
+        balloon_test_time = #{balloonTestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="biofeedbackStartTime != null">
+        biofeedback_start_time = #{biofeedbackStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="biofeedbackCourse != null">
+        biofeedback_course = #{biofeedbackCourse,jdbcType=VARCHAR},
+      </if>
+      <if test="biofeedbackCourseStart != null">
+        biofeedback_course_start = #{biofeedbackCourseStart,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kp.fus.model.ConSymptomQue">
+    update con_symptom_que
+    set 
+      patient_no = #{patientNo,jdbcType=INTEGER},
+      patient_sex = #{patientSex,jdbcType=INTEGER},
+      patient_age = #{patientAge,jdbcType=INTEGER},
+      patient_career = #{patientCareer,jdbcType=VARCHAR},
+      patient_contact = #{patientContact,jdbcType=VARCHAR},
+      site_home = #{siteHome,jdbcType=VARCHAR},
+      site_work = #{siteWork,jdbcType=VARCHAR},
+      patient_education = #{patientEducation,jdbcType=VARCHAR},
+      patient_married = #{patientMarried,jdbcType=VARCHAR},
+      patient_child = #{patientChild,jdbcType=VARCHAR},
+      patient_economy = #{patientEconomy,jdbcType=VARCHAR},
+      patient_pay_mode = #{patientPayMode,jdbcType=VARCHAR},
+      patient_group = #{patientGroup,jdbcType=VARCHAR},
+      ventosity = #{ventosity,jdbcType=VARCHAR},
+      stool_shape = #{stoolShape,jdbcType=VARCHAR},
+      stool_hard = #{stoolHard,jdbcType=VARCHAR},
+      stool_times = #{stoolTimes,jdbcType=VARCHAR},
+      stool_Endless = #{stoolEndless,jdbcType=VARCHAR},
+      anus_block = #{anusBlock,jdbcType=VARCHAR},
+      illness_last = #{illnessLast,jdbcType=VARCHAR},
+      other_illness = #{otherIllness,jdbcType=VARCHAR},
+      pre_check = #{preCheck,jdbcType=VARCHAR},
+      pre_check_time = #{preCheckTime,jdbcType=TIMESTAMP},
+      pre_check_result = #{preCheckResult,jdbcType=VARCHAR},
+      is_cathartics = #{isCathartics,jdbcType=VARCHAR},
+      cathartics_name = #{catharticsName,jdbcType=VARCHAR},
+      cathartics_time = #{catharticsTime,jdbcType=VARCHAR},
+      food_intake = #{foodIntake,jdbcType=VARCHAR},
+      change_knowledge = #{changeKnowledge,jdbcType=VARCHAR},
+      is_smoke = #{isSmoke,jdbcType=VARCHAR},
+      smoke_amount = #{smokeAmount,jdbcType=VARCHAR},
+      sleep_status = #{sleepStatus,jdbcType=VARCHAR},
+      sport_status = #{sportStatus,jdbcType=VARCHAR},
+      pressure_status = #{pressureStatus,jdbcType=VARCHAR},
+      balloon_test_time = #{balloonTestTime,jdbcType=VARCHAR},
+      biofeedback_start_time = #{biofeedbackStartTime,jdbcType=TIMESTAMP},
+      biofeedback_course = #{biofeedbackCourse,jdbcType=VARCHAR},
+      biofeedback_course_start = #{biofeedbackCourseStart,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kp.fus.dao.ConSelfQueDao">
+  <resultMap id="conSelfQueResult" type="com.kp.fus.model.ConSelfQue">
+    <id column="id" 					jdbcType="INTEGER" property="id" />
+    <result column="ticket_id" 			jdbcType="VARCHAR" property="ticketId" />
+    <result column="record_id" 			jdbcType="VARCHAR" property="recordId" />
+    <result column="stool_solid" 		jdbcType="VARCHAR" property="stoolSolid" />
+    <result column="stool_num_less" 	jdbcType="VARCHAR" property="stoolNumLess" />
+    <result column="stool_times_less" 	jdbcType="VARCHAR" property="stoolTimesLess" />
+    <result column="stool_hard" 		jdbcType="VARCHAR" property="stoolHard" />
+    <result column="stool_hurt" 		jdbcType="VARCHAR" property="stoolHurt" />
+    <result column="stool_endless" 		jdbcType="VARCHAR" property="stoolEndless" />
+    <result column="stool_hard_out" 	jdbcType="VARCHAR" property="stoolHardOut" />
+    <result column="hemoproctia" 		jdbcType="VARCHAR" property="hemoproctia" />
+    <result column="rectal_burning" 	jdbcType="VARCHAR" property="rectalBurning" />
+    <result column="stomachache" 		jdbcType="VARCHAR" property="stomachache" />
+    <result column="cramping" 			jdbcType="VARCHAR" property="cramping" />
+    <result column="turgor" 			jdbcType="VARCHAR" property="turgor" />
+    <result column="score" 				jdbcType="VARCHAR" property="score" />
+    <result column="create_time" 		jdbcType="VARCHAR" property="createTime" />
+    <result column="update_time" 		jdbcType="VARCHAR" property="updateTime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="conSelfQueResult">
+    select *   from con_self_que  where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByQua" parameterType="Map" resultMap="conSelfQueResult">
+    select *  from con_self_que   where 1=1
+    <if test="recordId!=null||recordId!=''">
+    	and record_id = #{recordId}
+    </if>
+  </select>	
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from con_self_que  where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kp.fus.model.ConSelfQue">
+    insert into con_self_que (id, ticket_id, record_id, 
+      stool_solid, stool_num_less, stool_times_less, 
+      stool_hard, stool_hurt, stool_endless, 
+      stool_hard_out, hemoproctia, rectal_burning, 
+      stomachache, cramping,turgor, score, 
+      create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{ticketId,jdbcType=VARCHAR}, #{recordId,jdbcType=VARCHAR}, 
+      #{stoolSolid,jdbcType=VARCHAR}, #{stoolNumLess,jdbcType=VARCHAR}, #{stoolTimesLess,jdbcType=VARCHAR}, 
+      #{stoolHard,jdbcType=VARCHAR}, #{stoolHurt,jdbcType=VARCHAR}, #{stoolEndless,jdbcType=VARCHAR}, 
+      #{stoolHardOut,jdbcType=VARCHAR}, #{hemoproctia,jdbcType=VARCHAR}, #{rectalBurning,jdbcType=VARCHAR}, 
+      #{stomachache,jdbcType=VARCHAR}, #{cramping,jdbcType=VARCHAR}, #{turgor,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kp.fus.model.ConSelfQue">
+    insert into con_self_que
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stoolSolid != null">
+        stool_solid,
+      </if>
+      <if test="stoolNumLess != null">
+        stool_num_less,
+      </if>
+      <if test="stoolTimesLess != null">
+        stool_times_less,
+      </if>
+      <if test="stoolHard != null">
+        stool_hard,
+      </if>
+      <if test="stoolHurt != null">
+        stool_hurt,
+      </if>
+      <if test="stoolEndless != null">
+        stool_endless,
+      </if>
+      <if test="stoolHardOut != null">
+        stool_hard_out,
+      </if>
+      <if test="hemoproctia != null">
+        hemoproctia,
+      </if>
+      <if test="rectalBurning != null">
+        rectal_burning,
+      </if>
+      <if test="stomachache != null">
+        stomachache,
+      </if>
+      <if test="cramping != null">
+        cramping,
+      </if>
+      <if test="turgor != null">
+        turgor,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stoolSolid != null">
+        #{stoolSolid,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolNumLess != null">
+        #{stoolNumLess,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolTimesLess != null">
+        #{stoolTimesLess,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolHard != null">
+        #{stoolHard,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolHurt != null">
+        #{stoolHurt,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolEndless != null">
+        #{stoolEndless,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolHardOut != null">
+        #{stoolHardOut,jdbcType=VARCHAR},
+      </if>
+      <if test="hemoproctia != null">
+        #{hemoproctia,jdbcType=VARCHAR},
+      </if>
+      <if test="rectalBurning != null">
+        #{rectalBurning,jdbcType=VARCHAR},
+      </if>
+      <if test="stomachache != null">
+        #{stomachache,jdbcType=VARCHAR},
+      </if>
+      <if test="cramping != null">
+        #{cramping,jdbcType=VARCHAR},
+      </if>
+      <if test="turgor != null">
+        #{turgor,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kp.fus.model.ConSelfQue">
+    update con_self_que
+    <set>
+      <if test="stoolSolid != null">
+        stool_solid = #{stoolSolid,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolNumLess != null">
+        stool_num_less = #{stoolNumLess,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolTimesLess != null">
+        stool_times_less = #{stoolTimesLess,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolHard != null">
+        stool_hard = #{stoolHard,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolHurt != null">
+        stool_hurt = #{stoolHurt,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolEndless != null">
+        stool_endless = #{stoolEndless,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolHardOut != null">
+        stool_hard_out = #{stoolHardOut,jdbcType=VARCHAR},
+      </if>
+      <if test="hemoproctia != null">
+        hemoproctia = #{hemoproctia,jdbcType=VARCHAR},
+      </if>
+      <if test="rectalBurning != null">
+        rectal_burning = #{rectalBurning,jdbcType=VARCHAR},
+      </if>
+      <if test="stomachache != null">
+        stomachache = #{stomachache,jdbcType=VARCHAR},
+      </if>
+      <if test="cramping != null">
+        cramping = #{cramping,jdbcType=VARCHAR},
+      </if>
+      <if test="turgor != null">
+        turgor = #{turgor,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kp.fus.model.ConSelfQue">
+    update con_self_que
+    set 
+      stool_solid = #{stoolSolid,jdbcType=VARCHAR},
+      stool_num_less = #{stoolNumLess,jdbcType=VARCHAR},
+      stool_times_less = #{stoolTimesLess,jdbcType=VARCHAR},
+      stool_hard = #{stoolHard,jdbcType=VARCHAR},
+      stool_hurt = #{stoolHurt,jdbcType=VARCHAR},
+      stool_endless = #{stoolEndless,jdbcType=VARCHAR},
+      stool_hard_out = #{stoolHardOut,jdbcType=VARCHAR},
+      hemoproctia = #{hemoproctia,jdbcType=VARCHAR},
+      rectal_burning = #{rectalBurning,jdbcType=VARCHAR},
+      stomachache = #{stomachache,jdbcType=VARCHAR},
+      cramping = #{cramping,jdbcType=VARCHAR},
+      turgor = #{turgor,jdbcType=VARCHAR},
+      score = #{score,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+</mapper>

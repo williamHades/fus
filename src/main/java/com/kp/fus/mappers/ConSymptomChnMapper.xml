@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kp.fus.dao.ConSymptomChnDao">
+  <resultMap id="conSymptomChnResult" type="com.kp.fus.model.ConSymptomChn">
+    <id column="id" 				jdbcType="INTEGER" property="id" />
+    <result column="ticket_id" 		jdbcType="VARCHAR" property="ticketId" />
+    <result column="record_id" 		jdbcType="VARCHAR" property="recordId" />
+    <result column="stool_times" 	jdbcType="VARCHAR" property="stoolTimes" />
+    <result column="stool_type" 	jdbcType="VARCHAR" property="stoolType" />
+    <result column="cold_afraid" 	jdbcType="VARCHAR" property="coldAfraid" />
+    <result column="cold_limb" 		jdbcType="VARCHAR" property="coldLimb" />
+    <result column="heave_limb" 	jdbcType="VARCHAR" property="heaveLimb" />
+    <result column="halitosis" 		jdbcType="VARCHAR" property="halitosis" />
+    <result column="thirsty" 		jdbcType="VARCHAR" property="thirsty" />
+    <result column="poor_appetite" 	jdbcType="VARCHAR" property="poorAppetite" />
+    <result column="weary" 			jdbcType="VARCHAR" property="weary" />
+    <result column="poor_talk" 		jdbcType="VARCHAR" property="poorTalk" />
+    <result column="all_hot" 		jdbcType="VARCHAR" property="allHot" />
+    <result column="distress" 		jdbcType="VARCHAR" property="distress" />
+    <result column="create_time" 	jdbcType="VARCHAR" property="createTime" />
+    <result column="update_time" 	jdbcType="VARCHAR" property="updateTime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="conSymptomChnResult">
+    select *  from con_symptom_chn  where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByQua" parameterType="Map" resultMap="conSymptomChnResult">
+    select *  from con_symptom_chn   where 1=1
+    <if test="recordId!=null||recordId!=''">
+    	and record_id = #{recordId}
+    </if>
+  </select>	
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from con_symptom_chn  where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kp.fus.model.ConSymptomChn">
+    insert into con_symptom_chn (id, ticket_id, record_id, 
+      stool_times, stool_type, cold_afraid, 
+      cold_limb, heave_limb, halitosis, 
+      thirsty, poor_appetite, weary, 
+      poor_talk, all_hot, distress, 
+      create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{ticketId,jdbcType=VARCHAR}, #{recordId,jdbcType=VARCHAR}, 
+      #{stoolTimes,jdbcType=VARCHAR}, #{stoolType,jdbcType=VARCHAR}, #{coldAfraid,jdbcType=VARCHAR}, 
+      #{coldLimb,jdbcType=VARCHAR}, #{heaveLimb,jdbcType=VARCHAR}, #{halitosis,jdbcType=VARCHAR}, 
+      #{thirsty,jdbcType=VARCHAR}, #{poorAppetite,jdbcType=VARCHAR}, #{weary,jdbcType=VARCHAR}, 
+      #{poorTalk,jdbcType=VARCHAR}, #{allHot,jdbcType=VARCHAR}, #{distress,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kp.fus.model.ConSymptomChn">
+    insert into con_symptom_chn
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ticketId != null">
+        ticket_id,
+      </if>
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="stoolTimes != null">
+        stool_times,
+      </if>
+      <if test="stoolType != null">
+        stool_type,
+      </if>
+      <if test="coldAfraid != null">
+        cold_afraid,
+      </if>
+      <if test="coldLimb != null">
+        cold_limb,
+      </if>
+      <if test="heaveLimb != null">
+        heave_limb,
+      </if>
+      <if test="halitosis != null">
+        halitosis,
+      </if>
+      <if test="thirsty != null">
+        thirsty,
+      </if>
+      <if test="poorAppetite != null">
+        poor_appetite,
+      </if>
+      <if test="weary != null">
+        weary,
+      </if>
+      <if test="poorTalk != null">
+        poor_talk,
+      </if>
+      <if test="allHot != null">
+        all_hot,
+      </if>
+      <if test="distress != null">
+        distress,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ticketId != null">
+        #{ticketId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordId != null">
+        #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolTimes != null">
+        #{stoolTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolType != null">
+        #{stoolType,jdbcType=VARCHAR},
+      </if>
+      <if test="coldAfraid != null">
+        #{coldAfraid,jdbcType=VARCHAR},
+      </if>
+      <if test="coldLimb != null">
+        #{coldLimb,jdbcType=VARCHAR},
+      </if>
+      <if test="heaveLimb != null">
+        #{heaveLimb,jdbcType=VARCHAR},
+      </if>
+      <if test="halitosis != null">
+        #{halitosis,jdbcType=VARCHAR},
+      </if>
+      <if test="thirsty != null">
+        #{thirsty,jdbcType=VARCHAR},
+      </if>
+      <if test="poorAppetite != null">
+        #{poorAppetite,jdbcType=VARCHAR},
+      </if>
+      <if test="weary != null">
+        #{weary,jdbcType=VARCHAR},
+      </if>
+      <if test="poorTalk != null">
+        #{poorTalk,jdbcType=VARCHAR},
+      </if>
+      <if test="allHot != null">
+        #{allHot,jdbcType=VARCHAR},
+      </if>
+      <if test="distress != null">
+        #{distress,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kp.fus.model.ConSymptomChn">
+    update con_symptom_chn
+    <set>
+      <if test="ticketId != null">
+        ticket_id = #{ticketId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordId != null">
+        record_id = #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolTimes != null">
+        stool_times = #{stoolTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolType != null">
+        stool_type = #{stoolType,jdbcType=VARCHAR},
+      </if>
+      <if test="coldAfraid != null">
+        cold_afraid = #{coldAfraid,jdbcType=VARCHAR},
+      </if>
+      <if test="coldLimb != null">
+        cold_limb = #{coldLimb,jdbcType=VARCHAR},
+      </if>
+      <if test="heaveLimb != null">
+        heave_limb = #{heaveLimb,jdbcType=VARCHAR},
+      </if>
+      <if test="halitosis != null">
+        halitosis = #{halitosis,jdbcType=VARCHAR},
+      </if>
+      <if test="thirsty != null">
+        thirsty = #{thirsty,jdbcType=VARCHAR},
+      </if>
+      <if test="poorAppetite != null">
+        poor_appetite = #{poorAppetite,jdbcType=VARCHAR},
+      </if>
+      <if test="weary != null">
+        weary = #{weary,jdbcType=VARCHAR},
+      </if>
+      <if test="poorTalk != null">
+        poor_talk = #{poorTalk,jdbcType=VARCHAR},
+      </if>
+      <if test="allHot != null">
+        all_hot = #{allHot,jdbcType=VARCHAR},
+      </if>
+      <if test="distress != null">
+        distress = #{distress,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kp.fus.model.ConSymptomChn">
+    update con_symptom_chn
+    set 
+      stool_times = #{stoolTimes,jdbcType=VARCHAR},
+      stool_type = #{stoolType,jdbcType=VARCHAR},
+      cold_afraid = #{coldAfraid,jdbcType=VARCHAR},
+      cold_limb = #{coldLimb,jdbcType=VARCHAR},
+      heave_limb = #{heaveLimb,jdbcType=VARCHAR},
+      halitosis = #{halitosis,jdbcType=VARCHAR},
+      thirsty = #{thirsty,jdbcType=VARCHAR},
+      poor_appetite = #{poorAppetite,jdbcType=VARCHAR},
+      weary = #{weary,jdbcType=VARCHAR},
+      poor_talk = #{poorTalk,jdbcType=VARCHAR},
+      all_hot = #{allHot,jdbcType=VARCHAR},
+      distress = #{distress,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+</mapper>

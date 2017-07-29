@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kp.fus.dao.GerSymptomChnDao">
+  <resultMap id="gerSymptomChnResult" type="com.kp.fus.model.GerSymptomChn">
+    <id column="id" 						jdbcType="INTEGER" property="id" />
+    <result column="ticket_id" 				jdbcType="VARCHAR" property="ticketId" />
+    <result column="record_id" 				jdbcType="VARCHAR" property="recordId" />
+    <result column="sour_regurgitation" 	jdbcType="VARCHAR" property="sourRegurgitation" />
+    <result column="ructus_times" 			jdbcType="VARCHAR" property="ructusTimes" />
+    <result column="heart_burn_times" 		jdbcType="VARCHAR" property="heartBurnTimes" />
+    <result column="heart_burn_lasttime" 	jdbcType="VARCHAR" property="heartBurnLasttime" />
+    <result column="chest_back_times" 		jdbcType="VARCHAR" property="chestBackTimes" />
+    <result column="chest_back_lasttime" 	jdbcType="VARCHAR" property="chestBackLasttime" />
+    <result column="vexation" 				jdbcType="VARCHAR" property="vexation" />
+    <result column="ribside" 				jdbcType="VARCHAR" property="ribside" />
+    <result column="bitter_mouth" 			jdbcType="VARCHAR" property="bitterMouth" />
+    <result column="putrid_acid" 			jdbcType="VARCHAR" property="putridAcid" />
+    <result column="bulimia" 				jdbcType="VARCHAR" property="bulimia" />
+    <result column="noisy_stomach" 			jdbcType="VARCHAR" property="noisyStomach" />
+    <result column="nausea_times" 			jdbcType="VARCHAR" property="nauseaTimes" />
+    <result column="nausea_lasttime" 		jdbcType="VARCHAR" property="nauseaLasttime" />
+    <result column="saliva" 				jdbcType="VARCHAR" property="saliva" />
+    <result column="fatigue" 				jdbcType="VARCHAR" property="fatigue" />
+    <result column="poor_appetite" 			jdbcType="VARCHAR" property="poorAppetite" />
+    <result column="hiccup" 				jdbcType="VARCHAR" property="hiccup" />
+    <result column="loose_stool" 			jdbcType="VARCHAR" property="looseStool" />
+    <result column="foreign_pharynx" 		jdbcType="VARCHAR" property="foreignPharynx" />
+    <result column="hoarseness" 			jdbcType="VARCHAR" property="hoarseness" />
+    <result column="bucking" 				jdbcType="VARCHAR" property="bucking" />
+    <result column="create_time" 			jdbcType="VARCHAR" property="createTime" />
+    <result column="update_time" 			jdbcType="VARCHAR" property="updateTime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="gerSymptomChnResult">
+    select *  from ger_symptom_chn  where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByQua" parameterType="Map" resultMap="gerSymptomChnResult">
+    select *  from ger_symptom_chn   where 1=1
+    <if test="recordId!=null||recordId!=''">
+    	and record_id = #{recordId}
+    </if>
+  </select>	
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ger_symptom_chn   where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kp.fus.model.GerSymptomChn">
+    insert into ger_symptom_chn (ticket_id, record_id, 
+      sour_regurgitation, ructus_times, heart_burn_times, heart_burn_lasttime, 
+      chest_back_times, chest_back_lasttime, vexation, 
+      ribside, bitter_mouth, putrid_acid, 
+      bulimia, noisy_stomach, nausea_times, 
+      nausea_lasttime, saliva, fatigue, 
+      poor_appetite, hiccup, loose_stool, 
+      foreign_pharynx, hoarseness, bucking, 
+      create_time, update_time)
+    values (#{ticketId,jdbcType=VARCHAR}, #{recordId,jdbcType=VARCHAR}, 
+      #{sourRegurgitation,jdbcType=VARCHAR}, #{ructusTimes,jdbcType=VARCHAR}, #{heartBurnTimes,jdbcType=VARCHAR},#{heartBurnLasttime,jdbcType=VARCHAR}, 
+      #{chestBackTimes,jdbcType=VARCHAR}, #{chestBackLasttime,jdbcType=VARCHAR}, #{vexation,jdbcType=VARCHAR}, 
+      #{ribside,jdbcType=VARCHAR}, #{bitterMouth,jdbcType=VARCHAR}, #{putridAcid,jdbcType=VARCHAR}, 
+      #{bulimia,jdbcType=VARCHAR}, #{noisyStomach,jdbcType=VARCHAR}, #{nauseaTimes,jdbcType=VARCHAR}, 
+      #{nauseaLasttime,jdbcType=VARCHAR}, #{saliva,jdbcType=VARCHAR}, #{fatigue,jdbcType=VARCHAR}, 
+      #{poorAppetite,jdbcType=VARCHAR}, #{hiccup,jdbcType=VARCHAR}, #{looseStool,jdbcType=VARCHAR}, 
+      #{foreignPharynx,jdbcType=VARCHAR}, #{hoarseness,jdbcType=VARCHAR}, #{bucking,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kp.fus.model.GerSymptomChn">
+    insert into ger_symptom_chn
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ticketId != null">
+        ticket_id,
+      </if>
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="sourRegurgitation != null">
+        sour_regurgitation,
+      </if>
+      <if test="ructusTimes != null">
+        ructus_times,
+      </if>
+      <if test="heartBurnTimes != null">
+        heart_burn_times,
+      </if>
+      <if test="heartBurnLasttime != null">
+        heart_burn_lasttime,
+      </if>
+      <if test="chestBackTimes != null">
+        chest_back_times,
+      </if>
+      <if test="chestBackLasttime != null">
+        chest_back_lasttime,
+      </if>
+      <if test="vexation != null">
+        vexation,
+      </if>
+      <if test="ribside != null">
+        ribside,
+      </if>
+      <if test="bitterMouth != null">
+        bitter_mouth,
+      </if>
+      <if test="putridAcid != null">
+        putrid_acid,
+      </if>
+      <if test="bulimia != null">
+        bulimia,
+      </if>
+      <if test="noisyStomach != null">
+        noisy_stomach,
+      </if>
+      <if test="nauseaTimes != null">
+        nausea_times,
+      </if>
+      <if test="nauseaLasttime != null">
+        nausea_lasttime,
+      </if>
+      <if test="saliva != null">
+        saliva,
+      </if>
+      <if test="fatigue != null">
+        fatigue,
+      </if>
+      <if test="poorAppetite != null">
+        poor_appetite,
+      </if>
+      <if test="hiccup != null">
+        hiccup,
+      </if>
+      <if test="looseStool != null">
+        loose_stool,
+      </if>
+      <if test="foreignPharynx != null">
+        foreign_pharynx,
+      </if>
+      <if test="hoarseness != null">
+        hoarseness,
+      </if>
+      <if test="bucking != null">
+        bucking,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ticketId != null">
+        #{ticketId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordId != null">
+        #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourRegurgitation != null">
+        #{sourRegurgitation,jdbcType=VARCHAR},
+      </if>
+      <if test="ructusTimes != null">
+        #{ructusTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="heartBurnTimes != null">
+        #{heartBurnTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="heartBurnLasttime != null">
+        #{heartBurnLasttime,jdbcType=VARCHAR},
+      </if>
+      <if test="chestBackTimes != null">
+        #{chestBackTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="chestBackLasttime != null">
+        #{chestBackLasttime,jdbcType=VARCHAR},
+      </if>
+      <if test="vexation != null">
+        #{vexation,jdbcType=VARCHAR},
+      </if>
+      <if test="ribside != null">
+        #{ribside,jdbcType=VARCHAR},
+      </if>
+      <if test="bitterMouth != null">
+        #{bitterMouth,jdbcType=VARCHAR},
+      </if>
+      <if test="putridAcid != null">
+        #{putridAcid,jdbcType=VARCHAR},
+      </if>
+      <if test="bulimia != null">
+        #{bulimia,jdbcType=VARCHAR},
+      </if>
+      <if test="noisyStomach != null">
+        #{noisyStomach,jdbcType=VARCHAR},
+      </if>
+      <if test="nauseaTimes != null">
+        #{nauseaTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="nauseaLasttime != null">
+        #{nauseaLasttime,jdbcType=VARCHAR},
+      </if>
+      <if test="saliva != null">
+        #{saliva,jdbcType=VARCHAR},
+      </if>
+      <if test="fatigue != null">
+        #{fatigue,jdbcType=VARCHAR},
+      </if>
+      <if test="poorAppetite != null">
+        #{poorAppetite,jdbcType=VARCHAR},
+      </if>
+      <if test="hiccup != null">
+        #{hiccup,jdbcType=VARCHAR},
+      </if>
+      <if test="looseStool != null">
+        #{looseStool,jdbcType=VARCHAR},
+      </if>
+      <if test="foreignPharynx != null">
+        #{foreignPharynx,jdbcType=VARCHAR},
+      </if>
+      <if test="hoarseness != null">
+        #{hoarseness,jdbcType=VARCHAR},
+      </if>
+      <if test="bucking != null">
+        #{bucking,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kp.fus.model.GerSymptomChn">
+    update ger_symptom_chn
+    <set>
+      <if test="ticketId != null">
+        ticket_id = #{ticketId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordId != null">
+        record_id = #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourRegurgitation != null">
+        sour_regurgitation = #{sourRegurgitation,jdbcType=VARCHAR},
+      </if>
+      <if test="ructusTimes != null">
+        ructus_times = #{ructusTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="heartBurnTimes != null">
+        heart_burn_times = #{heartBurnTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="heartBurnLasttime != null">
+        heart_burn_lasttime = #{heartBurnLasttime,jdbcType=VARCHAR},
+      </if>
+      <if test="chestBackTimes != null">
+        chest_back_times = #{chestBackTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="chestBackLasttime != null">
+        chest_back_lasttime = #{chestBackLasttime,jdbcType=VARCHAR},
+      </if>
+      <if test="vexation != null">
+        vexation = #{vexation,jdbcType=VARCHAR},
+      </if>
+      <if test="ribside != null">
+        ribside = #{ribside,jdbcType=VARCHAR},
+      </if>
+      <if test="bitterMouth != null">
+        bitter_mouth = #{bitterMouth,jdbcType=VARCHAR},
+      </if>
+      <if test="putridAcid != null">
+        putrid_acid = #{putridAcid,jdbcType=VARCHAR},
+      </if>
+      <if test="bulimia != null">
+        bulimia = #{bulimia,jdbcType=VARCHAR},
+      </if>
+      <if test="noisyStomach != null">
+        noisy_stomach = #{noisyStomach,jdbcType=VARCHAR},
+      </if>
+      <if test="nauseaTimes != null">
+        nausea_times = #{nauseaTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="nauseaLasttime != null">
+        nausea_lasttime = #{nauseaLasttime,jdbcType=VARCHAR},
+      </if>
+      <if test="saliva != null">
+        saliva = #{saliva,jdbcType=VARCHAR},
+      </if>
+      <if test="fatigue != null">
+        fatigue = #{fatigue,jdbcType=VARCHAR},
+      </if>
+      <if test="poorAppetite != null">
+        poor_appetite = #{poorAppetite,jdbcType=VARCHAR},
+      </if>
+      <if test="hiccup != null">
+        hiccup = #{hiccup,jdbcType=VARCHAR},
+      </if>
+      <if test="looseStool != null">
+        loose_stool = #{looseStool,jdbcType=VARCHAR},
+      </if>
+      <if test="foreignPharynx != null">
+        foreign_pharynx = #{foreignPharynx,jdbcType=VARCHAR},
+      </if>
+      <if test="hoarseness != null">
+        hoarseness = #{hoarseness,jdbcType=VARCHAR},
+      </if>
+      <if test="bucking != null">
+        bucking = #{bucking,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kp.fus.model.GerSymptomChn">
+    update ger_symptom_chn
+    set 
+      sour_regurgitation = #{sourRegurgitation,jdbcType=VARCHAR},
+      ructus_times = #{ructusTimes,jdbcType=VARCHAR},
+      heart_burn_times = #{heartBurnTimes,jdbcType=VARCHAR},
+      heart_burn_lasttime = #{heartBurnLasttime,jdbcType=VARCHAR},
+      chest_back_times = #{chestBackTimes,jdbcType=VARCHAR},
+      chest_back_lasttime = #{chestBackLasttime,jdbcType=VARCHAR},
+      vexation = #{vexation,jdbcType=VARCHAR},
+      ribside = #{ribside,jdbcType=VARCHAR},
+      bitter_mouth = #{bitterMouth,jdbcType=VARCHAR},
+      putrid_acid = #{putridAcid,jdbcType=VARCHAR},
+      bulimia = #{bulimia,jdbcType=VARCHAR},
+      noisy_stomach = #{noisyStomach,jdbcType=VARCHAR},
+      nausea_times = #{nauseaTimes,jdbcType=VARCHAR},
+      nausea_lasttime = #{nauseaLasttime,jdbcType=VARCHAR},
+      saliva = #{saliva,jdbcType=VARCHAR},
+      fatigue = #{fatigue,jdbcType=VARCHAR},
+      poor_appetite = #{poorAppetite,jdbcType=VARCHAR},
+      hiccup = #{hiccup,jdbcType=VARCHAR},
+      loose_stool = #{looseStool,jdbcType=VARCHAR},
+      foreign_pharynx = #{foreignPharynx,jdbcType=VARCHAR},
+      hoarseness = #{hoarseness,jdbcType=VARCHAR},
+      bucking = #{bucking,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+</mapper>

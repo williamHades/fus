@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kp.fus.dao.PatientRecordDao">
+  <resultMap id="PatientRecordResult" type="com.kp.fus.model.PatientRecord">
+    <id column="id" 							jdbcType="INTEGER" property="id" />
+    <result column="ticket_no" 					jdbcType="VARCHAR" 		property="ticketNo" />
+    <result column="patient_no" 				jdbcType="INTEGER" 		property="patientNo" />
+    <result column="patient_id" 				jdbcType="INTEGER" 		property="patientId" />
+    <result column="patient_name" 				jdbcType="VARCHAR" 		property="patientName" />
+    <result column="patient_code" 				jdbcType="VARCHAR" 		property="patientCode" />
+    <result column="patient_sex" 				jdbcType="INTEGER" 		property="patientSex" />
+    <result column="patient_age" 				jdbcType="INTEGER" 		property="patientAge" />
+    <result column="patient_career" 			jdbcType="VARCHAR" 		property="patientCareer" />
+    <result column="patient_contact" 			jdbcType="VARCHAR" 		property="patientContact" />
+    <result column="site_home" 					jdbcType="VARCHAR" 		property="siteHome" />
+    <result column="site_work" 					jdbcType="VARCHAR"		property="siteWork" />
+    <result column="patient_education" 			jdbcType="VARCHAR" 		property="patientEducation" />
+    <result column="patient_married" 			jdbcType="VARCHAR" 		property="patientMarried" />
+    <result column="patient_child" 				jdbcType="VARCHAR" 		property="patientChild" />
+    <result column="patient_economy" 			jdbcType="VARCHAR" 		property="patientEconomy" />
+    <result column="patient_pay_mode" 			jdbcType="VARCHAR" 		property="patientPayMode" />
+    <result column="patient_group" 				jdbcType="VARCHAR" 		property="patientGroup" />
+    <result column="con_symptom_id" 			jdbcType="VARCHAR" 		property="conSymptomId" />
+    <result column="con_symptom_status" 		jdbcType="VARCHAR" 		property="conSymptomStatus" />
+    <result column="con_symptom_items_id" 		jdbcType="VARCHAR" 		property="conSymptomItemsId" />
+    <result column="con_symptom_items_status" 	jdbcType="VARCHAR" 		property="conSymptomItemsStatus" />
+    <result column="con_examine_id" 			jdbcType="VARCHAR" 		property="conExamineId" />
+    <result column="con_examine_status" 		jdbcType="VARCHAR" 		property="conExamineStatus" />
+    <result column="con_pac_qol_id" 			jdbcType="VARCHAR" 		property="conPacQolId" />
+    <result column="con_pac_qol_status" 		jdbcType="VARCHAR" 		property="conPacQolStatus" />
+    <result column="gerd_symptom_id" 			jdbcType="VARCHAR" 		property="gerdSymptomId" />
+    <result column="gerd_symptom_status" 		jdbcType="VARCHAR" 		property="gerdSymptomStatus" />
+    <result column="gerd_symptom_items_id" 		jdbcType="VARCHAR" 		property="gerdSymptomItemsId" />
+    <result column="gerd_symptom_items_status" 	jdbcType="VARCHAR" 		property="gerdSymptomItemsStatus" />
+    <result column="gerd_examine_id" 			jdbcType="VARCHAR" 		property="gerdExamineId" />
+    <result column="gerd_examine_status" 		jdbcType="VARCHAR" 		property="gerdExamineStatus" />
+    <result column="gerd_qscole_id" 			jdbcType="VARCHAR" 		property="gerdQscoleId" />
+    <result column="gerd_qscole_status" 		jdbcType="VARCHAR" 		property="gerdQscoleStatus" />
+    <result column="create_time" 				jdbcType="VARCHAR" 		property="createTime" />
+    <result column="update_time" 				jdbcType="VARCHAR" 		property="updateTime" />
+    <result column="operator" 					jdbcType="VARCHAR" 		property="operator" />
+  </resultMap>
+  <select id="patientRecordCount" parameterType="Map" resultType="int">
+		select count(1) from patient_record
+		<where>
+			<if test="id!=null and id!='' ">
+				 and id like #{id}
+			</if>
+		</where>
+  </select>
+  <select id="patientRecordPage" parameterType="Map" resultMap="PatientRecordResult">
+   	select * from patient_record where 1=1 
+		<if test="id!=null and id!='' ">
+			 and id like #{id} 
+		</if>
+		<if test="searchPatientName!=null and searchPatientName!='' ">
+			 and patient_name like CONCAT('%',#{searchPatientName},'%' )  
+		</if>
+		<if test="searchPatientSex!=null and searchPatientSex!='' ">
+			 and patient_sex like CONCAT('%',#{searchPatientSex},'%' )  
+		</if>
+		<if test="searchPatientAge!=null and searchPatientAge!='' ">
+			 and patient_age like CONCAT('%',#{searchPatientAge},'%' )  
+		</if>
+		<if test="searchPatientNo!=null and searchPatientNo!='' ">
+			 and patient_no like CONCAT('%',#{searchPatientNo},'%' )  
+		</if>
+		<if test="searchPatientGroups!=null and searchPatientGroups!='' ">
+			 and patient_group like CONCAT('%',#{searchPatientGroups},'%' )  
+		</if>
+		<if test="searchCreateTimeStart!=null and searchCreateTimeStart!='' ">
+			 <![CDATA[ and create_time >= #{searchCreateTimeStart} ]]>
+		</if>
+		<if test="searchCreateTimeEnd!=null and searchCreateTimeEnd!='' ">
+			 <![CDATA[ and create_time <= #{searchCreateTimeEnd} ]]>
+		</if>
+			order by create_time desc 
+		<if test="pageIndex!=null and pageSize!=null">
+		 	limit #{pageIndex},#{pageSize}
+		</if>
+  </select>
+  <select id="selectById" parameterType="Map" resultMap="PatientRecordResult">
+    select * from patient_record  where 1=1 
+    	<if test="id!=null and id!='' ">
+			 and id = #{id} 
+		</if>
+		<if test="prid!=null and prid!='' ">
+		 	and ticket_no = #{prid}
+		</if>
+		  order by create_time desc
+  </select>
+  <select id="selectByQua" parameterType="java.lang.Integer" resultMap="PatientRecordResult">
+    select * from patient_record  where id = #{id,jdbcType=INTEGER} order by create_time desc
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from patient_record  where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertPatientRecord" parameterType="com.kp.fus.model.PatientRecord">
+    insert into patient_record (id, ticket_no, patient_no, 
+      patient_id, patient_name, patient_code, patient_sex, 
+      patient_age, patient_career, patient_contact, 
+      site_home, site_work, patient_education, 
+      patient_married, patient_child, patient_economy, 
+      patient_pay_mode, patient_group, con_symptom_id, 
+      con_symptom_status, con_symptom_items_id, con_symptom_items_status, 
+      con_examine_id, con_examine_status, con_pac_qol_id, 
+      con_pac_qol_status, gerd_symptom_id, gerd_symptom_status, 
+      gerd_symptom_items_id, gerd_symptom_items_status, 
+      gerd_examine_id, gerd_examine_status, gerd_qscole_id, 
+      gerd_qscole_status, create_time, update_time, 
+      operator)
+    values (#{id,jdbcType=INTEGER}, #{ticketNo,jdbcType=VARCHAR}, #{patientNo,jdbcType=INTEGER}, 
+      #{patientId,jdbcType=INTEGER}, #{patientName,jdbcType=VARCHAR}, #{patientCode,jdbcType=VARCHAR}, #{patientSex,jdbcType=INTEGER}, 
+      #{patientAge,jdbcType=INTEGER}, #{patientCareer,jdbcType=VARCHAR}, #{patientContact,jdbcType=VARCHAR}, 
+      #{siteHome,jdbcType=VARCHAR}, #{siteWork,jdbcType=VARCHAR}, #{patientEducation,jdbcType=VARCHAR}, 
+      #{patientMarried,jdbcType=VARCHAR}, #{patientChild,jdbcType=VARCHAR}, #{patientEconomy,jdbcType=VARCHAR}, 
+      #{patientPayMode,jdbcType=VARCHAR}, #{patientGroup,jdbcType=VARCHAR}, #{conSymptomId,jdbcType=VARCHAR}, 
+      #{conSymptomStatus,jdbcType=VARCHAR}, #{conSymptomItemsId,jdbcType=VARCHAR}, #{conSymptomItemsStatus,jdbcType=VARCHAR}, 
+      #{conExamineId,jdbcType=VARCHAR}, #{conExamineStatus,jdbcType=VARCHAR}, #{conPacQolId,jdbcType=VARCHAR}, 
+      #{conPacQolStatus,jdbcType=VARCHAR}, #{gerdSymptomId,jdbcType=VARCHAR}, #{gerdSymptomStatus,jdbcType=VARCHAR}, 
+      #{gerdSymptomItemsId,jdbcType=VARCHAR}, #{gerdSymptomItemsStatus,jdbcType=VARCHAR}, 
+      #{gerdExamineId,jdbcType=VARCHAR}, #{gerdExamineStatus,jdbcType=VARCHAR}, #{gerdQscoleId,jdbcType=VARCHAR}, 
+      #{gerdQscoleStatus,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, 
+      #{operator,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertPatientRecordD" parameterType="com.kp.fus.model.PatientRecord">
+    insert into patient_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="ticketNo != null">
+        ticket_no,
+      </if>
+      <if test="patientNo != null">
+        patient_no,
+      </if>
+      <if test="patientId != null">
+        patient_id,
+      </if>
+      <if test="patientName != null">
+        patient_name,
+      </if>
+      <if test="patientCode != null">
+        patient_code,
+      </if>
+      <if test="patientSex != null">
+        patient_sex,
+      </if>
+      <if test="patientAge != null">
+        patient_age,
+      </if>
+      <if test="patientCareer != null">
+        patient_career,
+      </if>
+      <if test="patientContact != null">
+        patient_contact,
+      </if>
+      <if test="siteHome != null">
+        site_home,
+      </if>
+      <if test="siteWork != null">
+        site_work,
+      </if>
+      <if test="patientEducation != null">
+        patient_education,
+      </if>
+      <if test="patientMarried != null">
+        patient_married,
+      </if>
+      <if test="patientChild != null">
+        patient_child,
+      </if>
+      <if test="patientEconomy != null">
+        patient_economy,
+      </if>
+      <if test="patientPayMode != null">
+        patient_pay_mode,
+      </if>
+      <if test="patientGroup != null">
+        patient_group,
+      </if>
+      <if test="conSymptomId != null">
+        con_symptom_id,
+      </if>
+      <if test="conSymptomStatus != null">
+        con_symptom_status,
+      </if>
+      <if test="conSymptomItemsId != null">
+        con_symptom_items_id,
+      </if>
+      <if test="conSymptomItemsStatus != null">
+        con_symptom_items_status,
+      </if>
+      <if test="conExamineId != null">
+        con_examine_id,
+      </if>
+      <if test="conExamineStatus != null">
+        con_examine_status,
+      </if>
+      <if test="conPacQolId != null">
+        con_pac_qol_id,
+      </if>
+      <if test="conPacQolStatus != null">
+        con_pac_qol_status,
+      </if>
+      <if test="gerdSymptomId != null">
+        gerd_symptom_id,
+      </if>
+      <if test="gerdSymptomStatus != null">
+        gerd_symptom_status,
+      </if>
+      <if test="gerdSymptomItemsId != null">
+        gerd_symptom_items_id,
+      </if>
+      <if test="gerdSymptomItemsStatus != null">
+        gerd_symptom_items_status,
+      </if>
+      <if test="gerdExamineId != null">
+        gerd_examine_id,
+      </if>
+      <if test="gerdExamineStatus != null">
+        gerd_examine_status,
+      </if>
+      <if test="gerdQscoleId != null">
+        gerd_qscole_id,
+      </if>
+      <if test="gerdQscoleStatus != null">
+        gerd_qscole_status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="operator != null">
+        operator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ticketNo != null">
+        #{ticketNo,jdbcType=VARCHAR},
+      </if>
+      <if test="patientNo != null">
+        #{patientNo,jdbcType=INTEGER},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="patientName != null">
+        #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCode != null">
+        #{patientCode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSex != null">
+        #{patientSex,jdbcType=INTEGER},
+      </if>
+      <if test="patientAge != null">
+        #{patientAge,jdbcType=INTEGER},
+      </if>
+      <if test="patientCareer != null">
+        #{patientCareer,jdbcType=VARCHAR},
+      </if>
+      <if test="patientContact != null">
+        #{patientContact,jdbcType=VARCHAR},
+      </if>
+      <if test="siteHome != null">
+        #{siteHome,jdbcType=VARCHAR},
+      </if>
+      <if test="siteWork != null">
+        #{siteWork,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEducation != null">
+        #{patientEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="patientMarried != null">
+        #{patientMarried,jdbcType=VARCHAR},
+      </if>
+      <if test="patientChild != null">
+        #{patientChild,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEconomy != null">
+        #{patientEconomy,jdbcType=VARCHAR},
+      </if>
+      <if test="patientPayMode != null">
+        #{patientPayMode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientGroup != null">
+        #{patientGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="conSymptomId != null">
+        #{conSymptomId,jdbcType=VARCHAR},
+      </if>
+      <if test="conSymptomStatus != null">
+        #{conSymptomStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="conSymptomItemsId != null">
+        #{conSymptomItemsId,jdbcType=VARCHAR},
+      </if>
+      <if test="conSymptomItemsStatus != null">
+        #{conSymptomItemsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="conExamineId != null">
+        #{conExamineId,jdbcType=VARCHAR},
+      </if>
+      <if test="conExamineStatus != null">
+        #{conExamineStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="conPacQolId != null">
+        #{conPacQolId,jdbcType=VARCHAR},
+      </if>
+      <if test="conPacQolStatus != null">
+        #{conPacQolStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdSymptomId != null">
+        #{gerdSymptomId,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdSymptomStatus != null">
+        #{gerdSymptomStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdSymptomItemsId != null">
+        #{gerdSymptomItemsId,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdSymptomItemsStatus != null">
+        #{gerdSymptomItemsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdExamineId != null">
+        #{gerdExamineId,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdExamineStatus != null">
+        #{gerdExamineStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdQscoleId != null">
+        #{gerdQscoleId,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdQscoleStatus != null">
+        #{gerdQscoleStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByIdD" parameterType="com.kp.fus.model.PatientRecord">
+    update patient_record
+    <set>
+      <if test="ticketNo != null">
+        ticket_no = #{ticketNo,jdbcType=VARCHAR},
+      </if>
+      <if test="patientNo != null">
+        patient_no = #{patientNo,jdbcType=INTEGER},
+      </if>
+      <if test="patientId != null">
+        patient_id = #{patientId,jdbcType=INTEGER},
+      </if>
+      <if test="patientName != null">
+        patient_name = #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientCode != null">
+        patient_code = #{patientCode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSex != null">
+        patient_sex = #{patientSex,jdbcType=INTEGER},
+      </if>
+      <if test="patientAge != null">
+        patient_age = #{patientAge,jdbcType=INTEGER},
+      </if>
+      <if test="patientCareer != null">
+        patient_career = #{patientCareer,jdbcType=VARCHAR},
+      </if>
+      <if test="patientContact != null">
+        patient_contact = #{patientContact,jdbcType=VARCHAR},
+      </if>
+      <if test="siteHome != null">
+        site_home = #{siteHome,jdbcType=VARCHAR},
+      </if>
+      <if test="siteWork != null">
+        site_work = #{siteWork,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEducation != null">
+        patient_education = #{patientEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="patientMarried != null">
+        patient_married = #{patientMarried,jdbcType=VARCHAR},
+      </if>
+      <if test="patientChild != null">
+        patient_child = #{patientChild,jdbcType=VARCHAR},
+      </if>
+      <if test="patientEconomy != null">
+        patient_economy = #{patientEconomy,jdbcType=VARCHAR},
+      </if>
+      <if test="patientPayMode != null">
+        patient_pay_mode = #{patientPayMode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientGroup != null">
+        patient_group = #{patientGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="conSymptomId != null">
+        con_symptom_id = #{conSymptomId,jdbcType=VARCHAR},
+      </if>
+      <if test="conSymptomStatus != null">
+        con_symptom_status = #{conSymptomStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="conSymptomItemsId != null">
+        con_symptom_items_id = #{conSymptomItemsId,jdbcType=VARCHAR},
+      </if>
+      <if test="conSymptomItemsStatus != null">
+        con_symptom_items_status = #{conSymptomItemsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="conExamineId != null">
+        con_examine_id = #{conExamineId,jdbcType=VARCHAR},
+      </if>
+      <if test="conExamineStatus != null">
+        con_examine_status = #{conExamineStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="conPacQolId != null">
+        con_pac_qol_id = #{conPacQolId,jdbcType=VARCHAR},
+      </if>
+      <if test="conPacQolStatus != null">
+        con_pac_qol_status = #{conPacQolStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdSymptomId != null">
+        gerd_symptom_id = #{gerdSymptomId,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdSymptomStatus != null">
+        gerd_symptom_status = #{gerdSymptomStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdSymptomItemsId != null">
+        gerd_symptom_items_id = #{gerdSymptomItemsId,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdSymptomItemsStatus != null">
+        gerd_symptom_items_status = #{gerdSymptomItemsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdExamineId != null">
+        gerd_examine_id = #{gerdExamineId,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdExamineStatus != null">
+        gerd_examine_status = #{gerdExamineStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdQscoleId != null">
+        gerd_qscole_id = #{gerdQscoleId,jdbcType=VARCHAR},
+      </if>
+      <if test="gerdQscoleStatus != null">
+        gerd_qscole_status = #{gerdQscoleStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateById" parameterType="com.kp.fus.model.PatientRecord">
+    update patient_record
+    set ticket_no = #{ticketNo,jdbcType=VARCHAR},
+      patient_no = #{patientNo,jdbcType=INTEGER},
+      patient_id = #{patientId,jdbcType=INTEGER},
+      patient_name = #{patientName,jdbcType=VARCHAR},
+      patient_code = #{patientCode,jdbcType=VARCHAR},
+      patient_sex = #{patientSex,jdbcType=INTEGER},
+      patient_age = #{patientAge,jdbcType=INTEGER},
+      patient_career = #{patientCareer,jdbcType=VARCHAR},
+      patient_contact = #{patientContact,jdbcType=VARCHAR},
+      site_home = #{siteHome,jdbcType=VARCHAR},
+      site_work = #{siteWork,jdbcType=VARCHAR},
+      patient_education = #{patientEducation,jdbcType=VARCHAR},
+      patient_married = #{patientMarried,jdbcType=VARCHAR},
+      patient_child = #{patientChild,jdbcType=VARCHAR},
+      patient_economy = #{patientEconomy,jdbcType=VARCHAR},
+      patient_pay_mode = #{patientPayMode,jdbcType=VARCHAR},
+      patient_group = #{patientGroup,jdbcType=VARCHAR},
+      con_symptom_id = #{conSymptomId,jdbcType=VARCHAR},
+      con_symptom_status = #{conSymptomStatus,jdbcType=VARCHAR},
+      con_symptom_items_id = #{conSymptomItemsId,jdbcType=VARCHAR},
+      con_symptom_items_status = #{conSymptomItemsStatus,jdbcType=VARCHAR},
+      con_examine_id = #{conExamineId,jdbcType=VARCHAR},
+      con_examine_status = #{conExamineStatus,jdbcType=VARCHAR},
+      con_pac_qol_id = #{conPacQolId,jdbcType=VARCHAR},
+      con_pac_qol_status = #{conPacQolStatus,jdbcType=VARCHAR},
+      gerd_symptom_id = #{gerdSymptomId,jdbcType=VARCHAR},
+      gerd_symptom_status = #{gerdSymptomStatus,jdbcType=VARCHAR},
+      gerd_symptom_items_id = #{gerdSymptomItemsId,jdbcType=VARCHAR},
+      gerd_symptom_items_status = #{gerdSymptomItemsStatus,jdbcType=VARCHAR},
+      gerd_examine_id = #{gerdExamineId,jdbcType=VARCHAR},
+      gerd_examine_status = #{gerdExamineStatus,jdbcType=VARCHAR},
+      gerd_qscole_id = #{gerdQscoleId,jdbcType=VARCHAR},
+      gerd_qscole_status = #{gerdQscoleStatus,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      operator = #{operator,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

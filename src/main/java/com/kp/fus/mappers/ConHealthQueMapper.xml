@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kp.fus.dao.ConHealthQueDao">
+  <resultMap id="conHealthQueResult" type="com.kp.fus.model.ConHealthQue">
+    <id column="id" 			jdbcType="INTEGER" property="id" />
+    <result column="ticket_id" 	jdbcType="VARCHAR" property="ticketId" />
+    <result column="record_id" 	jdbcType="VARCHAR" property="recordId" />
+    <result column="c10001" 	jdbcType="VARCHAR" property="c10001" />
+    <result column="c10201" 	jdbcType="VARCHAR" property="c10201" />
+    <result column="c10301"		jdbcType="VARCHAR" property="c10301" />
+    <result column="c10302" 	jdbcType="VARCHAR" property="c10302" />
+    <result column="c10303" 	jdbcType="VARCHAR" property="c10303" />
+    <result column="c10304" 	jdbcType="VARCHAR" property="c10304" />
+    <result column="c10305" 	jdbcType="VARCHAR" property="c10305" />
+    <result column="c10306" 	jdbcType="VARCHAR" property="c10306" />
+    <result column="c10307" 	jdbcType="VARCHAR" property="c10307" />
+    <result column="c10308" 	jdbcType="VARCHAR" property="c10308" />
+    <result column="c10309" 	jdbcType="VARCHAR" property="c10309" />
+    <result column="c10310" 	jdbcType="VARCHAR" property="c10310" />
+    <result column="c10401" 	jdbcType="VARCHAR" property="c10401" />
+    <result column="c10402" 	jdbcType="VARCHAR" property="c10402" />
+    <result column="c10403" 	jdbcType="VARCHAR" property="c10403" />
+    <result column="c10404" 	jdbcType="VARCHAR" property="c10404" />
+    <result column="c10501" 	jdbcType="VARCHAR" property="c10501" />
+    <result column="c10502" 	jdbcType="VARCHAR" property="c10502" />
+    <result column="c10503" 	jdbcType="VARCHAR" property="c10503" />
+    <result column="c10601" 	jdbcType="VARCHAR" property="c10601" />
+    <result column="c10701" 	jdbcType="VARCHAR" property="c10701" />
+    <result column="c10801" 	jdbcType="VARCHAR" property="c10801" />
+    <result column="c10901" 	jdbcType="VARCHAR" property="c10901" />
+    <result column="c10902" 	jdbcType="VARCHAR" property="c10902" />
+    <result column="c10903" 	jdbcType="VARCHAR" property="c10903" />
+    <result column="c10904" 	jdbcType="VARCHAR" property="c10904" />
+    <result column="c10905" 	jdbcType="VARCHAR" property="c10905" />
+    <result column="c10906" 	jdbcType="VARCHAR" property="c10906" />
+    <result column="c10907" 	jdbcType="VARCHAR" property="c10907" />
+    <result column="c10908" 	jdbcType="VARCHAR" property="c10908" />
+    <result column="c10909" 	jdbcType="VARCHAR" property="c10909" />
+    <result column="c11001" 	jdbcType="VARCHAR" property="c11001" />
+    <result column="c11101" 	jdbcType="VARCHAR" property="c11101" />
+    <result column="c11102" 	jdbcType="VARCHAR" property="c11102" />
+    <result column="c11103" 	jdbcType="VARCHAR" property="c11103" />
+    <result column="c11104" 	jdbcType="VARCHAR" property="c11104" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="conHealthQueResult">
+    select *  from con_health_que  where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByQua" parameterType="Map" resultMap="conHealthQueResult">
+    select *  from con_health_que   where 1=1
+    <if test="recordId!=null||recordId!=''">
+    	and record_id = #{recordId}
+    </if>
+  </select>	
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from con_health_que  where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kp.fus.model.ConHealthQue">
+    insert into con_health_que (ticket_id, record_id, 
+      c10001, c10201, c10301, 
+      c10302, c10303, c10304, 
+      c10305, c10306, c10307, 
+      c10308, c10309, c10310, 
+      c10401, c10402, c10403, 
+      c10404, c10501, c10502, 
+      c10503, c10601, c10701, 
+      c10801, c10901, c10902, 
+      c10903, c10904, c10905, 
+      c10906, c10907, c10908, 
+      c10909, c11001, c11101, 
+      c11102, c11103, c11104, 
+      create_time, update_time)
+    values (#{ticketId,jdbcType=VARCHAR}, #{recordId,jdbcType=VARCHAR}, 
+      #{c10001,jdbcType=VARCHAR}, #{c10201,jdbcType=VARCHAR}, #{c10301,jdbcType=VARCHAR}, 
+      #{c10302,jdbcType=VARCHAR}, #{c10303,jdbcType=VARCHAR}, #{c10304,jdbcType=VARCHAR}, 
+      #{c10305,jdbcType=VARCHAR}, #{c10306,jdbcType=VARCHAR}, #{c10307,jdbcType=VARCHAR}, 
+      #{c10308,jdbcType=VARCHAR}, #{c10309,jdbcType=VARCHAR}, #{c10310,jdbcType=VARCHAR}, 
+      #{c10401,jdbcType=VARCHAR}, #{c10402,jdbcType=VARCHAR}, #{c10403,jdbcType=VARCHAR}, 
+      #{c10404,jdbcType=VARCHAR}, #{c10501,jdbcType=VARCHAR}, #{c10502,jdbcType=VARCHAR}, 
+      #{c10503,jdbcType=VARCHAR}, #{c10601,jdbcType=VARCHAR}, #{c10701,jdbcType=VARCHAR}, 
+      #{c10801,jdbcType=VARCHAR}, #{c10901,jdbcType=VARCHAR}, #{c10902,jdbcType=VARCHAR}, 
+      #{c10903,jdbcType=VARCHAR}, #{c10904,jdbcType=VARCHAR}, #{c10905,jdbcType=VARCHAR}, 
+      #{c10906,jdbcType=VARCHAR}, #{c10907,jdbcType=VARCHAR}, #{c10908,jdbcType=VARCHAR}, 
+      #{c10909,jdbcType=VARCHAR}, #{c11001,jdbcType=VARCHAR}, #{c11101,jdbcType=VARCHAR}, 
+      #{c11102,jdbcType=VARCHAR}, #{c11103,jdbcType=VARCHAR}, #{c11104,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kp.fus.model.ConHealthQue">
+    insert into con_health_que
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="c10001 != null">
+        c10001,
+      </if>
+      <if test="c10201 != null">
+        c10201,
+      </if>
+      <if test="c10301 != null">
+        c10301,
+      </if>
+      <if test="c10302 != null">
+        c10302,
+      </if>
+      <if test="c10303 != null">
+        c10303,
+      </if>
+      <if test="c10304 != null">
+        c10304,
+      </if>
+      <if test="c10305 != null">
+        c10305,
+      </if>
+      <if test="c10306 != null">
+        c10306,
+      </if>
+      <if test="c10307 != null">
+        c10307,
+      </if>
+      <if test="c10308 != null">
+        c10308,
+      </if>
+      <if test="c10309 != null">
+        c10309,
+      </if>
+      <if test="c10310 != null">
+        c10310,
+      </if>
+      <if test="c10401 != null">
+        c10401,
+      </if>
+      <if test="c10402 != null">
+        c10402,
+      </if>
+      <if test="c10403 != null">
+        c10403,
+      </if>
+      <if test="c10404 != null">
+        c10404,
+      </if>
+      <if test="c10501 != null">
+        c10501,
+      </if>
+      <if test="c10502 != null">
+        c10502,
+      </if>
+      <if test="c10503 != null">
+        c10503,
+      </if>
+      <if test="c10601 != null">
+        c10601,
+      </if>
+      <if test="c10701 != null">
+        c10701,
+      </if>
+      <if test="c10801 != null">
+        c10801,
+      </if>
+      <if test="c10901 != null">
+        c10901,
+      </if>
+      <if test="c10902 != null">
+        c10902,
+      </if>
+      <if test="c10903 != null">
+        c10903,
+      </if>
+      <if test="c10904 != null">
+        c10904,
+      </if>
+      <if test="c10905 != null">
+        c10905,
+      </if>
+      <if test="c10906 != null">
+        c10906,
+      </if>
+      <if test="c10907 != null">
+        c10907,
+      </if>
+      <if test="c10908 != null">
+        c10908,
+      </if>
+      <if test="c10909 != null">
+        c10909,
+      </if>
+      <if test="c11001 != null">
+        c11001,
+      </if>
+      <if test="c11101 != null">
+        c11101,
+      </if>
+      <if test="c11102 != null">
+        c11102,
+      </if>
+      <if test="c11103 != null">
+        c11103,
+      </if>
+      <if test="c11104 != null">
+        c11104,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="c10001 != null">
+        #{c10001,jdbcType=VARCHAR},
+      </if>
+      <if test="c10201 != null">
+        #{c10201,jdbcType=VARCHAR},
+      </if>
+      <if test="c10301 != null">
+        #{c10301,jdbcType=VARCHAR},
+      </if>
+      <if test="c10302 != null">
+        #{c10302,jdbcType=VARCHAR},
+      </if>
+      <if test="c10303 != null">
+        #{c10303,jdbcType=VARCHAR},
+      </if>
+      <if test="c10304 != null">
+        #{c10304,jdbcType=VARCHAR},
+      </if>
+      <if test="c10305 != null">
+        #{c10305,jdbcType=VARCHAR},
+      </if>
+      <if test="c10306 != null">
+        #{c10306,jdbcType=VARCHAR},
+      </if>
+      <if test="c10307 != null">
+        #{c10307,jdbcType=VARCHAR},
+      </if>
+      <if test="c10308 != null">
+        #{c10308,jdbcType=VARCHAR},
+      </if>
+      <if test="c10309 != null">
+        #{c10309,jdbcType=VARCHAR},
+      </if>
+      <if test="c10310 != null">
+        #{c10310,jdbcType=VARCHAR},
+      </if>
+      <if test="c10401 != null">
+        #{c10401,jdbcType=VARCHAR},
+      </if>
+      <if test="c10402 != null">
+        #{c10402,jdbcType=VARCHAR},
+      </if>
+      <if test="c10403 != null">
+        #{c10403,jdbcType=VARCHAR},
+      </if>
+      <if test="c10404 != null">
+        #{c10404,jdbcType=VARCHAR},
+      </if>
+      <if test="c10501 != null">
+        #{c10501,jdbcType=VARCHAR},
+      </if>
+      <if test="c10502 != null">
+        #{c10502,jdbcType=VARCHAR},
+      </if>
+      <if test="c10503 != null">
+        #{c10503,jdbcType=VARCHAR},
+      </if>
+      <if test="c10601 != null">
+        #{c10601,jdbcType=VARCHAR},
+      </if>
+      <if test="c10701 != null">
+        #{c10701,jdbcType=VARCHAR},
+      </if>
+      <if test="c10801 != null">
+        #{c10801,jdbcType=VARCHAR},
+      </if>
+      <if test="c10901 != null">
+        #{c10901,jdbcType=VARCHAR},
+      </if>
+      <if test="c10902 != null">
+        #{c10902,jdbcType=VARCHAR},
+      </if>
+      <if test="c10903 != null">
+        #{c10903,jdbcType=VARCHAR},
+      </if>
+      <if test="c10904 != null">
+        #{c10904,jdbcType=VARCHAR},
+      </if>
+      <if test="c10905 != null">
+        #{c10905,jdbcType=VARCHAR},
+      </if>
+      <if test="c10906 != null">
+        #{c10906,jdbcType=VARCHAR},
+      </if>
+      <if test="c10907 != null">
+        #{c10907,jdbcType=VARCHAR},
+      </if>
+      <if test="c10908 != null">
+        #{c10908,jdbcType=VARCHAR},
+      </if>
+      <if test="c10909 != null">
+        #{c10909,jdbcType=VARCHAR},
+      </if>
+      <if test="c11001 != null">
+        #{c11001,jdbcType=VARCHAR},
+      </if>
+      <if test="c11101 != null">
+        #{c11101,jdbcType=VARCHAR},
+      </if>
+      <if test="c11102 != null">
+        #{c11102,jdbcType=VARCHAR},
+      </if>
+      <if test="c11103 != null">
+        #{c11103,jdbcType=VARCHAR},
+      </if>
+      <if test="c11104 != null">
+        #{c11104,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kp.fus.model.ConHealthQue">
+    update con_health_que
+    <set>
+      <if test="c10001 != null">
+        c10001 = #{c10001,jdbcType=VARCHAR},
+      </if>
+      <if test="c10201 != null">
+        c10201 = #{c10201,jdbcType=VARCHAR},
+      </if>
+      <if test="c10301 != null">
+        c10301 = #{c10301,jdbcType=VARCHAR},
+      </if>
+      <if test="c10302 != null">
+        c10302 = #{c10302,jdbcType=VARCHAR},
+      </if>
+      <if test="c10303 != null">
+        c10303 = #{c10303,jdbcType=VARCHAR},
+      </if>
+      <if test="c10304 != null">
+        c10304 = #{c10304,jdbcType=VARCHAR},
+      </if>
+      <if test="c10305 != null">
+        c10305 = #{c10305,jdbcType=VARCHAR},
+      </if>
+      <if test="c10306 != null">
+        c10306 = #{c10306,jdbcType=VARCHAR},
+      </if>
+      <if test="c10307 != null">
+        c10307 = #{c10307,jdbcType=VARCHAR},
+      </if>
+      <if test="c10308 != null">
+        c10308 = #{c10308,jdbcType=VARCHAR},
+      </if>
+      <if test="c10309 != null">
+        c10309 = #{c10309,jdbcType=VARCHAR},
+      </if>
+      <if test="c10310 != null">
+        c10310 = #{c10310,jdbcType=VARCHAR},
+      </if>
+      <if test="c10401 != null">
+        c10401 = #{c10401,jdbcType=VARCHAR},
+      </if>
+      <if test="c10402 != null">
+        c10402 = #{c10402,jdbcType=VARCHAR},
+      </if>
+      <if test="c10403 != null">
+        c10403 = #{c10403,jdbcType=VARCHAR},
+      </if>
+      <if test="c10404 != null">
+        c10404 = #{c10404,jdbcType=VARCHAR},
+      </if>
+      <if test="c10501 != null">
+        c10501 = #{c10501,jdbcType=VARCHAR},
+      </if>
+      <if test="c10502 != null">
+        c10502 = #{c10502,jdbcType=VARCHAR},
+      </if>
+      <if test="c10503 != null">
+        c10503 = #{c10503,jdbcType=VARCHAR},
+      </if>
+      <if test="c10601 != null">
+        c10601 = #{c10601,jdbcType=VARCHAR},
+      </if>
+      <if test="c10701 != null">
+        c10701 = #{c10701,jdbcType=VARCHAR},
+      </if>
+      <if test="c10801 != null">
+        c10801 = #{c10801,jdbcType=VARCHAR},
+      </if>
+      <if test="c10901 != null">
+        c10901 = #{c10901,jdbcType=VARCHAR},
+      </if>
+      <if test="c10902 != null">
+        c10902 = #{c10902,jdbcType=VARCHAR},
+      </if>
+      <if test="c10903 != null">
+        c10903 = #{c10903,jdbcType=VARCHAR},
+      </if>
+      <if test="c10904 != null">
+        c10904 = #{c10904,jdbcType=VARCHAR},
+      </if>
+      <if test="c10905 != null">
+        c10905 = #{c10905,jdbcType=VARCHAR},
+      </if>
+      <if test="c10906 != null">
+        c10906 = #{c10906,jdbcType=VARCHAR},
+      </if>
+      <if test="c10907 != null">
+        c10907 = #{c10907,jdbcType=VARCHAR},
+      </if>
+      <if test="c10908 != null">
+        c10908 = #{c10908,jdbcType=VARCHAR},
+      </if>
+      <if test="c10909 != null">
+        c10909 = #{c10909,jdbcType=VARCHAR},
+      </if>
+      <if test="c11001 != null">
+        c11001 = #{c11001,jdbcType=VARCHAR},
+      </if>
+      <if test="c11101 != null">
+        c11101 = #{c11101,jdbcType=VARCHAR},
+      </if>
+      <if test="c11102 != null">
+        c11102 = #{c11102,jdbcType=VARCHAR},
+      </if>
+      <if test="c11103 != null">
+        c11103 = #{c11103,jdbcType=VARCHAR},
+      </if>
+      <if test="c11104 != null">
+        c11104 = #{c11104,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR}
+      </if>
+    </set>
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kp.fus.model.ConHealthQue">
+    update con_health_que
+    set 
+      c10001 = #{c10001,jdbcType=VARCHAR},
+      c10201 = #{c10201,jdbcType=VARCHAR},
+      c10301 = #{c10301,jdbcType=VARCHAR},
+      c10302 = #{c10302,jdbcType=VARCHAR},
+      c10303 = #{c10303,jdbcType=VARCHAR},
+      c10304 = #{c10304,jdbcType=VARCHAR},
+      c10305 = #{c10305,jdbcType=VARCHAR},
+      c10306 = #{c10306,jdbcType=VARCHAR},
+      c10307 = #{c10307,jdbcType=VARCHAR},
+      c10308 = #{c10308,jdbcType=VARCHAR},
+      c10309 = #{c10309,jdbcType=VARCHAR},
+      c10310 = #{c10310,jdbcType=VARCHAR},
+      c10401 = #{c10401,jdbcType=VARCHAR},
+      c10402 = #{c10402,jdbcType=VARCHAR},
+      c10403 = #{c10403,jdbcType=VARCHAR},
+      c10404 = #{c10404,jdbcType=VARCHAR},
+      c10501 = #{c10501,jdbcType=VARCHAR},
+      c10502 = #{c10502,jdbcType=VARCHAR},
+      c10503 = #{c10503,jdbcType=VARCHAR},
+      c10601 = #{c10601,jdbcType=VARCHAR},
+      c10701 = #{c10701,jdbcType=VARCHAR},
+      c10801 = #{c10801,jdbcType=VARCHAR},
+      c10901 = #{c10901,jdbcType=VARCHAR},
+      c10902 = #{c10902,jdbcType=VARCHAR},
+      c10903 = #{c10903,jdbcType=VARCHAR},
+      c10904 = #{c10904,jdbcType=VARCHAR},
+      c10905 = #{c10905,jdbcType=VARCHAR},
+      c10906 = #{c10906,jdbcType=VARCHAR},
+      c10907 = #{c10907,jdbcType=VARCHAR},
+      c10908 = #{c10908,jdbcType=VARCHAR},
+      c10909 = #{c10909,jdbcType=VARCHAR},
+      c11001 = #{c11001,jdbcType=VARCHAR},
+      c11101 = #{c11101,jdbcType=VARCHAR},
+      c11102 = #{c11102,jdbcType=VARCHAR},
+      c11103 = #{c11103,jdbcType=VARCHAR},
+      c11104 = #{c11104,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+</mapper>
