@@ -123,7 +123,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="radio" id="c10001" name="c10001" value="非常好" title="非常好" checked>
+                                <input type="radio" id="c10001" name="c10001" value="非常好" title="非常好" >
                                 <input type="radio" id="c10001" name="c10001" value="很好" title="很好">
                                 <input type="radio" id="c10001" name="c10001" value="好" title="好">
                                 <input type="radio" id="c10001" name="c10001" value="一般" title="一般">
@@ -135,7 +135,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="radio" id="c10201" name="c10201" value="比1年前好多了" title="比1年前好多了" checked>
+                                <input type="radio" id="c10201" name="c10201" value="比1年前好多了" title="比1年前好多了" >
                                 <input type="radio" id="c10201" name="c10201" value="比1年前好一些" title="比1年前好一些">
                                 <input type="radio" id="c10201" name="c10201" value="跟1年前差不多" title="跟1年前差不多">
                                 <input type="radio" id="c10201" name="c10201" value="比1年前差一些" title="比1年前差一些">
@@ -147,43 +147,43 @@
                         </tr>
                         <tr>
                             <td>（1）重体力活动。如跑步举重、参加剧烈运动等：
-                                <input type="radio" id="c10301" name="c10301" value="限制很大" title="限制很大" checked>
+                                <input type="radio" id="c10301" name="c10301" value="限制很大" title="限制很大" >
                                 <input type="radio" id="c10301" name="c10301" value="有些限制" title="有些限制">
                                 <input type="radio" id="c10301" name="c10301" value="毫无限制" title="毫无限制">
                                 <br>（2）适度的活动。如移动一张桌子、扫地、打太极拳、做简单体操等：
-                                <input type="radio" id="c10302" name="c10302" value="限制很大" title="限制很大" checked>
+                                <input type="radio" id="c10302" name="c10302" value="限制很大" title="限制很大" >
                                 <input type="radio" id="c10302" name="c10302" value="有些限制" title="有些限制">
                                 <input type="radio" name="q32" value="毫无限制" title="毫无限制">
                                 <br>（3）手提日用品。如买菜、购物等：
-                                <input type="radio" id="c10303" name="c10303" value="限制很大" title="限制很大" checked>
+                                <input type="radio" id="c10303" name="c10303" value="限制很大" title="限制很大" >
                                 <input type="radio" id="c10303" name="c10303" value="有些限制" title="有些限制">
                                 <input type="radio" id="c10303" name="c10303" value="毫无限制" title="毫无限制">
                                 <br>（4）上几层楼梯：
-                                <input type="radio" id="c10304" name="c10304" value="限制很大" title="限制很大" checked>
+                                <input type="radio" id="c10304" name="c10304" value="限制很大" title="限制很大" >
                                 <input type="radio" id="c10304" name="c10304" value="有些限制" title="有些限制">
                                 <input type="radio" id="c10304" name="c10304" value="毫无限制" title="毫无限制">
                                 <br>（5）上一层楼梯：
-                                <input type="radio" id="c10305" name="c10305" value="限制很大" title="限制很大" checked>
+                                <input type="radio" id="c10305" name="c10305" value="限制很大" title="限制很大" >
                                 <input type="radio" id="c10305" name="c10305" value="有些限制" title="有些限制">
                                 <input type="radio" id="c10305" name="c10305" value="毫无限制" title="毫无限制">
                                 <br>（6）弯腰、屈膝、下蹲：
-                                <input type="radio" id="c10306" name="c10306" value="限制很大" title="限制很大" checked>
+                                <input type="radio" id="c10306" name="c10306" value="限制很大" title="限制很大" >
                                 <input type="radio" id="c10306" name="c10306" value="有些限制" title="有些限制">
                                 <input type="radio" id="c10306" name="c10306" value="毫无限制" title="毫无限制">
                                 <br>（7）步行1500米以上的路程：
-                                <input type="radio" id="c10307" name="c10307" value="限制很大" title="限制很大" checked>
+                                <input type="radio" id="c10307" name="c10307" value="限制很大" title="限制很大" >
                                 <input type="radio" id="c10307" name="c10307" value="有些限制" title="有些限制">
                                 <input type="radio" id="c10307" name="c10307" value="毫无限制" title="毫无限制">
                                 <br>（8）步行1000米的路程：
-                                <input type="radio" id="c10308" name="c10308" value="限制很大" title="限制很大" checked>
+                                <input type="radio" id="c10308" name="c10308" value="限制很大" title="限制很大" >
                                 <input type="radio" id="c10308" name="c10308" value="有些限制" title="有些限制">
                                 <input type="radio" id="c10308" name="c10308" value="毫无限制" title="毫无限制">
                                 <br>（9）步行100米的路程：
-                                <input type="radio" id="c10309" name="c10309" value="限制很大" title="限制很大" checked>
+                                <input type="radio" id="c10309" name="c10309" value="限制很大" title="限制很大" >
                                 <input type="radio" id="c10309" name="c10309" value="有些限制" title="有些限制">
                                 <input type="radio" id="c10309" name="c10309" value="毫无限制" title="毫无限制">
                                 <br>（10）自己洗澡、穿衣：
-                                <input type="radio" id="c10310" name="c10310" value="限制很大" title="限制很大" checked>
+                                <input type="radio" id="c10310" name="c10310" value="限制很大" title="限制很大" >
                                 <input type="radio" id="c10310" name="c10310" value="有些限制" title="有些限制">
                                 <input type="radio" id="c10310" name="c10310" value="毫无限制" title="毫无限制">
                             </td>
@@ -193,16 +193,16 @@
                         </tr>
                         <tr>
                             <td>（1）减少了工作或其他活动时间：
-                                <input type="radio" id="c10401" name="c10401" value="是" title="是" checked>
+                                <input type="radio" id="c10401" name="c10401" value="是" title="是" >
                                 <input type="radio" id="c10401" name="c10401" value="不是" title="不是">
                                 <br>（2）本来想要做的事情只能完成一部分：
-                                <input type="radio" id="c10402" name="c10402" value="是" title="是" checked>
+                                <input type="radio" id="c10402" name="c10402" value="是" title="是" >
                                 <input type="radio" id="c10402" name="c10402" value="不是" title="不是">
                                 <br>（3）想要干的工作或活动种类受到限制：
-                                <input type="radio" id="c10403" name="c10403" value="是" title="是" checked>
+                                <input type="radio" id="c10403" name="c10403" value="是" title="是" >
                                 <input type="radio" id="c10403" name="c10403" value="不是" title="不是">
                                 <br>（4）完成工作或其他活动困难增多（比如需要额外的努力）：
-                                <input type="radio" id="c10404" name="c10404" value="是" title="是" checked>
+                                <input type="radio" id="c10404" name="c10404" value="是" title="是" >
                                 <input type="radio" id="c10404" name="c10404" value="不是" title="不是">
                             </td>
                         </tr>
@@ -211,13 +211,13 @@
                         </tr>
                         <tr>
                             <td>（1）减少了工作或活动时间：
-                                <input type="radio" id="c10501" name="c10501" value="是" title="是" checked>
+                                <input type="radio" id="c10501" name="c10501" value="是" title="是" >
                                 <input type="radio" id="c10501" name="c10501"  value="不是" title="不是">
                                 <br>（2）本来想要做的事情只能完成一部分：
-                                <input type="radio" id="c10502" name="c10502"  value="是" title="是" checked>
+                                <input type="radio" id="c10502" name="c10502"  value="是" title="是" >
                                 <input type="radio" id="c10502" name="c10502" value="不是" title="不是">
                                 <br>（3）干事情不如平时仔细：
-                                <input type="radio" id="c10503" name="c10503" value="是" title="是" checked>
+                                <input type="radio" id="c10503" name="c10503" value="是" title="是" >
                                 <input type="radio" id="c10503" name="c10503"  value="不是" title="不是">
                             </td>
                         </tr>
@@ -226,7 +226,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="radio" id="c10601" name="c10601"  value="完全没有影响" title="完全没有影响" checked>
+                                <input type="radio" id="c10601" name="c10601"  value="完全没有影响" title="完全没有影响" >
                                 <input type="radio" id="c10601" name="c10601" value="有一点影响" title="有一点影响">
                                 <input type="radio" id="c10601" name="c10601" value="中等影响" title="中等影响">
                                 <input type="radio" id="c10601" name="c10601" value="影响很大" title="影响很大">
@@ -238,7 +238,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="radio" id="c10701" name="c10701" value="完全没有疼痛" title="完全没有疼痛" checked>
+                                <input type="radio" id="c10701" name="c10701" value="完全没有疼痛" title="完全没有疼痛" >
                                 <input type="radio" id="c10701" name="c10701" value="有一点疼痛" title="有一点疼痛">
                                 <input type="radio" id="c10701" name="c10701" value="中等疼痛" title="中等疼痛">
                                 <input type="radio" id="c10701" name="c10701" value="严重疼痛" title="严重疼痛">
@@ -250,7 +250,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="radio" id="c10801" name="c10801" value="完全没有影响" title="完全没有影响" checked>
+                                <input type="radio" id="c10801" name="c10801" value="完全没有影响" title="完全没有影响" >
                                 <input type="radio" id="c10801" name="c10801" value="有一点影响" title="有一点影响">
                                 <input type="radio" id="c10801" name="c10801" value="中等影响" title="中等影响">
                                 <input type="radio" id="c10801" name="c10801" value="影响很大" title="影响很大">
@@ -262,63 +262,63 @@
                         </tr>
                         <tr>
                             <td>（1）您觉得生活充实：
-                                <input type="radio" id="c10901" name="c10901" value="所有的时间" title="所有的时间" checked>
+                                <input type="radio" id="c10901" name="c10901" value="所有的时间" title="所有的时间" >
                                 <input type="radio" id="c10901" name="c10901" value="大部分时间" title="大部分时间">
                                 <input type="radio" id="c10901" name="c10901" value="比较多时间" title="比较多时间">
                                 <input type="radio" id="c10901" name="c10901" value="一部分时间" title="一部分时间">
                                 <input type="radio" id="c10901" name="c10901" value="小部分时间" title="小部分时间">
                                 <input type="radio" id="c10901" name="c10901" value="没有这种感觉" title="没有这种感觉">
                                 <br>（2）您是一个敏感的人：
-                                <input type="radio" id="c10902" name="c10902" value="所有的时间" title="所有的时间" checked>
+                                <input type="radio" id="c10902" name="c10902" value="所有的时间" title="所有的时间" >
                                 <input type="radio" id="c10902" name="c10902" value="大部分时间" title="大部分时间">
                                 <input type="radio" id="c10902" name="c10902" value="比较多时间" title="比较多时间">
                                 <input type="radio" id="c10902" name="c10902" value="一部分时间" title="一部分时间">
                                 <input type="radio" id="c10902" name="c10902" value="小部分时间" title="小部分时间">
                                 <input type="radio" id="c10902" name="c10902" value="没有这种感觉" title="没有这种感觉">
                                 <br>（3）您的情绪非常不好，什么事都不能使您高兴起来：
-                                <input type="radio" id="c10903" name="c10903" value="所有的时间" title="所有的时间" checked>
+                                <input type="radio" id="c10903" name="c10903" value="所有的时间" title="所有的时间" >
                                 <input type="radio" id="c10903" name="c10903" value="大部分时间" title="大部分时间">
                                 <input type="radio" id="c10903" name="c10903" value="比较多时间" title="比较多时间">
                                 <input type="radio" id="c10903" name="c10903" value="一部分时间" title="一部分时间">
                                 <input type="radio" id="c10903" name="c10903" value="小部分时间" title="小部分时间">
                                 <input type="radio" id="c10903" name="c10903" value="没有这种感觉" title="没有这种感觉">
                                 <br>（4）您的心理很平静：
-                                <input type="radio" id="c10904" name="c10904" value="所有的时间" title="所有的时间" checked>
+                                <input type="radio" id="c10904" name="c10904" value="所有的时间" title="所有的时间" >
                                 <input type="radio" id="c10904" name="c10904" value="大部分时间" title="大部分时间">
                                 <input type="radio" id="c10904" name="c10904" value="比较多时间" title="比较多时间">
                                 <input type="radio" id="c10904" name="c10904" value="一部分时间" title="一部分时间">
                                 <input type="radio" id="c10904" name="c10904" value="小部分时间" title="小部分时间">
                                 <input type="radio" id="c10904" name="c10904" value="没有这种感觉" title="没有这种感觉">
                                 <br>（5）您做事精力充沛：
-                                <input type="radio" id="c10905" name="c10905" value="所有的时间" title="所有的时间" checked>
+                                <input type="radio" id="c10905" name="c10905" value="所有的时间" title="所有的时间" >
                                 <input type="radio" id="c10905" name="c10905" value="大部分时间" title="大部分时间">
                                 <input type="radio" id="c10905" name="c10905" value="比较多时间" title="比较多时间">
                                 <input type="radio" id="c10905" name="c10905" value="一部分时间" title="一部分时间">
                                 <input type="radio" id="c10905" name="c10905" value="小部分时间" title="小部分时间">
                                 <input type="radio" id="c10905" name="c10905" value="没有这种感觉" title="没有这种感觉">
                                 <br>（6）您的情绪低落：
-                                <input type="radio" id="c10906" name="c10906" value="所有的时间" title="所有的时间" checked>
+                                <input type="radio" id="c10906" name="c10906" value="所有的时间" title="所有的时间" >
                                 <input type="radio" id="c10906" name="c10906" value="大部分时间" title="大部分时间">
                                 <input type="radio" id="c10906" name="c10906" value="比较多时间" title="比较多时间">
                                 <input type="radio" id="c10906" name="c10906" value="一部分时间" title="一部分时间">
                                 <input type="radio" id="c10906" name="c10906" value="小部分时间" title="小部分时间">
                                 <input type="radio" id="c10906" name="c10906" value="没有这种感觉" title="没有这种感觉">
                                 <br>（7）您觉得筋疲力尽：
-                                <input type="radio" id="c10907" name="c10907" value="所有的时间" title="所有的时间" checked>
+                                <input type="radio" id="c10907" name="c10907" value="所有的时间" title="所有的时间" >
                                 <input type="radio" id="c10907" name="c10907" value="大部分时间" title="大部分时间">
                                 <input type="radio" id="c10907" name="c10907" value="比较多时间" title="比较多时间">
                                 <input type="radio" id="c10907" name="c10907" value="一部分时间" title="一部分时间">
                                 <input type="radio" id="c10907" name="c10907" value="小部分时间" title="小部分时间">
                                 <input type="radio" id="c10907" name="c10907" value="没有这种感觉" title="没有这种感觉">
                                 <br>（8）您是个快乐的人：
-                                <input type="radio" id="c10908" name="c10908" value="所有的时间" title="所有的时间" checked>
+                                <input type="radio" id="c10908" name="c10908" value="所有的时间" title="所有的时间" >
                                 <input type="radio" id="c10908" name="c10908" value="大部分时间" title="大部分时间">
                                 <input type="radio" id="c10908" name="c10908" value="比较多时间" title="比较多时间">
                                 <input type="radio" id="c10908" name="c10908" value="一部分时间" title="一部分时间">
                                 <input type="radio" id="c10908" name="c10908" value="小部分时间" title="小部分时间">
                                 <input type="radio" id="c10908" name="c10908" value="没有这种感觉" title="没有这种感觉">
                                 <br>（9）您感觉厌烦：
-                                <input type="radio" id="c10909" name="c10909" value="所有的时间" title="所有的时间" checked>
+                                <input type="radio" id="c10909" name="c10909" value="所有的时间" title="所有的时间" >
                                 <input type="radio" id="c10909" name="c10909" value="大部分时间" title="大部分时间">
                                 <input type="radio" id="c10909" name="c10909" value="比较多时间" title="比较多时间">
                                 <input type="radio" id="c10909" name="c10909" value="一部分时间" title="一部分时间">
@@ -331,7 +331,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="radio" id="c11001" name="c11001"  value="所有的时间" title="所有的时间" checked>
+                                <input type="radio" id="c11001" name="c11001"  value="所有的时间" title="所有的时间" >
                                 <input type="radio" id="c11001" name="c11001" value="大部分时间" title="大部分时间">
                                 <input type="radio" id="c11001" name="c11001" value="比较多时间" title="比较多时间">
                                 <input type="radio" id="c11001" name="c11001" value="一部分时间" title="一部分时间">
@@ -344,25 +344,25 @@
                         </tr>
                         <tr>
                             <td>（1）我好象比别人容易生病：
-                                <input type="radio" id="c11101" name="c11101" value="绝对正确" title="绝对正确" checked>
+                                <input type="radio" id="c11101" name="c11101" value="绝对正确" title="绝对正确" >
                                 <input type="radio" id="c11101" name="c11101" value="大部分正确" title="大部分正确">
                                 <input type="radio" id="c11101" name="c11101" value="不能肯定" title="不能肯定">
                                 <input type="radio" id="c11101" name="c11101" value="大部分错误" title="大部分错误">
                                 <input type="radio" id="c11101" name="c11101" value="绝对错误" title="绝对错误">
                                 <br>（2）我跟周围人一样健康：
-                                <input type="radio" id="c11102" name="c11102" value="绝对正确" title="绝对正确" checked>
+                                <input type="radio" id="c11102" name="c11102" value="绝对正确" title="绝对正确" >
                                 <input type="radio" id="c11102" name="c11102" value="大部分正确" title="大部分正确">
                                 <input type="radio" id="c11102" name="c11102" value="不能肯定" title="不能肯定">
                                 <input type="radio" id="c11102" name="c11102" value="大部分错误" title="大部分错误">
                                 <input type="radio" id="c11102" name="c11102" value="绝对错误" title="绝对错误">
                                 <br>（3）我认为我的健康状况在变坏：
-                                <input type="radio" id="c11103" name="c11103" value="绝对正确" title="绝对正确" checked>
+                                <input type="radio" id="c11103" name="c11103" value="绝对正确" title="绝对正确" >
                                 <input type="radio" id="c11103" name="c11103" value="大部分正确" title="大部分正确">
                                 <input type="radio" id="c11103" name="c11103" value="不能肯定" title="不能肯定">
                                 <input type="radio" id="c11103" name="c11103" value="大部分错误" title="大部分错误">
                                 <input type="radio" id="c11103" name="c11103" value="绝对错误" title="绝对错误">
                                 <br>（4）我的健康状况非常好：
-                                <input type="radio" id="c11104" name="c11104" value="绝对正确" title="绝对正确" checked>
+                                <input type="radio" id="c11104" name="c11104" value="绝对正确" title="绝对正确" >
                                 <input type="radio" id="c11104" name="c11104" value="大部分正确" title="大部分正确">
                                 <input type="radio" id="c11104" name="c11104" value="不能肯定" title="不能肯定">
                                 <input type="radio" id="c11104" name="c11104" value="大部分错误" title="大部分错误">

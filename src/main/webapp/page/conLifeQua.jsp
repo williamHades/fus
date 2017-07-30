@@ -128,7 +128,7 @@
 						<tbody>
 							<tr>
 								<td align="left">1.感到腹胀？</td>
-								<td align="center"><input type="radio" id="c1001" name="c1001" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1001" name="c1001" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1001" name="c1001" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1001" name="c1001" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1001" name="c1001" value="4" title="4"></td>
@@ -136,7 +136,7 @@
 							</tr>
 							<tr>
 								<td align="left">2.感到身重？</td>
-								<td align="center"><input type="radio" id="c1002" name="c1002" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1002" name="c1002" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1002" name="c1002" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1002" name="c1002" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1002" name="c1002" value="4" title="4"></td>
@@ -158,7 +158,7 @@
 						<tbody>
 							<tr>
 								<td align="left">3.感到身体不舒服？</td>
-								<td align="center"><input type="radio" id="c1003" name="c1003" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1003" name="c1003" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1003" name="c1003" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1003" name="c1003" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1003" name="c1003" value="4" title="4"></td>
@@ -166,7 +166,7 @@
 							</tr>
 							<tr>
 								<td align="left">4.有便意但排便困难？</td>
-								<td align="center"><input type="radio" id="c1004" name="c1004" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1004" name="c1004" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1004" name="c1004" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1004" name="c1004" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1004" name="c1004" value="4" title="4"></td>
@@ -174,7 +174,7 @@
 							</tr>
                             <tr>
 								<td align="left">5.与他人在一起感到不自在？</td>
-								<td align="center"><input type="radio" id="c1005" name="c1005" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1005" name="c1005" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1005" name="c1005" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1005" name="c1005" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1005" name="c1005" value="4" title="4"></td>
@@ -182,7 +182,7 @@
 							</tr>
 							<tr>
 								<td align="left">6.因为便秘吃的越来越少吗？</td>
-								<td align="center"><input type="radio" id="c1006" name="c1006" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1006" name="c1006" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1006" name="c1006" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1006" name="c1006" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1006" name="c1006" value="4" title="4"></td>
@@ -204,7 +204,7 @@
 						<tbody>
 							<tr>
 								<td align="left">7.必须关心吃什么</td>
-								<td align="center"><input type="radio" id="c1007" name="c1007" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1007" name="c1007" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1007" name="c1007" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1007" name="c1007" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1007" name="c1007"" value="4" title="4"></td>
@@ -212,7 +212,7 @@
 							</tr>
 							<tr>
 								<td align="left">8.食欲下降</td>
-								<td align="center"><input type="radio" id="c1008" name="c1008" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1008" name="c1008" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1008" name="c1008" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1008" name="c1008" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1008" name="c1008" value="4" title="4"></td>
@@ -220,7 +220,7 @@
 							</tr>
                             <tr>
 								<td align="left">9.担心不能随意选择食物（如在朋友家）</td>
-								<td align="center"><input type="radio" id="c1009" name="c1009" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1009" name="c1009" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1009" name="c1009" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1009" name="c1009" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1009" name="c1009" value="4" title="4"></td>
@@ -228,7 +228,7 @@
 							</tr>
 							<tr>
 								<td align="left">10.出门在外，因在卫生间时间太长而感到不自在</td>
-								<td align="center"><input type="radio" id="c1010" name="c1010" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1010" name="c1010" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1010" name="c1010" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1010" name="c1010" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1010" name="c1010" value="4" title="4"></td>
@@ -236,7 +236,7 @@
 							</tr>
                             <tr>
 								<td align="left">11.出门在外，因频繁去卫生间感到不自在</td>
-								<td align="center"><input type="radio" id="c1011" name="c1011" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1011" name="c1011" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1011" name="c1011" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1011" name="c1011" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1011" name="c1011" value="4" title="4"></td>
@@ -244,7 +244,7 @@
 							</tr>
                             <tr>
 								<td align="left">12.总是担心改变生活习惯（如旅行、外出门等）</td>
-								<td align="center"><input type="radio" id="c1012" name="c1012" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1012" name="c1012" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1012" name="c1012" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1012" name="c1012" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1012" name="c1012" value="4" title="4"></td>
@@ -266,7 +266,7 @@
 						<tbody>
 							<tr>
 								<td align="left">13.感到烦躁易怒</td>
-								<td align="center"><input type="radio" id="c1013" name="c1013" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1013" name="c1013" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1013" name="c1013" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1013" name="c1013" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1013" name="c1013" value="4" title="4"></td>
@@ -274,7 +274,7 @@
 							</tr>
 							<tr>
 								<td align="left">14.感到不安</td>
-								<td align="center"><input type="radio" id="c1014" name="c1014" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1014" name="c1014" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1014" name="c1014" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1014" name="c1014" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1014" name="c1014" value="4" title="4"></td>
@@ -282,7 +282,7 @@
 							</tr>
                             <tr>
 								<td align="left">15.总是困扰 </td>
-								<td align="center"><input type="radio" id="c1015" name="c1015" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1015" name="c1015" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1015" name="c1015" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1015" name="c1015" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1015" name="c1015" value="4" title="4"></td>
@@ -290,7 +290,7 @@
 							</tr>
 							<tr>
 								<td align="left">16.感到紧张</td>
-								<td align="center"><input type="radio" id="c1016" name="c1016" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1016" name="c1016" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1016" name="c1016" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1016" name="c1016" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1016" name="c1016" value="4" title="4"></td>
@@ -298,7 +298,7 @@
 							</tr>
                             <tr>
 								<td align="left">17.感到缺乏自信</td>
-								<td align="center"><input type="radio" id="c1017" name="c1017" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1017" name="c1017" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1017" name="c1017" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1017" name="c1017" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1017" name="c1017" value="4" title="4"></td>
@@ -306,7 +306,7 @@
 							</tr>
                             <tr>
 								<td align="left">18.感到生活失去控</td>
-								<td align="center"><input type="radio" id="c1018" name="c1018" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1018" name="c1018" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1018" name="c1018" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1018" name="c1018" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1018" name="c1018" value="4" title="4"></td>
@@ -328,7 +328,7 @@
 						<tbody>
 							<tr>
 								<td align="left">19.为不知何时排便而担心</td>
-								<td align="center"><input type="radio" id="c1019" name="c1019" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1019" name="c1019" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1019" name="c1019" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1019" name="c1019" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1019" name="c1019" value="4" title="4"></td>
@@ -336,7 +336,7 @@
 							</tr>
 							<tr>
 								<td align="left">20.担心不能够排便</td>
-								<td align="center"><input type="radio" id="c1020" name="c1020" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1020" name="c1020" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1020" name="c1020" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1020" name="c1020" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1020" name="c1020" value="4" title="4"></td>
@@ -344,7 +344,7 @@
 							</tr>
                             <tr>
 								<td align="left">21.因不排便而影响生活</td>
-								<td align="center"><input type="radio" id="c1021" name="c1021" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1021" name="c1021" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1021" name="c1021" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1021" name="c1021" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1021" name="c1021" value="4" title="4"></td>
@@ -366,7 +366,7 @@
 						<tbody>
 							<tr>
 								<td align="left">22.担心情况越来越糟</td>
-								<td align="center"><input type="radio" id="c1022" name="c1022" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1022" name="c1022" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1022" name="c1022" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1022" name="c1022" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1022" name="c1022" value="4" title="4"></td>
@@ -374,7 +374,7 @@
 							</tr>
 							<tr>
 								<td align="left">23.感到身体不能工作</td>
-								<td align="center"><input type="radio" id="c1023" name="c1023" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1023" name="c1023" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1023" name="c1023" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1023" name="c1023" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1023" name="c1023" value="4" title="4"></td>
@@ -382,7 +382,7 @@
 							</tr>
                             <tr>
 								<td align="left">24.大便次数比想象的要少</td>
-								<td align="center"><input type="radio" id="c1024" name="c1024" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1024" name="c1024" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1024" name="c1024" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1024" name="c1024" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1024" name="c1024" value="4" title="4"></td>
@@ -404,7 +404,7 @@
 						<tbody>
 							<tr>
 								<td align="left">25.对大便次数满意吗意？</td>
-								<td align="center"><input type="radio" id="c1025" name="c1025" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1025" name="c1025" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1025" name="c1025" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1025" name="c1025" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1025" name="c1025" value="4" title="4"></td>
@@ -412,7 +412,7 @@
 							</tr>
 							<tr>
 								<td align="left">26.对大便规律满意吗？</td>
-								<td align="center"><input type="radio" id="c1026" name="c1026" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1026" name="c1026" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1026" name="c1026" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1026" name="c1026" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1026" name="c1026" value="4" title="4"></td>
@@ -420,7 +420,7 @@
 							</tr>
                             <tr>
 								<td align="left">27.对事物经过肠道的时间满意吗？</td>
-								<td align="center"><input type="radio" id="c1027" name="c1027" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1027" name="c1027" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1027" name="c1027" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1027" name="c1027" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1027" name="c1027" value="4" title="4"></td>
@@ -428,7 +428,7 @@
 							</tr>
                             <tr>
 								<td align="left">28.对以往治疗满意吗？</td>
-								<td align="center"><input type="radio" id="c1028" name="c1028" value="1" title="1" checked></td>
+								<td align="center"><input type="radio" id="c1028" name="c1028" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="c1028" name="c1028" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="c1028" name="c1028" value="3" title="3" ></td>
 								<td align="center"><input type="radio" id="c1028" name="c1028" value="4" title="4"></td>

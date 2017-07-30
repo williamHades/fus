@@ -60,76 +60,76 @@
 	                    	<div class="layui-inline">
 								<label class="layui-form-label"><span class="red">*</span>病历号：</label>
 								<div class="layui-input-block" >
-									<input type="text" id="patientNo" name="patientNo" placeholder="请输入病历号" autocomplete="on" class="layui-input">
+									<input type="text" id="patientNo" name="patientNo" placeholder="请输入病历号" class="layui-input">
 								</div>
 							</div>
 							<div class="layui-inline">
 								<label class="layui-form-label"><span class="red">*</span> 编号：</label>
 								<div class="layui-input-block" >
-									 <input type="text" id="patientId" name="patientId" lay-verify="cardID" autocomplete="off" placeholder="请输入就诊卡号" class="layui-input">
+									 <input type="text" id="patientId" name="patientId"  placeholder="请输入就诊卡号" class="layui-input">
 	                        	</div>
 							</div>
 						</div>
 	                    <div class="layui-form-item">
 	                        <label class="layui-form-label"><span class="red">*</span> 患者姓名：</label>
 	                        <div class="layui-input-block">
-	                            <input type="text" id="patientName" name="patientName" lay-verify="name" autocomplete="off" placeholder="请输入患者姓名" class="layui-input">
+	                            <input type="text" id="patientName" name="patientName"  placeholder="请输入患者姓名" class="layui-input">
 	                        </div>
 						</div>
 	                    <div class="layui-form-item">
 	                        <label class="layui-form-label">性别：</label>
 	                        <div class="layui-input-block">
-	                            <input type="radio" id="patientSex" name="patientSex" value="1" 	title="男"  checked>
-	                            <input type="radio" id="patientSex" name="patientSex" value="2" 	title="女">
+	                            <input type="radio" id="patientSex" name="patientSex" value="1" 	title="男"  >
+	                            <input type="radio" id="patientSex" name="patientSex" value="2" 	title="女"  >
 	                        </div>
 						</div>
 	                    <div class="layui-form-item">
 	                        <label class="layui-form-label">年龄：</label>
 	                        <div class="layui-input-block">
-	                            <input type="text" id="patientAge" name="patientAge" lay-verify="age" autocomplete="off" placeholder="请输入患者年龄" class="layui-input">
+	                            <input type="text" id="patientAge" name="patientAge" lay-verify="age" placeholder="请输入患者年龄" class="layui-input">
 	                        </div>
 						</div>
 	                    <div class="layui-form-item">
 	                        <label class="layui-form-label">联系方式：</label>
 	                        <div class="layui-input-block">
-	                            <input type="text" id="patientContact" name="patientContact" lay-verify="phone" placeholder="请输入联系方式" autocomplete="off" class="layui-input">
+	                            <input type="text" id="patientContact" name="patientContact" lay-verify="phone" placeholder="请输入联系方式" class="layui-input">
 	                        </div>
 						</div>
 		                <div class="layui-form-item">
 							<label class="layui-form-label">职业：</label>
 								<div class="layui-input-block" >
-									<input type="text" id="patientCareer" name="patientCareer" placeholder="请输入职业" autocomplete="off" class="layui-input">
+									<input type="text" id="patientCareer" name="patientCareer" placeholder="请输入职业" class="layui-input">
 								</div>
 						</div>
 		                <div class="layui-form-item">
 							<label class="layui-form-label">现住址：</label>
 							<div class="layui-input-block">
-								<input type="text" id="siteHome" name="siteHome" lay-verify="add" autocomplete="off" placeholder="请输入住址" class="layui-input">
+								<input type="text" id="siteHome" name="siteHome" lay-verify="add" placeholder="请输入住址" class="layui-input">
 							</div>
 						</div>
 		                <div class="layui-form-item">
 							<label class="layui-form-label">工作单位：</label>
 							<div class="layui-input-block">
-								<input type="text" id="siteWork" name="siteWork" lay-verify="add" autocomplete="off" placeholder="请输入工作单位" class="layui-input">
+								<input type="text" id="siteWork" name="siteWork" lay-verify="add" placeholder="请输入工作单位" class="layui-input">
 							</div>
 						</div>
 		                <div class="layui-form-item">
 							<label class="layui-form-label">教育程度：</label>
 							<div class="layui-input-block">
-								<input type="radio" id="patientEducation" name="patientEducation" value="1" 	title="小学" checked="">
-								<input type="radio" id="patientEducation" name="patientEducation" value="2" 	title="初中">
-								<input type="radio" id="patientEducation" name="patientEducation" value="3" 	title="高中或中专">
-		                        <input type="radio" id="patientEducation" name="patientEducation" value="4" 	title="大专">
-								<input type="radio" id="patientEducation" name="patientEducation" value="5" 	title="大学及以上" >
+								<input type="radio" id="patientEducation" name="patientEducation" value="1" 	title="小学"  >
+								<input type="radio" id="patientEducation" name="patientEducation" value="2" 	title="初中"  >
+								<input type="radio" id="patientEducation" name="patientEducation" value="3" 	title="高中或中专"  >
+		                        <input type="radio" id="patientEducation" name="patientEducation" value="4" 	title="大专"  >
+								<input type="radio" id="patientEducation" name="patientEducation" value="5" 	title="大学及以上"  >
 							</div>
 						</div>
 		                <div class="layui-form-item">
 							<div class="layui-inline">
 								<label class="layui-form-label">婚姻状况：</label>
 								<div class="layui-input-inline" style="width:250px">
-									<input type="radio" id="patientMarried" name="patientMarried" value="1" title="已婚" checked="">
-		                        	<input type="radio" id="patientMarried" name="patientMarried" value="2" title="未婚">
-									<input type="radio" id="patientMarried" name="patientMarried" value="3" title="离婚">
+									<input type="radio" id="patientMarried" name="patientMarried" value="1" title="已婚"  >
+		                        	<input type="radio" id="patientMarried" name="patientMarried" value="2" title="未婚"  >
+									<input type="radio" id="patientMarried" name="patientMarried" value="3" title="离婚"  >
 								</div>
 							</div>
 						</div>
@@ -137,19 +137,19 @@
 							<div class="layui-inline">
 								<label class="layui-form-label">子女：</label>
 								<div class="layui-input-inline" style="width:250px">
-									<input type="radio" id="patientChild" name="patientChild" value="1" title="有" checked="">
-		                        	<input type="radio" id="patientChild" name="patientChild" value="2" title="无">
+									<input type="radio" id="patientChild" name="patientChild" value="1" title="有"  >
+		                        	<input type="radio" id="patientChild" name="patientChild" value="2" title="无"  >
 								</div>
 							</div>
 						</div>
 		                <div class="layui-form-item">
 							<label class="layui-form-label">家庭经济情况：</label>
 							<div class="layui-input-block">
-								<input type="radio" id="patientEconomy" name="patientEconomy" value="1" title="很好" checked="">
-								<input type="radio" id="patientEconomy" name="patientEconomy" value="2" title="好">
-								<input type="radio" id="patientEconomy" name="patientEconomy" value="3" title="一般">
-		                        <input type="radio" id="patientEconomy" name="patientEconomy" value="4" title="差">
-								<input type="radio" id="patientEconomy" name="patientEconomy" value="5" title="很差">
+								<input type="radio" id="patientEconomy" name="patientEconomy" value="1" title="很好"  >
+								<input type="radio" id="patientEconomy" name="patientEconomy" value="2" title="好"  >
+								<input type="radio" id="patientEconomy" name="patientEconomy" value="3" title="一般"  >
+		                        <input type="radio" id="patientEconomy" name="patientEconomy" value="4" title="差"  >
+								<input type="radio" id="patientEconomy" name="patientEconomy" value="5" title="很差"  >
 							</div>
 						</div>
 						<div class="layui-form-item">
@@ -322,20 +322,28 @@
         				}else if(key =="patientSex"){
         					$("input[name=patientSex][value="+data.patientSex+"]").prop("checked",true);//value=34的radio被选中
         				}else if(key =="patientEducation"){
-        					$("input[name=patientEducation][value="+data.patientEducation+"]").prop("checked",true);//value=34的radio被选中
+        					if(data.patientEducation!=""){
+        						$("input[name=patientEducation][value="+data.patientEducation+"]").prop("checked",true);//value=34的radio被选中
+        					}
         				}else if(key =="patientMarried"){
-        					$("input[name=patientMarried][value="+data.patientMarried+"]").prop("checked",true);//value=34的radio被选中
+        					if(data.patientMarried!=""){
+        						$("input[name=patientMarried][value="+data.patientMarried+"]").prop("checked",true);//value=34的radio被选中
+        					}
         				}else if(key =="patientChild"){
-        					$("input[name=patientChild][value="+data.patientChild+"]").prop("checked",true);//value=34的radio被选中
+        					if(data.patientChild!=""){
+        						$("input[name=patientChild][value="+data.patientChild+"]").prop("checked",true);//value=34的radio被选中
+        					}
         				}else if(key =="patientEconomy"){
-        					$("input[name=patientEconomy][value="+data.patientEconomy+"]").prop("checked",true);//value=34的radio被选中
+        					if(data.patientEconomy!=""){
+        						$("input[name=patientEconomy][value="+data.patientEconomy+"]").prop("checked",true);//value=34的radio被选中
+        					}
         				}else{
         					$("#"+key).val(data[key]);
         				}
 				    }
 				    if(data.patientGroup==2){
-				    	$("#con").show();
-				    	$("#ger").hide();
+				    	$("#con").hide();
+				    	$("ger").show();
 				    	//alert("check 2");
 				    	//$("#patientGroup").removeAttr('checked'); 
 				    	$("input[id=patientGroup][value=2]").prop("checked",true);//value=34的radio被选中
@@ -343,8 +351,8 @@
 				    	form.render('radio');
 				    	//alert(data.patientGroup);
 				    }else{
-				    	$("#con").hide();
-				    	$("ger").show();
+				    	$("#con").show();
+				    	$("#ger").hide();
 				    	$("input[id=patientGroup][value=1]").prop("checked",true);//value=34的radio被选中
 				    	$("#patientGroup").val(1);
 				    	form.render('radio');

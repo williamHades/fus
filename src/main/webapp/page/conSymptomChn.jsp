@@ -123,84 +123,84 @@
 						<tbody>
 							<tr>
 								<td align="center" class="layui-form-bg-gray">便次</td>
-								<td><input type="radio" id="stoolTimes"name="stoolTimes" value="1" title="0分" checked> </td>
-								<td><input type="radio" id="stoolTimes"name="stoolTimes" value="2" title="2-3日一行" > </td>
-								<td><input type="radio" id="stoolTimes"name="stoolTimes" value="3" title="4-6日一行" > </td>
-								<td><input type="radio" id="stoolTimes"name="stoolTimes" value="4" title="≥7日一行"> </td>
+								<td><input type="radio" id="stoolTimes"name="stoolTimes" value="1" title="0分"  > </td>
+								<td><input type="radio" id="stoolTimes"name="stoolTimes" value="2" title="2-3日一行"  > </td>
+								<td><input type="radio" id="stoolTimes"name="stoolTimes" value="3" title="4-6日一行"  > </td>
+								<td><input type="radio" id="stoolTimes"name="stoolTimes" value="4" title="≥7日一行"   > </td>
 							</tr>
 							<tr>
 								<td align="center" class="layui-form-bg-gray">粪质</td>
-								<td><input type="radio" id="stoolType" name="stoolType" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="stoolType" name="stoolType" value="1" title="0分"  >&nbsp;</td>
 								<td><input type="radio" id="stoolType" name="stoolType" value="2" title="大便偏干" > </td>
 								<td><input type="radio" id="stoolType" name="stoolType" value="3" title="大便坚实" > </td>
 								<td><input type="radio" id="stoolType" name="stoolType" value="4" title="大便干燥如羊屎"> </td>
 							</tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">畏寒</td>
-								<td><input type="radio" id="coldAfraid" name="coldAfraid" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="coldAfraid" name="coldAfraid" value="1" title="0分"  >&nbsp;</td>
 								<td><input type="radio" id="coldAfraid" name="coldAfraid" value="2" title="偶发，微有畏寒，四肢不温" > </td>
 								<td><input type="radio" id="coldAfraid" name="coldAfraid" value="3" title="常发，面色清白，四肢发冷，得暖方舒" > </td>
 								<td><input type="radio" id="coldAfraid" name="coldAfraid" value="4" title="终日畏寒，面色苍白，四肢厥冷，腠缩身蜷，厚衣拥护，得温不解"> </td>
 							</tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">四肢冰凉</td>
-								<td><input type="radio" id="coldClimb" name="coldClimb" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="coldClimb" name="coldClimb" value="1" title="0分"  >&nbsp;</td>
 								<td><input type="radio" id="coldClimb" name="coldClimb" value="2" title="感觉踝腕关节以下冷，触摸皮温无明显变化" > </td>
 								<td><input type="radio" id="coldClimb" name="coldClimb" value="3" title="感觉肘膝关节以下冷，触摸皮温略低" > </td>
 								<td><input type="radio" id="coldClimb" name="coldClimb" value="4" title="感觉冷至肘膝关节以上，触摸皮温明显降低"> </td>
 							</tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">肢体困重</td>
-								<td><input type="radio" id="heaveLimb" name="heaveLimb" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="heaveLimb" name="heaveLimb" value="1" title="0分"  >&nbsp;</td>
 								<td><input type="radio" id="heaveLimb" name="heaveLimb" value="2" title="肢体发重，有困束感，活动乏力" > </td>
 								<td><input type="radio" id="heaveLimb" name="heaveLimb" value="3" title="肢体重滞，困束感明显，活动费力" > </td>
 								<td><input type="radio" id="heaveLimb" name="heaveLimb" value="4" title="肢体困重，活动极感费力"> </td>
 							</tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">口臭</td>
-								<td><input type="radio" id="halitosis" name="halitosis" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="halitosis" name="halitosis" value="1" title="0分"  >&nbsp;</td>
 								<td><input type="radio" id="halitosis" name="halitosis" value="2" title="口中出气稍有臭秽，他人靠近可闻觉，自己未觉" > </td>
 								<td><input type="radio" id="halitosis" name="halitosis" value="3" title="口中出气臭秽，他人稍靠近便可闻觉" > </td>
 								<td><input type="radio" id="halitosis" name="halitosis" value="4" title="口中出气臭秽，他人在较远距离及自我可闻觉"> </td>
 							</tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">口干</td>
-								<td><input type="radio" id="thirsty" name="thirsty" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="thirsty" name="thirsty" value="1" title="0分"  >&nbsp;</td>
 								<td><input type="radio" id="thirsty" name="thirsty" value="2" title="唾液减少，口腔偏干，可不饮水" > </td>
 								<td><input type="radio" id="thirsty" name="thirsty" value="3" title="唾液明显减少，口腔发干，稍欲饮水" > </td>
 								<td><input type="radio" id="thirsty" name="thirsty" value="4" title="唾液甚少，口腔黏膜身甚干燥，常欲饮水"> </td>
 							</tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">纳差</td>
-								<td><input type="radio" id="poorAppetite" name="poorAppetite" value="1" title="食欲欠佳，但基本保持原食量" checked> </td>
+								<td><input type="radio" id="poorAppetite" name="poorAppetite" value="1" title="食欲欠佳，但基本保持原食量"  > </td>
 								<td><input type="radio" id="poorAppetite" name="poorAppetite" value="2" title="食欲减退，食量减1/3" > </td>
 								<td><input type="radio" id="poorAppetite" name="poorAppetite" value="3" title="不思饮食，食量减1/2以上" > </td>
 								<td><input type="radio" id="poorAppetite" name="poorAppetite" value="4" title="食欲欠佳，但基本保持原食量"> </td>
 							</tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">疲乏</td>
-								<td><input type="radio" id="wary" name="wary" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="wary" name="wary" value="1" title="0分"  >&nbsp;</td>
 								<td><input type="radio" id="wary" name="wary" value="2" title="精神不振，不喜多言，但能坚持工作或学习" > </td>
 								<td><input type="radio" id="wary" name="wary" value="3" title="精神疲惫，困倦少言，工作或学习能力下降" > </td>
 								<td><input type="radio" id="wary" name="wary" value="4" title="精神极度疲乏，倦卧少言，几乎不能工作学习"> </td>
 							</tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">懒言</td>
-								<td><input type="radio" id="poorTalk" name="poorTalk" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="poorTalk" name="poorTalk" value="1" title="0分"  >&nbsp;</td>
 								<td><input type="radio" id="poorTalk" name="poorTalk" value="2" title="表情言谈减少，不喜多言，不问不答" > </td>
 								<td><input type="radio" id="poorTalk" name="poorTalk" value="3" title="表情沉默，懒于言语，多问少答" > </td>
 								<td><input type="radio" id="poorTalk" name="poorTalk" value="4" title="偶语甚至终日无语，问而不答"> </td>
 							</tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">五心烦热</td>
-								<td><input type="radio" id="allHot" name="allHot" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="allHot" name="allHot" value="1" title="0分"  >&nbsp;</td>
 								<td><input type="radio" id="allHot" name="allHot" value="2" title="心中微烦，手足心微热，或为偶发" > </td>
 								<td><input type="radio" id="allHot" name="allHot" value="3" title="心烦较甚，手足心发热，且有面热、口渴等症" > </td>
 								<td><input type="radio" id="allHot" name="allHot" value="4" title="心神烦躁，手足心发烫，多伴易怒、面赤等症"> </td>
 							</tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">善太息</td>
-								<td><input type="radio" id="distress" name="distress" value="1" title="0分" checked></td>
+								<td><input type="radio" id="distress" name="distress" value="1" title="0分"  ></td>
 								<td><input type="radio" id="distress" name="distress" value="2" title="胸脘痞闷，似欲太息，≤5次/日" ></td>
 								<td><input type="radio" id="distress" name="distress" value="3" title="胸脘痞闷，太息方舒，5-10次/日" > </td>
 								<td><input type="radio" id="distress" name="distress" value="4" title="胸脘痞闷，时欲太息，＞10次/日"> </td>

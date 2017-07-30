@@ -130,7 +130,7 @@
 							<tr>
 								<td rowspan="2" align="center">粪便性状</td>
 								<td align="center">粪质坚硬</td>
-                                <td align="center"><input type="radio" id="stoolSolid" name="stoolSolid" value="0" title="0"checked></td>
+                                <td align="center"><input type="radio" id="stoolSolid" name="stoolSolid" value="0" title="0"></td>
 								<td align="center"><input type="radio" id="stoolSolid" name="stoolSolid" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="stoolSolid" name="stoolSolid" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="stoolSolid" name="stoolSolid" value="3" title="3" ></td>
@@ -139,7 +139,7 @@
 							</tr>
 							<tr>
 							  <td align="center">粪量少</td>
-								<td align="center"><input type="radio" id="stoolNumLess" name="stoolNumLess" value="0" title="0"checked></td>
+								<td align="center"><input type="radio" id="stoolNumLess" name="stoolNumLess" value="0" title="0"></td>
 								<td align="center"><input type="radio" id="stoolNumLess" name="stoolNumLess" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="stoolNumLess" name="stoolNumLess" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="stoolNumLess" name="stoolNumLess" value="3" title="3" ></td>
@@ -148,7 +148,7 @@
                             <tr>
 								<td rowspan="7" align="center">直肠症状</td>
 								<td align="center">排便次数减少</td>
-								<td align="center"><input type="radio" id="stoolTimesLess" name="stoolTimesLess" value="0" title="0"checked></td>
+								<td align="center"><input type="radio" id="stoolTimesLess" name="stoolTimesLess" value="0" title="0"></td>
 								<td align="center"><input type="radio" id="stoolTimesLess" name="stoolTimesLess" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="stoolTimesLess" name="stoolTimesLess" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="stoolTimesLess" name="stoolTimesLess" value="3" title="3" ></td>
@@ -156,7 +156,7 @@
 							</tr>
 							<tr>
 							  <td align="center">排便费力</td>
-							  <td align="center"><input type="radio" id="stoolHard" name="stoolHard" value="0" title="0"checked></td>
+							  <td align="center"><input type="radio" id="stoolHard" name="stoolHard" value="0" title="0"></td>
 							  <td align="center"><input type="radio" id="stoolHard" name="stoolHard" value="1" title="1" ></td>
 							  <td align="center"><input type="radio" id="stoolHard" name="stoolHard" value="2" title="2" ></td>
 							  <td align="center"><input type="radio" id="stoolHard" name="stoolHard" value="3" title="3" ></td>
@@ -164,7 +164,7 @@
 						  </tr>
 							<tr>
 							  <td align="center">排便疼痛</td>
-							  <td align="center"><input type="radio"   id="stoolHurt" name="stoolHurt" value="0" title="0"checked></td>
+							  <td align="center"><input type="radio"   id="stoolHurt" name="stoolHurt" value="0" title="0"></td>
 								<td align="center"><input type="radio" id="stoolHurt" name="stoolHurt" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="stoolHurt" name="stoolHurt" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="stoolHurt" name="stoolHurt" value="3" title="3" ></td>
@@ -172,7 +172,7 @@
 						  </tr>
 							<tr>
 							  <td align="center">排便 不尽感</td>
-							  <td align="center"><input type="radio" id="stoolEndless" name="stoolEndless" value="0" title="0"checked></td>
+							  <td align="center"><input type="radio" id="stoolEndless" name="stoolEndless" value="0" title="0"></td>
 								<td align="center"><input type="radio" id="stoolEndless" name="stoolEndless" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="stoolEndless" name="stoolEndless" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="stoolEndless" name="stoolEndless" value="3" title="3" ></td>
@@ -180,7 +180,7 @@
 						  </tr>
 							<tr>
 							  <td align="center">有便意而难以排出</td>
-							  <td align="center"><input type="radio" id="stoolHardOut" name="stoolHardOut" value="0" title="0"checked></td>
+							  <td align="center"><input type="radio" id="stoolHardOut" name="stoolHardOut" value="0" title="0"></td>
 								<td align="center"><input type="radio" id="stoolHardOut" name="stoolHardOut" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="stoolHardOut" name="stoolHardOut" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="stoolHardOut" name="stoolHardOut" value="3" title="3" ></td>
@@ -188,7 +188,7 @@
 						  </tr>
 							<tr>
 							  <td align="center">直肠出 血或撕裂</td>
-							  <td align="center"><input type="radio" id="hemoproctia" name="hemoproctia" value="0" title="0"checked></td>
+							  <td align="center"><input type="radio" id="hemoproctia" name="hemoproctia" value="0" title="0"></td>
 								<td align="center"><input type="radio" id="hemoproctia" name="hemoproctia" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="hemoproctia" name="hemoproctia" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="hemoproctia" name="hemoproctia" value="3" title="3" ></td>
@@ -196,7 +196,7 @@
 						  </tr>
 							<tr>
 							  <td align="center">直肠烧灼感</td>
-								<td align="center"><input type="radio" id="rectalBurning" name="rectalBurning" value="0" title="0"checked></td>
+								<td align="center"><input type="radio" id="rectalBurning" name="rectalBurning" value="0" title="0"></td>
 								<td align="center"><input type="radio" id="rectalBurning" name="rectalBurning" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="rectalBurning" name="rectalBurning" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="rectalBurning" name="rectalBurning" value="3" title="3" ></td>
@@ -205,7 +205,7 @@
                             <tr>
 								<td rowspan="3" align="center">腹部症状</td>
 								<td align="center">胃痛</td>
-								<td align="center"><input type="radio" id="stomachache" name="stomachache" value="0" title="0"checked></td>
+								<td align="center"><input type="radio" id="stomachache" name="stomachache" value="0" title="0"></td>
 								<td align="center"><input type="radio" id="stomachache" name="stomachache" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="stomachache" name="stomachache" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="stomachache" name="stomachache" value="3" title="3" ></td>
@@ -213,7 +213,7 @@
 							</tr>
 							<tr>
 							  <td align="center">腹部痉挛 疼痛</td>
-							  <td align="center"><input type="radio" id="cramping" name="cramping" value="0" title="0"checked></td>
+							  <td align="center"><input type="radio" id="cramping" name="cramping" value="0" title="0"></td>
 								<td align="center"><input type="radio" id="cramping" name="cramping" value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="cramping" name="cramping" value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="cramping" name="cramping" value="3" title="3" ></td>
@@ -221,7 +221,7 @@
 						  </tr>
 							<tr>
 							  <td align="center">腹部胀满</td>
-							  <td align="center"><input type="radio" id="turgor" name="turgor" value="0" title="0"checked></td>
+							  <td align="center"><input type="radio" id="turgor" name="turgor" value="0" title="0"></td>
 								<td align="center"><input type="radio" id="turgor" name="turgor"  value="1" title="1" ></td>
 								<td align="center"><input type="radio" id="turgor" name="turgor"  value="2" title="2" ></td>
 								<td align="center"><input type="radio" id="turgor" name="turgor"  value="3" title="3" ></td>

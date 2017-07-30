@@ -97,7 +97,7 @@
 							<tr>
 								<td align="center" class="layui-form-bg-gray">反酸</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
-								<td><input type="radio" id="sourRegurgitation" name="sourRegurgitation" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="sourRegurgitation" name="sourRegurgitation" value="1" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="sourRegurgitation" name="sourRegurgitation" value="2" title="偶有，&lt;4次/日" ></td>
 								<td><input type="radio" id="sourRegurgitation" name="sourRegurgitation" value="3" title="时有，4-10次/日" ></td>
 								<td><input type="radio" id="sourRegurgitation" name="sourRegurgitation" value="4" title="频频，&gt;10次/日" ></td>
@@ -105,7 +105,7 @@
 							<tr>
 								<td align="center" class="layui-form-bg-gray">嗳气</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
-								<td><input type="radio" id="ructusTimes" name="ructusTimes" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="ructusTimes" name="ructusTimes" value="1" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="ructusTimes" name="ructusTimes" value="2" title="偶有，&lt;4次/日"></td>
 								<td><input type="radio" id="ructusTimes" name="ructusTimes" value="3" title="时有，4-10次/日"></td>
 								<td><input type="radio" id="ructusTimes" name="ructusTimes" value="4" title="频频，&gt;10次/日"></td>
@@ -113,14 +113,14 @@
                             <tr>
                               <td rowspan="2" align="center" class="layui-form-bg-gray">烧心</td>
                               <td align="center" class="layui-form-bg-gray">频率</td>
-                              <td><input type="radio" id="heartBurnTimes" name="heartBurnTimes" value="1" title="0分" checked>&nbsp;</td>
+                              <td><input type="radio" id="heartBurnTimes" name="heartBurnTimes" value="1" title="0分" >&nbsp;</td>
 							  <td><input type="radio" id="heartBurnTimes" name="heartBurnTimes" value="2" title="＞3天发作1次，时作时止"></td>
 							  <td><input type="radio" id="heartBurnTimes" name="heartBurnTimes" value="3" title="2-3天发作1次，发作频繁"></td>
 							  <td><input type="radio" id="heartBurnTimes" name="heartBurnTimes" value="4" title="每天发作"></td>
                             </tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">持续时间</td>
-								<td><input type="radio" id="ructusLasttime" name="ructusLasttime" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="ructusLasttime" name="ructusLasttime" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="ructusLasttime" name="ructusLasttime" value="2" title="1小时内可缓解"></td>
 							    <td><input type="radio" id="ructusLasttime" name="ructusLasttime" value="3" title="1-3小时内可缓解"></td>
 							    <td><input type="radio" id="ructusLasttime" name="ructusLasttime" value="4" title="＞3小时才缓解甚至一整天不能缓解"></td>
@@ -128,14 +128,14 @@
                             <tr>
                               <td rowspan="2" align="center" class="layui-form-bg-gray">胸背疼痛</td>
                               <td align="center" class="layui-form-bg-gray">频率</td>
-                              <td><input type="radio" id="chestBackTimes" name="chestBackTimes" value="1" title="0分" checked>&nbsp;</td>
+                              <td><input type="radio" id="chestBackTimes" name="chestBackTimes" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="chestBackTimes" name="chestBackTimes" value="2" title="＞3天发作1次，时作时止"></td>
 							    <td><input type="radio" id="chestBackTimes" name="chestBackTimes" value="3" title="2-3天发作1次，发作频繁"></td>
 							    <td><input type="radio" id="chestBackTimes" name="chestBackTimes" value="4" title="每天发作"></td>
                             </tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">持续时间</td>
-								<td><input type="radio" id="chestBackLasttime" name="chestBackLasttime" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="chestBackLasttime" name="chestBackLasttime" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="chestBackLasttime" name="chestBackLasttime" value="2" title="1小时内可缓解"></td>
 							    <td><input type="radio" id="chestBackLasttime" name="chestBackLasttime" value="3" title="1-3小时内可缓解"></td>
 							    <td><input type="radio" id="chestBackLasttime" name="chestBackLasttime" value="4" title="＞3小时才缓解甚至一整天不能缓解"></td>
@@ -143,7 +143,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">心烦</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
-								<td><input type="radio" id="vexation" name="vexation" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="vexation" name="vexation" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="vexation" name="vexation" value="2" title="偶有烦躁易急，情绪不宁，可以自控"></td>
 							    <td><input type="radio" id="vexation" name="vexation" value="3" title="经常烦躁易急，有时难以自控"></td>
 							    <td><input type="radio" id="vexation" name="vexation" value="4" title="持续烦躁易急，难以自控"></td>
@@ -151,7 +151,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">胁胀</td>
 								<td align="center" class="layui-form-bg-gray">&nbsp;</td>
-								<td><input type="radio" id="ribside" name="ribside" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="ribside" name="ribside" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="ribside" name="ribside" value="2" title="微胀，＞3天发作1次，持续半小时可缓解"></td>
 							    <td><input type="radio" id="ribside" name="ribside" value="3" title="较重，2-3天发作1次，持续半小时-2小时可缓解"></td>
 							    <td><input type="radio" id="ribside" name="ribside" value="4" title="胀剧，精神紧张，坐立不安，每天发作，持续2小时才缓解，甚至终日不缓"></td>
@@ -159,7 +159,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">口苦</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
-								<td><input type="radio" id="bitterMouth" name="bitterMouth" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="bitterMouth" name="bitterMouth" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="bitterMouth" name="bitterMouth" value="2" title="口中似有苦味，偶发"></td>
 							    <td><input type="radio" id="bitterMouth" name="bitterMouth" value="3" title="口中发苦，历时较久，食欲可减，常发"></td>
 							    <td><input type="radio" id="bitterMouth" name="bitterMouth" value="4" title="口味甚苦，食欲常减，或伴恶吐，需漱口或食甜方舒，终日如此"></td>
@@ -167,7 +167,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">嗳腐吞酸</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
-								<td><input type="radio" id="putridAcid" name="putridAcid" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="putridAcid" name="putridAcid" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="putridAcid" name="putridAcid" value="2" title="＞3天发作1次，腐气不强，短暂即过"></td>
 							    <td><input type="radio" id="putridAcid" name="putridAcid" value="3" title="2-3天发作1次，腐气较重"></td>
 							    <td><input type="radio" id="putridAcid" name="putridAcid" value="4" title="每天发作，腐气熏鼻，十分难受"></td>
@@ -175,7 +175,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">善食易饥</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
-								<td><input type="radio" id="bulimia" name="bulimia" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="bulimia" name="bulimia" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="bulimia" name="bulimia" value="2" title="食后易饥，进食次数较常增1-2次，或食量较常增＜30%"></td>
 							    <td><input type="radio" id="bulimia" name="bulimia" value="3" title="食后易饥，进食次数较常增3-4次，或食量较常增30%-60%"></td>
 							    <td><input type="radio" id="bulimia" name="bulimia" value="4" title="食后易饥，进食次数较常增5次以上，甚至时时欲吃，食量较常增＞60%"></td>
@@ -183,7 +183,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">胃中嘈杂</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
-								<td><input type="radio" id="noisyStomach" name="noisyStomach" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="noisyStomach" name="noisyStomach" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="noisyStomach" name="noisyStomach" value="2" title="＞3天发作1次，1小时内可缓解，胃中微嘈，作息不受影响"></td>
 							    <td><input type="radio" id="noisyStomach" name="noisyStomach" value="3" title="2-3天发作1次，1-3小时内可缓解，嘈杂明显，生物作息受影响"></td>
 							    <td><input type="radio" id="noisyStomach" name="noisyStomach" value="4" title="每天发作，＞3小时才缓解甚至终日不缓解，嘈杂甚，生活作息严重受影响"></td>
@@ -191,14 +191,14 @@
                             <tr>
                               <td rowspan="2" align="center" class="layui-form-bg-gray">恶心</td>
                               <td align="center" class="layui-form-bg-gray">频率</td>
-                              <td><input type="radio" id="nauseaTimes" name="nauseaTimes" value="1" title="0分" checked>&nbsp;</td>
+                              <td><input type="radio" id="nauseaTimes" name="nauseaTimes" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="nauseaTimes" name="nauseaTimes" value="2" title="＞3天发作1次，时作时止"></td>
 							    <td><input type="radio" id="nauseaTimes" name="nauseaTimes" value="3" title="2-3天发作1次，发作频繁"></td>
 							    <td><input type="radio" id="nauseaTimes" name="nauseaTimes" value="4" title="每天发作"></td>
                             </tr>
                             <tr>
                               <td align="center" class="layui-form-bg-gray">持续时间</td>
-                              <td><input type="radio" id="nauseaLasttime" name="nauseaLasttime" value="1" title="0分" checked>&nbsp;</td>
+                              <td><input type="radio" id="nauseaLasttime" name="nauseaLasttime" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="nauseaLasttime" name="nauseaLasttime" value="2" title="1小时内可缓解"></td>
 							    <td><input type="radio" id="nauseaLasttime" name="nauseaLasttime" value="3" title="1-3小时内可缓解"></td>
 							    <td><input type="radio" id="nauseaLasttime" name="nauseaLasttime" value="4" title="＞3小时才缓解甚至一整天不能缓解"></td>
@@ -206,7 +206,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">呕吐痰涎、清水</td>
 								<td align="center" class="layui-form-bg-gray">&nbsp;</td>
-								<td><input type="radio" id="saliva" name="saliva" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="saliva" name="saliva" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="saliva" name="saliva" value="2" title="＞3天发作1次，量少，＜10ml/次"></td>
 							    <td><input type="radio" id="saliva" name="saliva" value="3" title="2-3天发作1次，量中，10-30ml/次"></td>
 							    <td><input type="radio" id="saliva" name="saliva" value="4" title="每天发作，量多，＞30ml/次"></td>
@@ -214,7 +214,7 @@
 							<tr>
 								<td align="center" class="layui-form-bg-gray">疲乏</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
-								<td><input type="radio" id="fatigue" name="fatigue" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="fatigue" name="fatigue" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="fatigue" name="fatigue" value="2" title="精神不振，不喜多言，但能坚持工作或学习"></td>
 							    <td><input type="radio" id="fatigue" name="fatigue" value="3" title="精神疲惫，困倦少言，工作或学习能力下降"></td>
 							    <td><input type="radio" id="fatigue" name="fatigue" value="4" title="精神极度疲乏，倦卧少言，几乎不能工作学习"></td>
@@ -222,7 +222,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">纳差</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
-								<td><input type="radio" id="poorAppetite" name="poorAppetite" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="poorAppetite" name="poorAppetite" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="poorAppetite" name="poorAppetite" value="2" title="食欲欠佳，但基本保持原食量"></td>
 							    <td><input type="radio" id="poorAppetite" name="poorAppetite" value="3" title="食欲减退，食量减1/3"></td>
 							    <td><input type="radio" id="poorAppetite" name="poorAppetite" value="4" title="不思饮食，食量减1/2以上"></td>
@@ -230,7 +230,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">呃逆</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
-								<td><input type="radio" id="hiccup" name="hiccup" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="hiccup" name="hiccup" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="hiccup" name="hiccup" value="2" title="偶有，&lt;4次/日"></td>
 							    <td><input type="radio" id="hiccup" name="hiccup" value="3" title="时有，4-10次/日"></td>
 							    <td><input type="radio" id="hiccup" name="hiccup" value="4" title="频频，&gt;10次/日"></td>
@@ -238,7 +238,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">便溏</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
-								<td><input type="radio" id="looseStool" name="looseStool" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="looseStool" name="looseStool" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="looseStool" name="looseStool" value="2" title="粪质偏溏，不成形，状似烂泥"></td>
 							    <td><input type="radio" id="looseStool" name="looseStool" value="3" title="粪便溏薄，状似稀泥"></td>
 							    <td><input type="radio" id="looseStool" name="looseStool" value="4" title="大便溏薄，稀水样便"></td>
@@ -246,7 +246,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">咽部异物感</td>
 								<td align="center" class="layui-form-bg-gray">&nbsp;</td>
-								<td><input type="radio" id="foreignPharynx" name="foreignPharynx" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="foreignPharynx" name="foreignPharynx" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="foreignPharynx" name="foreignPharynx" value="2" title="咽喉似有异物，吞咽多无影响"></td>
 							    <td><input type="radio" id="foreignPharynx" name="foreignPharynx" value="3" title="咽喉异物感明显，吞咽多无影响"></td>
 							    <td><input type="radio" id="foreignPharynx" name="foreignPharynx" value="4" title="咽部异物感极显，难以忍受，吞咽多无异常"></td>
@@ -254,7 +254,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">声嘶</td>
 								<td align="center" class="layui-form-bg-gray">&nbsp;</td>
-								<td><input type="radio" id="hoarseness" name="hoarseness" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="hoarseness" name="hoarseness" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="hoarseness" name="hoarseness" value="2" title="略有声音发哑"></td>
 							    <td><input type="radio" id="hoarseness" name="hoarseness" value="3" title="声音嘶哑但可忍受"></td>
 							    <td><input type="radio" id="hoarseness" name="hoarseness" value="4" title="咽喉嘶哑，难以忍受，甚至不能说话"></td>
@@ -262,7 +262,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">呛咳</td>
 								<td align="center" class="layui-form-bg-gray">&nbsp;</td>
-								<td><input type="radio" id="bucking" name="bucking" value="1" title="0分" checked>&nbsp;</td>
+								<td><input type="radio" id="bucking" name="bucking" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="bucking" name="bucking" value="2" title="偶有咳嗽"></td>
 							    <td><input type="radio" id="bucking" name="bucking" value="3" title="经常呛咳，影响生活作息"></td>
 							    <td><input type="radio" id="bucking" name="bucking" value="4" title="呛咳剧烈，生活作息严重受影响"></td>

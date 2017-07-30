@@ -89,7 +89,7 @@
 						</div>
                         <div class="layui-form-label layui-form-label2" style="width: 100px;">年龄：</div>
 						<div class="layui-input-inline" style="width: 180px;">
-							<input type="text" id="searchPatientAge" name="searchPatientAge" placeholder="请输入年龄" autocomplete="off" class="layui-input">
+							<input type="text" id="searchPatientAge" name="searchPatientAge" placeholder="请输入年龄"  class="layui-input">
 						</div>
                         <div class="layui-input-inline" style="width: 80px;">
 							<!--<a class="layui-btn" href="#popup" link="http:" > <button id="patientRecord_search" class="layui-btn"> 查询 </button> </a>  -->
@@ -190,8 +190,8 @@
 	                    <div class="layui-form-item">
 	                        <label class="layui-form-label">性别：</label>
 	                        <div class="layui-input-block">
-	                            <input type="radio" id="patientSex" name="patientSex" value="1" 	title="男"  checked>
-	                            <input type="radio" id="patientSex" name="patientSex" value="2" 	title="女">
+	                            <input type="radio" id="patientSex" name="patientSex" value="1" 	title="男" >
+	                            <input type="radio" id="patientSex" name="patientSex" value="2" 	title="女" >
 	                        </div>
 						</div>
 	                    <div class="layui-form-item">
@@ -227,20 +227,20 @@
 		                <div class="layui-form-item">
 							<label class="layui-form-label">教育程度：</label>
 							<div class="layui-input-block">
-								<input type="radio" id="patientEducation" name="patientEducation" value="1" 		title="小学" checked="">
-								<input type="radio" id="patientEducation" name="patientEducation" value="2" title="初中">
-								<input type="radio" id="patientEducation" name="patientEducation" value="3" 	title="高中或中专">
-		                        <input type="radio" id="patientEducation" name="patientEducation" value="4" 	title="大专">
-								<input type="radio" id="patientEducation" name="patientEducation" value="5" 	title="大学及以上" >
+								<input type="radio" id="patientEducation" name="patientEducation" value="1" 	title="小学"  >
+								<input type="radio" id="patientEducation" name="patientEducation" value="2" 	title="初中"  >
+								<input type="radio" id="patientEducation" name="patientEducation" value="3" 	title="高中或中专"  >
+		                        <input type="radio" id="patientEducation" name="patientEducation" value="4" 	title="大专"  >
+								<input type="radio" id="patientEducation" name="patientEducation" value="5" 	title="大学及以上"  >
 							</div>
 						</div>
 		                <div class="layui-form-item">
 							<div class="layui-inline">
 								<label class="layui-form-label">婚姻状况：</label>
 								<div class="layui-input-inline" style="width:250px">
-									<input type="radio" id="patientMarried" name="patientMarried" value="1" title="已婚" checked="">
-		                        	<input type="radio" id="patientMarried" name="patientMarried" value="2" title="未婚">
-									<input type="radio" id="patientMarried" name="patientMarried" value="3" title="离婚">
+									<input type="radio" id="patientMarried" name="patientMarried" value="1" title="已婚"  >
+		                        	<input type="radio" id="patientMarried" name="patientMarried" value="2" title="未婚"  >
+									<input type="radio" id="patientMarried" name="patientMarried" value="3" title="离婚"  >
 								</div>
 							</div>
 						</div>
@@ -248,26 +248,26 @@
 							<div class="layui-inline">
 								<label class="layui-form-label">子女：</label>
 								<div class="layui-input-inline" style="width:250px">
-									<input type="radio" id="patientChild" name="patientChild" value="1" title="有" checked="">
-		                        	<input type="radio" id="patientChild" name="patientChild" value="2" title="无">
+									<input type="radio" id="patientChild" name="patientChild" value="1" title="有"  >
+		                        	<input type="radio" id="patientChild" name="patientChild" value="2" title="无"  >
 								</div>
 							</div>
 						</div>
 		                <div class="layui-form-item">
 							<label class="layui-form-label">家庭经济情况：</label>
 							<div class="layui-input-block">
-								<input type="radio" id="patientEconomy" name="patientEconomy" value="1" title="很好" checked="">
-								<input type="radio" id="patientEconomy" name="patientEconomy" value="2" title="好">
-								<input type="radio" id="patientEconomy" name="patientEconomy" value="3" title="一般">
-		                        <input type="radio" id="patientEconomy" name="patientEconomy" value="4" title="差">
-								<input type="radio" id="patientEconomy" name="patientEconomy" value="5" title="很差">
+								<input type="radio" id="patientEconomy" name="patientEconomy" value="1" title="很好"  >
+								<input type="radio" id="patientEconomy" name="patientEconomy" value="2" title="好"  >
+								<input type="radio" id="patientEconomy" name="patientEconomy" value="3" title="一般"  >
+		                        <input type="radio" id="patientEconomy" name="patientEconomy" value="4" title="差"  >
+								<input type="radio" id="patientEconomy" name="patientEconomy" value="5" title="很差"  >
 							</div>
 						</div>
 						<div class="layui-form-item">
 	                        <label class="layui-form-label">疾病分组：</label>
 	                        <div class="layui-input-block">
-	                            <input type="radio" id="patientGroup" name="patientGroup" value="1" title="便秘" checked>
-	                            <input type="radio" id="patientGroup" name="patientGroup" value="2" title="反流">
+	                            <input type="radio" id="patientGroup" name="patientGroup" value="1" title="便秘"  >
+	                            <input type="radio" id="patientGroup" name="patientGroup" value="2" title="反流"  >
 	                        </div>
 						</div>
 						<div class="layui-form-item" style="float:right;margin-right:10%;display:none;">

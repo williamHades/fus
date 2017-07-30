@@ -91,7 +91,7 @@
 							<tr>
 								<td width="160">烧心感 </td>
 								<td>
-                                	<input type="radio" name="feel1" value="0分" title="0分" checked>
+                                	<input type="radio" name="feel1" value="0分" title="0分" >
                                 </td>
                                 <td>
                                 	<input type="radio" name="feel1" value="1分" title="1分">
@@ -106,7 +106,7 @@
 							<tr>
 								<td width="160">反流 </td>
 								<td>
-                                	<input type="radio" name="feel2" value="0分" title="0分" checked>
+                                	<input type="radio" name="feel2" value="0分" title="0分" >
                                 </td>
                                 <td>
                                 	<input type="radio" name="feel2" value="1分" title="1分">
@@ -121,7 +121,7 @@
                             <tr>
 								<td width="160">上腹部疼痛 </td>
 								<td>
-                                	<input type="radio" name="feel3" value="0分" title="0分" checked>
+                                	<input type="radio" name="feel3" value="0分" title="0分" >
                                 </td>
                                 <td>
                                 	<input type="radio" name="feel3" value="1分" title="1分">
@@ -136,7 +136,7 @@
                             <tr>
 								<td width="160">恶心 </td>
 								<td>
-                                	<input type="radio" name="feel4" value="0分" title="0分" checked>
+                                	<input type="radio" name="feel4" value="0分" title="0分" >
                                 </td>
                                 <td>
                                 	<input type="radio" name="feel4" value="1分" title="1分">
@@ -151,7 +151,7 @@
                             <tr>
 								<td width="160">睡眠障碍 </td>
 								<td>
-                                	<input type="radio" name="feel5" value="0分" title="0分" checked>
+                                	<input type="radio" name="feel5" value="0分" title="0分" >
                                 </td>
                                 <td>
                                 	<input type="radio" name="feel5" value="1分" title="1分">
@@ -166,7 +166,7 @@
                             <tr>
 								<td width="160">是否使用OTC药物 </td>
 								<td>
-                                	<input type="radio" name="feel6" value="0分" title="0分" checked>
+                                	<input type="radio" name="feel6" value="0分" title="0分" >
                                 </td>
                                 <td>
                                 	<input type="radio" name="feel6" value="1分" title="1分">

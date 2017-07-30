@@ -124,7 +124,8 @@
 					<div class="layui-inline">
 						<label class="layui-form-label">性别：</label>
 						<div class="layui-input-inline" style="width: 160px;">
-							<input type="text" id="patientSex" name="patientSex" placeholder="请输入性别" autocomplete="off" class="layui-input">
+	                    	<input type="radio" id="patientSex" name="patientSex" value="1" 	title="男"  >
+	                        <input type="radio" id="patientSex" name="patientSex" value="2" 	title="女">
 						</div>
 						<div class="layui-form-label layui-form-label1">年龄：</div>
 						<div class="layui-input-inline" style="width: 160px;">
@@ -162,7 +163,7 @@
 						<input type="radio" id="patientEducation" name="patientEducation" value="2" title="初中">
 						<input type="radio" id="patientEducation" name="patientEducation" value="3" title="高中或中专">
                         <input type="radio" id="patientEducation" name="patientEducation" value="4" title="大专">
-						<input type="radio" id="patientEducation" name="patientEducation" value="5" title="大学及以上" checked="">
+						<input type="radio" id="patientEducation" name="patientEducation" value="5" title="大学及以上"  >
 					</div>
 				</div>
                 
@@ -170,7 +171,7 @@
 					<div class="layui-inline">
 						<label class="layui-form-label">婚姻状况：</label>
 						<div class="layui-input-inline" style="width:250px">
-							<input type="radio" id="patientMarried" name="patientMarried" value="1" title="已婚" checked="">
+							<input type="radio" id="patientMarried" name="patientMarried" value="1" title="已婚"  >
                         	<input type="radio" id="patientMarried" name="patientMarried" value="2" title="未婚">
 							<input type="radio" id="patientMarried" name="patientMarried" value="3" title="离婚">
 						</div>
@@ -181,7 +182,7 @@
 					<div class="layui-inline">
 						<label class="layui-form-label">子女：</label>
 						<div class="layui-input-inline" style="width:250px">
-							<input type="radio" id="patientChild" name="patientChild" value="1" title="有" checked="">
+							<input type="radio" id="patientChild" name="patientChild" value="1" title="有"  >
                         	<input type="radio" id="patientChild" name="patientChild" value="2" title="无">
 						</div>
 					</div>
@@ -190,7 +191,7 @@
                 <div class="layui-form-item">
 					<label class="layui-form-label">家庭经济情况：</label>
 					<div class="layui-input-block">
-						<input type="radio" id="patientEconomy" name="patientEconomy" value="1" title="很好" checked="">
+						<input type="radio" id="patientEconomy" name="patientEconomy" value="1" title="很好"  >
 						<input type="radio" id="patientEconomy" name="patientEconomy" value="2" title="好">
 						<input type="radio" id="patientEconomy" name="patientEconomy" value="3" title="一般">
                         <input type="radio" id="patientEconomy" name="patientEconomy" value="4" title="差">
@@ -201,7 +202,7 @@
                 <div class="layui-form-item">
 					<label class="layui-form-label">医疗费用支付方式：</label>
 					<div class="layui-input-block">
-						<input type="radio" id="patientPayMode" name="patientPayMode" value="1" title="公费" checked="">
+						<input type="radio" id="patientPayMode" name="patientPayMode" value="1" title="公费"  >
 						<input type="radio" id="patientPayMode" name="patientPayMode" value="2" title="医保">
 						<input type="radio" id="patientPayMode" name="patientPayMode" value="3" title="自费">
                         <input type="radio" id="patientPayMode" name="patientPayMode" value="4" title="其他">
@@ -212,7 +213,7 @@
 					<label class="layui-form-label">每日工作时间：</label>
 					<div class="layui-input-block">
                         <input type="radio" id="workTime" name="workTime" value="1" title="＜8小时">
-						<input type="radio" id="workTime" name="workTime" value="2" title="8小时" checked="">
+						<input type="radio" id="workTime" name="workTime" value="2" title="8小时"  >
 						<input type="radio" id="workTime" name="workTime" value="3" title="8-10小时">
                         <input type="radio" id="workTime" name="workTime" value="4" title="10小时以上">
 					</div>
@@ -222,7 +223,7 @@
 					<label class="layui-form-label">每日上班路程时间：</label>
 					<div class="layui-input-block">
                         <input type="radio" id="workOnway" name="workOnway" value="1" title="＜半小时">
-						<input type="radio" id="workOnway" name="workOnway" value="2" title="0.5～1小时" checked="">
+						<input type="radio" id="workOnway" name="workOnway" value="2" title="0.5～1小时"  >
 						<input type="radio" id="workOnway" name="workOnway" value="3" title="1～2小时">
                         <input type="radio" id="workOnway" name="workOnway" value="4" title="2小时以上">
 					</div>
@@ -232,7 +233,7 @@
 					<label class="layui-form-label">压力（工作生活学习）：</label>
 					<div class="layui-input-block">
                         <input type="radio" name="pressure" value="1" title="小">
-						<input type="radio" name="pressure" value="2" title="一般" checked="">
+						<input type="radio" name="pressure" value="2" title="一般"  >
 						<input type="radio" name="pressure" value="3" title="较大">
                         <input type="radio" name="pressure" value="4" title="很大">
 					</div>
@@ -242,7 +243,7 @@
 					<label class="layui-form-label">每周在外就餐次数:<br>（不包括单位或学校食堂）</label>
 					<div class="layui-input-block">
                         <input type="radio" id="eatOutsideTimes" name="eatOutsideTimes" value="1" title="＜3次">
-						<input type="radio" id="eatOutsideTimes" name="eatOutsideTimes" value="2" title="3～6次" checked="">
+						<input type="radio" id="eatOutsideTimes" name="eatOutsideTimes" value="2" title="3～6次"  >
 						<input type="radio" id="eatOutsideTimes" name="eatOutsideTimes" value="3" title="6～9次">
                         <input type="radio" id="eatOutsideTimes" name="eatOutsideTimes" value="4" title="9～12次">
                         <input type="radio" id="eatOutsideTimes" name="eatOutsideTimes" value="5" title="12次以上">
@@ -253,7 +254,7 @@
 					<label class="layui-form-label">吃饭急，就餐时狼吞虎咽：</label>
 					<div class="layui-input-block">
                         <input type="radio" name="eatSpeed" value="1" title="是">
-						<input type="radio" name="eatSpeed" value="2" title="否" checked="">
+						<input type="radio" name="eatSpeed" value="2" title="否"  >
 					</div>
 				</div>
                 
@@ -261,7 +262,7 @@
 					<label class="layui-form-label">饱餐：</label>
 					<div class="layui-input-block">
                         <input type="radio" id="eatFull" name="eatFull" value="1" title="每餐都吃到很饱">
-						<input type="radio" id="eatFull" name="eatFull" value="2" title="食量自行控制" checked="">
+						<input type="radio" id="eatFull" name="eatFull" value="2" title="食量自行控制"  >
 					</div>
 				</div>
                 
@@ -269,7 +270,7 @@
 					<label class="layui-form-label">饮酒：</label>
 					<div class="layui-input-block">
                         <input type="radio" id="eatDrink" name="eatDrink" value="1" title="偶尔">
-						<input type="radio" id="eatDrink" name="eatDrink" value="2" title="有时" checked="">
+						<input type="radio" id="eatDrink" name="eatDrink" value="2" title="有时"  >
                         <input type="radio" id="eatDrink" name="eatDrink" value="3" title="经常">
                         <input type="radio" id="eatDrink" name="eatDrink" value="4" title="常常，有饮酒习惯">
 					</div>
@@ -278,7 +279,7 @@
                 <div class="layui-form-item">
 					<label class="layui-form-label">吸烟：</label>
 					<div class="layui-input-block">
-                        <input type="radio" id="eatSmoke" name="eatSmoke" value="1" title="是" checked>
+                        <input type="radio" id="eatSmoke" name="eatSmoke" value="1" title="是"  >
 						<input type="radio" id="eatSmoke" name="eatSmoke" value="2" title="否">
 					</div>
 				</div>
@@ -312,7 +313,7 @@
                 <div class="layui-form-item">
 					<label class="layui-form-label">做过哪些检查（诊断及时间）：</label>
 					<div class="layui-input-block">
-                        <input type="radio" id="checkName" name="checkName" value="1" title="胃镜" checked>
+                        <input type="radio" id="checkName" name="checkName" value="1" title="胃镜"  >
 						<input type="radio" id="checkName" name="checkName" value="2" title="上消化道造影">
 					</div>
 				</div>
@@ -331,7 +332,7 @@
 						<label class="layui-form-label"></label>
 						<div class="layui-form-label layui-form-label1">检查结论：</div>
 						<div class="layui-input-inline" style="min-width:510px;">
-							<input type="radio" id="checkResult" name="checkResult" value="1" title="反流性食管炎" checked>
+							<input type="radio" id="checkResult" name="checkResult" value="1" title="反流性食管炎"  >
 							<input type="radio" id="checkResult" name="checkResult" value="2" title="反流性胃炎">
                         	<input type="radio" id="checkResult" name="checkResult" value="3" title="食管裂孔疝">
 							<input type="radio" id="checkResult" name="checkResult" value="4" title="贲门失弛缓">
@@ -342,7 +343,7 @@
                 <div class="layui-form-item">
 					<label class="layui-form-label">是否使用PPI：</label>
 					<div class="layui-input-block">
-                        <input type="radio" id="isPpi" name="isPpi" value="1" title="是" checked="">
+                        <input type="radio" id="isPpi" name="isPpi" value="1" title="是"  >
 						<input type="radio" id="isPpi" name="isPpi" value="2" title="否">
 					</div>
 				</div>
