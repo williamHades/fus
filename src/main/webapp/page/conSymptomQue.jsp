@@ -70,12 +70,12 @@
 							<input type="text" id="ticketId" name="ticketId" class="layui-input">
 						</div>
 					</div>
-					<div class="layui-inline">
+					<!-- <div class="layui-inline">
 						<label class="layui-form-label">单号：</label>
 						<div class="layui-input-inline" style="width: 180px;">
 							<input type="text" id="recordId" name="recordId" class="layui-input">
 						</div>
-					</div>
+					</div> -->
 					<div class="layui-inline">
 						<label class="layui-form-label">创建时间：</label>
 						<div class="layui-input-inline" style="width: 300px;">
