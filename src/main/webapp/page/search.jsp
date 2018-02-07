@@ -57,7 +57,7 @@
 				//GetNoticeList(0,1);
 			})
 			$("#patientRecord_search").click(function(){
-				alert($("input:radio[name='searchPatientSex']:checked").val());
+				//alert($("input:radio[name='searchPatientSex']:checked").val());
 				//GetNoticeList(0,1);
 			})
 			$("#patientRecord_reset").click(function(){
@@ -84,6 +84,7 @@
 						</div>
                         <div class="layui-form-label layui-form-label2" style="width: 100px;">性别：</div>
 						<div class="layui-input-inline" style="width: 180px;">
+							<input type="hidden" id="searchPatientSex" name="searchPatientSex" value="0" title="男">
 							<input type="radio" id="searchPatientSex" name="searchPatientSex" value="1" title="男">
 							<input type="radio" id="searchPatientSex" name="searchPatientSex" value="2" title="女">
 						</div>
@@ -91,6 +92,7 @@
 						<div class="layui-input-inline" style="width: 180px;">
 							<input type="text" id="searchPatientAge" name="searchPatientAge" placeholder="请输入年龄"  class="layui-input">
 						</div>
+						<div class="layui-form-label layui-form-label2" style="width: 100px;"></div>
                         <div class="layui-input-inline" style="width: 80px;">
 							<!--<a class="layui-btn" href="#popup" link="http:" > <button id="patientRecord_search" class="layui-btn"> 查询 </button> </a>  -->
 							<a class="layui-btn" href="javascript:GetNoticeList(0,1)" > 查询 </a>  
@@ -106,10 +108,11 @@
 						<!-- <div class="layui-form-label layui-form-label2" >诊断：</div> -->
 						<div class="layui-input-inline" style="width: 415px;">
 							<label class="layui-form-label" style="width: 100px;">编号：</label>
+							<input type="hidden" id="searchPatientGroups" name="searchPatientGroups" value="0" title="便秘" 	>
 							<input type="radio" id="searchPatientGroups" name="searchPatientGroups" value="1" title="便秘" 	>
 							<input type="radio" id="searchPatientGroups" name="searchPatientGroups" value="2" title="胃食管反流症"	>
 						</div>
-						<div class="layui-input-inline" ></div>
+						<div class="layui-form-label layui-form-label2" style="width: 315px;"></div>
                         <div class="layui-input-inline" style="width: 80px;">
 							<button class="layui-btn" id="patientRecord_reset">清空</button>
 						</div>
@@ -125,6 +128,7 @@
 						<div class="layui-input-inline" style="width: 180px;">
 							<input type="text" id="searchCreateTimeEnd" name="searchCreateTimeEnd"  autocomplete="off" class="layui-input" onclick="layui.laydate({elem: this})">
 						</div>
+						<div class="layui-form-label layui-form-label2" style="width: 246px;"></div>
 						<div class="layui-input-inline" style="width: 80px;margin-left:174px">
 							<a class="popup_alert" href="#popup" link="http:" ><button class="layui-btn" id="patientRecord_add"><i class="layui-icon"></i> 新增</button></a>
 						</div>
@@ -140,7 +144,7 @@
             </fieldset>
             <div class="admin-table-page">	</div>
 			<div id="paged" class="page">	</div>                         
-                <div id="popup" style="display:none; overflow-y: auto; overflow-x:hidden; height:400px; width:800px;">
+                <div id="popup" style="display:none; overflow-y: auto; overflow-x:hidden; height:500px; width:1200px;">
 					<form id="patientRecordForm" name="patientRecordForm" class="layui-form" action="savePatientRecord.action">
 	        			<!--popup form start-->
 	                    <div class="layui-form-item">
@@ -163,55 +167,51 @@
 								</div>
 							</div>
 						</div>
+	                    
 	                    <div class="layui-form-item">
+							<div class="layui-inline">
 								<label class="layui-form-label"><span class="red">*</span>病历号：</label>
-								<div class="layui-input-block" >
+								<div class="layui-input-inline">
 									<input type="text" id="patientNo" name="patientNo" placeholder="请输入病历号" autocomplete="off" class="layui-input">
-								</div>
-						</div>
-	                	<div class="layui-form-item">
-	                        <label class="layui-form-label"><span class="red">*</span> 编号：</label>
-	                        <div class="layui-input-block">
-	                            <input type="text" id="patientId" name="patientId" placeholder="请输入就诊卡号" class="layui-input">
-	                        </div>
-						</div>
-	                    <div class="layui-form-item">
-	                        <label class="layui-form-label"><span class="red">*</span> 患者姓名：</label>
-	                        <div class="layui-input-block">
-	                            <input type="text" id="patientName" name="patientName" placeholder="请输入患者姓名" class="layui-input">
-	                        </div>
+								</div>								
+								<label class="layui-form-label"><span class="red">*</span> 编号：</label>
+								<div class="layui-input-inline">
+									<input type="text" id="patientId" name="patientId" placeholder="请输入就诊卡号" class="layui-input">
+								</div>														
+							</div>
 						</div>
 	                    <div class="layui-form-item">
-	                        <label class="layui-form-label"><span class="red">*</span> 身份证号：</label>
-	                        <div class="layui-input-block">
-	                            <input type="text" id="patientCode" name="patientCode" placeholder="请输入身份证号" class="layui-input">
-	                        </div>
-						</div>
-	                    <div class="layui-form-item">
-	                        <label class="layui-form-label">性别：</label>
-	                        <div class="layui-input-block">
-	                            <input type="radio" id="patientSex" name="patientSex" value="1" 	title="男" >
-	                            <input type="radio" id="patientSex" name="patientSex" value="2" 	title="女" >
-	                        </div>
-						</div>
-	                    <div class="layui-form-item">
-	                        <label class="layui-form-label">年龄：</label>
-	                        <div class="layui-input-block">
+	                    	<div class="layui-inline">
+		                        <label class="layui-form-label"><span class="red">*</span> 患者姓名：</label>
+		                        <div class="layui-input-inline">
+		                            <input type="text" id="patientName" name="patientName" placeholder="请输入患者姓名" class="layui-input">
+		                        </div>
+		                        <label class="layui-form-label"><span class="red">*</span> 性别：</label>
+		                        <div class="layui-input-inline">
+	                            	<input type="hidden" id="patientSex" name="patientSex" value="0" 	title="男"  >
+	                            	<input type="radio" id="patientSex" name="patientSex" value="1" 	title="男"  >
+	                            	<input type="radio" id="patientSex" name="patientSex" value="2" 	title="女"  >
+		                        </div>
+		                        <label class="layui-form-label">年龄：</label>
+	                        <div class="layui-input-inline">
 	                            <input type="text" id="patientAge" name="patientAge" lay-verify="age" autocomplete="off" placeholder="请输入患者年龄" class="layui-input">
 	                        </div>
+							</div>
 						</div>
 	                    <div class="layui-form-item">
-	                        <label class="layui-form-label">联系方式：</label>
-	                        <div class="layui-input-block">
+							<label class="layui-form-label"><span class="red">*</span> 身份证号：</label>
+							<div class="layui-input-inline">
+								<input type="text" id="patientCode" name="patientCode" placeholder="请输入身份证号" class="layui-input">
+							</div>	
+							<label class="layui-form-label">联系方式：</label>
+	                        <div class="layui-input-inline">
 	                            <input type="tel" id="patientContact" name="patientContact" lay-verify="phone" placeholder="请输入联系方式" autocomplete="off" class="layui-input">
 	                        </div>
-						</div>
-		                <div class="layui-form-item">
-							<label class="layui-form-label">职业：</label>
-								<div class="layui-input-block" >
-									<input type="text" id="patientCareer" name="patientCareer" placeholder="请输入职业" autocomplete="off" class="layui-input">
-								</div>
-						</div>
+	                        <label class="layui-form-label">职业：</label>
+							<div class="layui-input-inline" >
+								<input type="text" id="patientCareer" name="patientCareer" placeholder="请输入职业" autocomplete="off" class="layui-input">
+							</div>
+						</div>		                
 		                <div class="layui-form-item">
 							<label class="layui-form-label">现住址：</label>
 							<div class="layui-input-block">
@@ -227,6 +227,7 @@
 		                <div class="layui-form-item">
 							<label class="layui-form-label">教育程度：</label>
 							<div class="layui-input-block">
+								<input type="hidden" id="patientEducation" name="patientEducation" value="0" 	title="小学"  >
 								<input type="radio" id="patientEducation" name="patientEducation" value="1" 	title="小学"  >
 								<input type="radio" id="patientEducation" name="patientEducation" value="2" 	title="初中"  >
 								<input type="radio" id="patientEducation" name="patientEducation" value="3" 	title="高中或中专"  >
@@ -237,10 +238,12 @@
 		                <div class="layui-form-item">
 							<div class="layui-inline">
 								<label class="layui-form-label">婚姻状况：</label>
-								<div class="layui-input-inline" style="width:250px">
+								<div class="layui-input-inline" style="width:340px">
+									<input type="hidden" id="patientMarried" name="patientMarried" value="0" title="已婚"  >
 									<input type="radio" id="patientMarried" name="patientMarried" value="1" title="已婚"  >
 		                        	<input type="radio" id="patientMarried" name="patientMarried" value="2" title="未婚"  >
-									<input type="radio" id="patientMarried" name="patientMarried" value="3" title="离婚"  >
+									<input type="radio" id="patientMarried" name="patientMarried" value="3" title="离异"  >
+									<input type="radio" id="patientMarried" name="patientMarried" value="4" title="丧偶"  >
 								</div>
 							</div>
 						</div>
@@ -248,6 +251,7 @@
 							<div class="layui-inline">
 								<label class="layui-form-label">子女：</label>
 								<div class="layui-input-inline" style="width:250px">
+									<input type="hidden" id="patientChild" name="patientChild" value="0" title="有"  >
 									<input type="radio" id="patientChild" name="patientChild" value="1" title="有"  >
 		                        	<input type="radio" id="patientChild" name="patientChild" value="2" title="无"  >
 								</div>
@@ -256,6 +260,7 @@
 		                <div class="layui-form-item">
 							<label class="layui-form-label">家庭经济情况：</label>
 							<div class="layui-input-block">
+								<input type="hidden" id="patientEconomy" name="patientEconomy" value="0" title="很好"  >
 								<input type="radio" id="patientEconomy" name="patientEconomy" value="1" title="很好"  >
 								<input type="radio" id="patientEconomy" name="patientEconomy" value="2" title="好"  >
 								<input type="radio" id="patientEconomy" name="patientEconomy" value="3" title="一般"  >
@@ -266,8 +271,9 @@
 						<div class="layui-form-item">
 	                        <label class="layui-form-label">疾病分组：</label>
 	                        <div class="layui-input-block">
-	                            <input type="radio" id="patientGroup" name="patientGroup" value="1" title="便秘"  >
-	                            <input type="radio" id="patientGroup" name="patientGroup" value="2" title="反流"  >
+	                            <input type="hidden" id="patientGroup" name="patientGroup" value="0" title="便秘"  lay-filter="selectGroup">
+	                            <input type="radio" id="patientGroup" name="patientGroup" value="1" title="便秘"  lay-filter="selectGroup">
+	                            <input type="radio" id="patientGroup" name="patientGroup" value="2" title="反流"  lay-filter="selectGroup">
 	                        </div>
 						</div>
 						<div class="layui-form-item" style="float:right;margin-right:10%;display:none;">
@@ -297,8 +303,8 @@
 	                    <!--  form fields List  end-->
 	                    <hr size="1" color="CCCCCC" width="100%">
 	                    <div class="layui-input-block">   
-                              <button class="layui-btn" lay-filter="demo1" lay-submit="">立即提交</button>  
-                              <button class="layui-btn layui-btn-primary" type="reset" id="resetRecord" name="resetRecord">重置</button>  
+                              <button id="formSubmit" class="layui-btn" lay-filter="demo1" lay-submit="" disabled >立即提交</button>  
+                              <button class="layui-btn layui-btn-primary" type="reset" id="resetRecord" name="resetRecord" disabled>重置</button>  
                         </div>  	                    
 	                </form>
 				</div>
@@ -328,7 +334,16 @@
 						layedit.sync(editIndex);
 					}
 				});
-
+				//
+				form.on('radio(selectGroup)', function(data){
+					console.log(data.elem); //得到radio原始DOM对象
+					console.log(data.value); //被点击的radio的value值
+					if(data.value>0){
+						$("#formSubmit").attr('disabled',false);
+						$("#resetRecord").attr('disabled',false); 
+					}
+				});  
+								
 				//监听提交
 				form.on('submit(demo1)', function(data) {
 				//提交URL地址  数据传递到后台
@@ -454,7 +469,7 @@
 		</script>
 		<script type="text/javascript">
 			function testR(){
-				alert("jell");
+				alert("..");
 			}
 		</script>
 	</body>

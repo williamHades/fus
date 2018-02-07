@@ -32,6 +32,7 @@
     <result column="check_name" 		jdbcType="VARCHAR" property="checkName" />
     <result column="check_time" 		jdbcType="VARCHAR" property="checkTime" />
     <result column="check_result" 		jdbcType="VARCHAR" property="checkResult" />
+    <result column="check_result_level" jdbcType="VARCHAR" property="checkResultLevel" />
     <result column="is_ppi" 			jdbcType="VARCHAR" property="isPpi" />
     <result column="ppi_time" 			jdbcType="VARCHAR" property="ppiTime" />
     <result column="remark" 			jdbcType="VARCHAR" property="remark" />
@@ -60,7 +61,7 @@
       pressure, eat_outside_times, eat_speed, 
       eat_full, eat_drink, eat_smoke, 
       eat_smoke_amount, illness_last_time, other_illness, 
-      check_name, check_time, check_result, 
+      check_name, check_time, check_result, check_result_level, 
       is_ppi, ppi_time, remark, 
       create_time, update_time)
     values ( #{ticketId,jdbcType=VARCHAR}, #{recordId,jdbcType=VARCHAR}, 
@@ -72,7 +73,7 @@
       #{pressure,jdbcType=VARCHAR}, #{eatOutsideTimes,jdbcType=VARCHAR}, #{eatSpeed,jdbcType=VARCHAR}, 
       #{eatFull,jdbcType=VARCHAR}, #{eatDrink,jdbcType=VARCHAR}, #{eatSmoke,jdbcType=VARCHAR}, 
       #{eatSmokeAmount,jdbcType=VARCHAR}, #{illnessLastTime,jdbcType=VARCHAR}, #{otherIllness,jdbcType=VARCHAR}, 
-      #{checkName,jdbcType=VARCHAR}, #{checkTime,jdbcType=VARCHAR}, #{checkResult,jdbcType=VARCHAR}, 
+      #{checkName,jdbcType=VARCHAR}, #{checkTime,jdbcType=VARCHAR}, #{checkResult,jdbcType=VARCHAR}, #{checkResultLevel,jdbcType=VARCHAR}, 
       #{isPpi,jdbcType=VARCHAR}, #{ppiTime,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR})
   </insert>
@@ -160,11 +161,14 @@
       <if test="checkName != null">
         check_name,
       </if>
-      <if test="checkTime != null">
+      <if test="checkTime != '' ">
         check_time,
       </if>
       <if test="checkResult != null">
         check_result,
+      </if>
+      <if test="checkResultLevel != null">
+        check_result_level,
       </if>
       <if test="isPpi != null">
         is_ppi,
@@ -264,11 +268,14 @@
       <if test="checkName != null">
         #{checkName,jdbcType=VARCHAR},
       </if>
-      <if test="checkTime != null">
+      <if test="checkTime != '' ">
         #{checkTime,jdbcType=VARCHAR},
       </if>
       <if test="checkResult != null">
         #{checkResult,jdbcType=VARCHAR},
+      </if>
+      <if test="checkResultLevel != null">
+        #{checkResultLevel,jdbcType=VARCHAR},
       </if>
       <if test="isPpi != null">
         #{isPpi,jdbcType=VARCHAR},
@@ -371,11 +378,14 @@
       <if test="checkName != null">
         check_name = #{checkName,jdbcType=VARCHAR},
       </if>
-      <if test="checkTime != null">
+      <if test="checkTime != ''">
         check_time = #{checkTime,jdbcType=VARCHAR},
       </if>
       <if test="checkResult != null">
         check_result = #{checkResult,jdbcType=VARCHAR},
+      </if>
+      <if test="checkResultLevel != null">
+        check_result_level = #{checkResultLevel,jdbcType=VARCHAR},
       </if>
       <if test="isPpi != null">
         is_ppi = #{isPpi,jdbcType=VARCHAR},
@@ -390,7 +400,7 @@
         update_time = #{updateTime,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where record_id = #{recordId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.kp.fus.model.GerSymptomQue">
     update ger_symptom_que
@@ -423,6 +433,7 @@
       check_name = #{checkName,jdbcType=VARCHAR},
       check_time = #{checkTime,jdbcType=VARCHAR},
       check_result = #{checkResult,jdbcType=VARCHAR},
+      check_result_level = #{checkResultLevel,jdbcType=VARCHAR},
       is_ppi = #{isPpi,jdbcType=VARCHAR},
       ppi_time = #{ppiTime,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},

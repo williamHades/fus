@@ -4,11 +4,13 @@ public class PatientRecord {
 
     private String ticketNo;
 
-    private Integer patientNo;
-
-    private Integer patientId;
+    private String patientId;
 
     private String patientName;
+
+    private String patientCode;
+
+    private Integer patientNo;
 
     private Integer patientSex;
 
@@ -80,44 +82,12 @@ public class PatientRecord {
         this.id = id;
     }
 
-    public Integer getPatientNo() {
-        return patientNo;
-    }
-
-    public void setPatientNo(Integer patientNo) {
-        this.patientNo = patientNo;
-    }
-
-    public Integer getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(Integer patientId) {
-        this.patientId = patientId;
-    }
-
     public String getPatientName() {
         return patientName;
     }
 
     public void setPatientName(String patientName) {
         this.patientName = patientName == null ? null : patientName.trim();
-    }
-
-    public Integer getPatientSex() {
-        return patientSex;
-    }
-
-    public void setPatientSex(Integer patientSex) {
-        this.patientSex = patientSex;
-    }
-
-    public Integer getPatientAge() {
-        return patientAge;
-    }
-
-    public void setPatientAge(Integer patientAge) {
-        this.patientAge = patientAge;
     }
 
     public String getPatientCareer() {
@@ -359,4 +329,45 @@ public class PatientRecord {
 	public void setTicketNo(String ticketNo) {
 		this.ticketNo = ticketNo;
 	}
+
+	public String getPatientCode() {
+		return patientCode;
+	}
+
+	public void setPatientCode(String patientCode) {
+		this.patientCode = patientCode;
+	}
+
+	public String getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(String patientId) {
+		this.patientId = patientId;
+	}
+
+	public Integer getPatientNo() {
+		return patientNo;
+	}
+
+	public void setPatientNo(Integer patientNo) {
+		this.patientNo = patientNo;
+	}
+
+	public Integer getPatientSex() {
+		return patientSex;
+	}
+
+	public void setPatientSex(Integer patientSex) {
+		this.patientSex = patientSex;
+	}
+
+	public Integer getPatientAge() {
+		return patientAge;
+	}
+
+	public void setPatientAge(Integer patientAge) {
+		this.patientAge = patientAge;
+	}
+
 }

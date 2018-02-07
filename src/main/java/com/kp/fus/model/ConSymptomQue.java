@@ -6,6 +6,8 @@ public class ConSymptomQue {
 
     private String recordId;
 
+    private String patientName;
+    
     private Integer patientNo;
 
     private Integer patientSex;
@@ -437,5 +439,13 @@ public class ConSymptomQue {
 
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	public String getPatientName() {
+		return patientName;
+	}
+
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
 	}
 }

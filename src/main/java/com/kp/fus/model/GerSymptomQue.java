@@ -61,6 +61,8 @@ public class GerSymptomQue {
 
     private String checkResult;
 
+    private String checkResultLevel;
+    
     private String isPpi;
 
     private String ppiTime;
@@ -349,5 +351,13 @@ public class GerSymptomQue {
 
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	public String getCheckResultLevel() {
+		return checkResultLevel;
+	}
+
+	public void setCheckResultLevel(String checkResultLevel) {
+		this.checkResultLevel = checkResultLevel;
 	}
 }

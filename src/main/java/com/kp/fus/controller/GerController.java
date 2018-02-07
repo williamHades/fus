@@ -3,15 +3,21 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import net.sf.json.JSONObject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.kp.fus.model.GerEsophagealManometry;
 import com.kp.fus.model.GerQScore;
 import com.kp.fus.model.GerSymptomChn;
 import com.kp.fus.model.GerSymptomQue;
+import com.kp.fus.service.GerEsophagealManometryService;
 import com.kp.fus.service.GerQScoreService;
 import com.kp.fus.service.GerSymptomChnService;
 import com.kp.fus.service.GerSymptomQueService;
@@ -27,6 +33,9 @@ public class GerController {
 
 	@Resource
 	private GerQScoreService gerQScoreService;
+
+	@Resource
+	private GerEsophagealManometryService gerEsophagealManometryService;
 	
 	private java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss");
 	
@@ -57,8 +66,8 @@ public class GerController {
 		}
 	}
 	//GerSymptomQue Save
-	@RequestMapping("/saveConSymptomQue")
-	public void saveSymptomQue(HttpServletRequest request,HttpServletResponse response,GerSymptomQue consq){
+	@RequestMapping("/saveGerSymptomQue")
+	public void saveGerSymptomQue(HttpServletRequest request,HttpServletResponse response,GerSymptomQue consq){
 		System.out.println("constipation conSymptomQue Find ... ");
 		Date dt = new Date();
 		JSONObject json = new JSONObject();
@@ -78,22 +87,15 @@ public class GerController {
 				
 				consq.setCreateTime(formatter.format(dt));
 				consq.setUpdateTime(formatter.format(dt));
-				int insertResult = gerSymptomQueService.insertSelective(consq);
-				if(insertResult>0){
-					json.put("success", true);
-				}else{
-					json.put("success", false);
-				}
-				System.out.println("insert result : "+insertResult);
+				
+			}
+			int updateResult = gerSymptomQueService.updateByPrimaryKeySelective(consq);
+			if(updateResult>0){
+				json.put("success", true);
 			}else{
-				int updateResult = gerSymptomQueService.updateByPrimaryKeySelective(consq);
-				if(updateResult>0){
-					json.put("success", true);
-				}else{
-					json.put("success", false);
-				}
-				System.out.println("update"+consq.getTicketId()+"/"+consq.getRecordId()+" result : "+updateResult);
-			}						
+				json.put("success", false);
+			}
+			System.out.println("update"+consq.getTicketId()+"/"+consq.getRecordId()+" result : "+updateResult);						
 			
 			ResponseUtil.write(response, json);
 		}catch(Exception e){
@@ -110,7 +112,7 @@ public class GerController {
 			Map<String,Object> map = new HashMap<String, Object>();
 			map.put("recordId", prid);
 			GerSymptomChn csq = gerSymptomChnService.selectByQua(map);
-			System.out.println(csq.getRecordId()+" ");
+			//System.out.println(csq.getRecordId()+" ");
 			
 			JSONObject json = new JSONObject();
 			json = JSONObject.fromObject(csq);
@@ -168,7 +170,7 @@ public class GerController {
 			Map<String,Object> map = new HashMap<String, Object>();
 			map.put("recordId", prid);
 			GerQScore csq = gerQScoreService.selectByQua(map);
-			System.out.println(csq.getRecordId()+" ");
+			//System.out.println(csq.getRecordId()+" ");
 			
 			JSONObject json = new JSONObject();
 			json = JSONObject.fromObject(csq);
@@ -183,8 +185,8 @@ public class GerController {
 		}
 	}
 	//GerQScore Save
-	@RequestMapping("/saveGerQScoreQua")
-	public void saveGerQScoreQua(HttpServletRequest request,HttpServletResponse response,GerQScore consq){
+	@RequestMapping("/saveGerQScore")
+	public void saveGerQScore(HttpServletRequest request,HttpServletResponse response,GerQScore consq){
 		System.out.println("constipation conSymptomChn Find ... ");
 		Date dt = new Date();
 		JSONObject json = new JSONObject();
@@ -210,6 +212,54 @@ public class GerController {
 				}
 				System.out.println("update"+consq.getTicketId()+"/"+consq.getRecordId()+" result : "+updateResult);
 			}						
+			
+			ResponseUtil.write(response, json);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	//GerQScore Find
+	@RequestMapping("/findEsophagealManometry")
+	public void findEsophagealManometry(HttpServletRequest request,HttpServletResponse response){
+		System.out.println("constipation conSymptomChn Find ... ");
+		try{
+			String prid = new String(request.getParameter("pid").getBytes("iso8859-1"),"utf-8");
+			System.out.println("PRID " + prid);
+			Map<String,Object> map = new HashMap<String, Object>();
+			map.put("recordId", prid);
+			GerEsophagealManometry csq = gerEsophagealManometryService.selectByQua(map);
+			
+			JSONObject json = new JSONObject();
+			json = JSONObject.fromObject(csq);
+
+			System.out.println("json: " + json.toString());
+			ResponseUtil.write(response, json);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	//GerQScore Save
+	@RequestMapping("/saveEsophagealManometry")
+	public void saveEsophagealManometry(HttpServletRequest request,HttpServletResponse response,GerEsophagealManometry consq){
+		System.out.println("constipation conSymptomChn Find ... ");
+		Date dt = new Date();
+		JSONObject json = new JSONObject();
+		try{
+			System.out.println(consq.getRecordId() + " ");
+			if(null==consq.getCheckDate()||consq.getCheckDate().equals("")){
+				consq.setCheckDate(null);
+			}
+			if(null==consq.getCreateTime()||consq.getCreateTime().equals("")){				
+				consq.setCreateTime(formatter.format(dt));
+				consq.setUpdateTime(formatter.format(dt));
+			}
+			int updateResult = gerEsophagealManometryService.updateByPrimaryKeySelective(consq);
+			if(updateResult>0){
+				json.put("success", true);
+			}else{
+				json.put("success", false);
+			}
+			System.out.println("update"+consq.getTicketId()+"/"+consq.getRecordId()+" result : "+updateResult);					
 			
 			ResponseUtil.write(response, json);
 		}catch(Exception e){

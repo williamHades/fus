@@ -24,6 +24,10 @@ blockquote, body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6,
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 }
 
+.layui-table2 input {
+	padding: 5px 0;
+}
+
 a:active, a:hover {
 	outline: 0
 }
@@ -243,7 +247,6 @@ a cite {
 	z-index: 998;
 	width: auto;
 	overflow: hidden;
-	overflow-y: auto;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box
@@ -648,9 +651,12 @@ a cite {
 	float: left;
 	display: block;
 	padding: 9px 15px;
-	width: 80px;
+	width: 120px;
 	font-weight: 400;
 	text-align: right
+}
+.layui-form-label2 {
+	width: 210px;
 }
 
 .layui-form-item .layui-inline {
@@ -663,8 +669,12 @@ a cite {
 }
 
 .layui-input-block {
-	margin-left: 110px;
+	margin-left: 150px;
 	min-height: 36px
+}
+
+.layui-input-block2 {
+	margin-left: 180px;
 }
 
 .layui-input-inline {
@@ -1211,6 +1221,10 @@ a cite {
 	line-height: 20px;
 	border: 1px solid #e2e2e2;
 	font-size: 14px
+}
+
+.layui-table2 td, .layui-table2 th {
+	padding: 2px 15px;
 }
 
 .layui-table tr:hover, .layui-table[lay-even] tr:nth-child(even) {

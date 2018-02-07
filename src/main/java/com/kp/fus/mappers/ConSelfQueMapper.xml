@@ -50,6 +50,9 @@
   <insert id="insertSelective" parameterType="com.kp.fus.model.ConSelfQue">
     insert into con_self_que
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        record_id,
+      </if>
       <if test="stoolSolid != null">
         stool_solid,
       </if>
@@ -97,6 +100,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        #{recordId,jdbcType=VARCHAR},
+      </if>
       <if test="stoolSolid != null">
         #{stoolSolid,jdbcType=VARCHAR},
       </if>

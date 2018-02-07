@@ -106,12 +106,6 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.kp.fus.model.GerQScore">
     update ger_q_score
     <set>
-      <if test="ticketId != null">
-        ticket_id = #{ticketId,jdbcType=VARCHAR},
-      </if>
-      <if test="recordId != null">
-        record_id = #{recordId,jdbcType=VARCHAR},
-      </if>
       <if test="heartBurn != null">
         heart_burn = #{heartBurn,jdbcType=VARCHAR},
       </if>
@@ -131,10 +125,10 @@
         is_otc = #{isOtc,jdbcType=VARCHAR},
       </if>
       <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=VARCHAR},
+        update_time = #{updateTime,jdbcType=VARCHAR}
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where  record_id = #{recordId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.kp.fus.model.GerQScore">
     update ger_q_score

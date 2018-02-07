@@ -4,14 +4,26 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.kp.fus.model.ConAnorectalManometry;
+import com.kp.fus.model.ConSymptomQue;
+import com.kp.fus.model.GerEsophagealManometry;
+import com.kp.fus.model.GerSymptomQue;
 import com.kp.fus.model.PatientRecord;
+import com.kp.fus.service.ConAnorectalManometryService;
+import com.kp.fus.service.ConSymptomQueService;
+import com.kp.fus.service.GerEsophagealManometryService;
+import com.kp.fus.service.GerSymptomQueService;
 import com.kp.fus.service.IdGeneratorService;
 import com.kp.fus.service.PatientRecordService;
 import com.kp.fus.util.PageInfo;
@@ -22,6 +34,16 @@ public class PatientRecordController {
 	@Resource
 	private PatientRecordService patientRecordService;
 
+	@Resource
+	private ConSymptomQueService conSymptomQueService;
+	@Resource
+	private ConAnorectalManometryService conAnorectalManometryService;
+	
+	@Resource
+	private GerSymptomQueService gerSymptomQueService;
+	@Resource
+	private GerEsophagealManometryService gerEsophagealManometryService;
+	
 	@Resource
 	private IdGeneratorService idGeneratorService;
 	
@@ -124,7 +146,7 @@ public class PatientRecordController {
 		timeNo = timeNo.substring(0, timeNo.length()-2);
 		String ri  ="0000";
 		JSONObject json = new JSONObject();
-		
+		System.out.println("sex "+pr.getPatientSex());
 		if(null==pr.getCreateTime()||"".equals(pr.getCreateTime())){
 			pr.setCreateTime(formatter.format(dt));
 			pr.setUpdateTime(formatter.format(dt));
@@ -142,13 +164,73 @@ public class PatientRecordController {
 			
 			int createResult = patientRecordService.insertPatientRecord(pr);
 			if(createResult>0){
-				json.put("success", true);
+				if(pr.getTicketNo().substring(0, 1).equals("C")){
+					ConSymptomQue csq = new ConSymptomQue();
+					csq.setRecordId(pr.getTicketNo());
+					csq.setPatientNo(pr.getPatientNo());
+					csq.setPatientName(pr.getPatientName());
+					csq.setPatientSex(pr.getPatientSex());
+					csq.setPatientAge(pr.getPatientAge());
+					csq.setPatientCareer(pr.getPatientCareer());
+					csq.setPatientContact(pr.getPatientContact());
+					csq.setSiteHome(pr.getSiteHome());
+					csq.setSiteWork(pr.getSiteWork());
+					csq.setPatientEducation(pr.getPatientEducation());
+					csq.setPatientMarried(pr.getPatientMarried());
+					csq.setPatientChild(pr.getPatientChild());
+					csq.setPatientEconomy(pr.getPatientEconomy());
+					csq.setPatientPayMode(pr.getPatientPayMode());
+					int re1 =conSymptomQueService.insertSelective(csq);
+					//
+					ConAnorectalManometry cam = new ConAnorectalManometry();
+					cam.setRecordId(pr.getTicketNo());
+					cam.setPatientName(pr.getPatientName());
+					cam.setPatientSex(pr.getPatientSex()+"");
+					cam.setPatinetAge(pr.getPatientAge()+"");
+					int re2 = conAnorectalManometryService.insertSelective(cam);
+					if(re1>0 && re2>0)
+						json.put("success", true);
+					else
+						json.put("success", false);
+				}else if(pr.getTicketNo().substring(0, 1).equals("G")){
+					GerSymptomQue gsq = new GerSymptomQue();
+					gsq.setRecordId(pr.getTicketNo());
+					//gsq.setPatientNo(pr.getPatientNo()+"");
+					gsq.setPatientName(pr.getPatientName());
+					//csq.setpatient
+					gsq.setPatientSex(pr.getPatientSex()+"");
+					gsq.setPatientAge(pr.getPatientAge()+"");
+					gsq.setPatientCareer(pr.getPatientCareer());
+					gsq.setPatientContact(pr.getPatientContact());
+					gsq.setSiteHome(pr.getSiteHome());
+					gsq.setSiteWork(pr.getSiteWork());
+					gsq.setPatientEducation(pr.getPatientEducation());
+					gsq.setPatientMarried(pr.getPatientMarried());
+					gsq.setPatientChild(pr.getPatientChild());
+					gsq.setPatientEconomy(pr.getPatientEconomy());
+					gsq.setPatientPayMode(pr.getPatientPayMode());
+					int reg1 = gerSymptomQueService.insertSelective(gsq);
+					
+					GerEsophagealManometry gem = new GerEsophagealManometry();
+					gem.setRecordId(pr.getTicketNo());
+					gem.setPatientName(pr.getPatientName());
+					gem.setPatientSex(pr.getPatientSex()+"");
+					gem.setPatinetAge(pr.getPatientAge()+"");
+					int reg2 = gerEsophagealManometryService.insertSelective(gem);
+					if(reg1>0 && reg2>0)
+						json.put("success", true);
+					else
+						json.put("success", false);
+				}else{
+					json.put("success", false);	
+				}
 			}else{
-				json.put("success", false);
+				
 			}
 			System.out.println("insert ... " + createResult);
 		}else{
 			int updateResult = patientRecordService.updateById(pr);
+			System.out.println("judge " + pr.getPatientSex() +" "+ pr.getPatientChild());
 			if(updateResult>0){
 				json.put("success", true);
 			}else{

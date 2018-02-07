@@ -3,17 +3,23 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import net.sf.json.JSONObject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.kp.fus.model.ConHealthQue;
 import com.kp.fus.model.ConLifeQua;
 import com.kp.fus.model.ConSelfQue;
 import com.kp.fus.model.ConSymptomChn;
 import com.kp.fus.model.ConSymptomQue;
+import com.kp.fus.model.ConAnorectalManometry;
+import com.kp.fus.service.ConAnorectalManometryService;
 import com.kp.fus.service.ConHealthQueService;
 import com.kp.fus.service.ConLifeQuaService;
 import com.kp.fus.service.ConSelfQueService;
@@ -37,6 +43,9 @@ public class ConController {
 	
 	@Resource
 	private ConSelfQueService conSelfQueService;
+
+	@Resource
+	private ConAnorectalManometryService conAnorectalManometryService;
 	
 	private java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss");
 	//ConSymptomQue Find
@@ -82,26 +91,18 @@ public class ConController {
 				consq.setBiofeedbackCourseStart(null);
 			}
 			if(null==consq.getCreateTime()||consq.getCreateTime().equals("")){
-				
 				consq.setCreateTime(formatter.format(dt));
 				consq.setUpdateTime(formatter.format(dt));
-				int insertResult = conSymptomQueService.insertSelective(consq);
-				if(insertResult>0){
-					json.put("success", true);
-				}else{
-					json.put("success", false);
-				}
-				System.out.println("insert result : "+insertResult);
+				
+			}
+			int updateResult = conSymptomQueService.updateByPrimaryKeySelective(consq);
+			if(updateResult>0){
+				json.put("success", true);
 			}else{
-				int updateResult = conSymptomQueService.updateByPrimaryKeySelective(consq);
-				if(updateResult>0){
-					json.put("success", true);
-				}else{
-					json.put("success", false);
-				}
-				System.out.println("update"+consq.getTicketId()+"/"+consq.getRecordId()+" result : "+updateResult);
-			}						
-			
+				json.put("success", false);
+			}
+			System.out.println("update"+consq.getTicketId()+"/"+consq.getRecordId()+" result : "+updateResult);
+						
 			ResponseUtil.write(response, json);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -117,7 +118,7 @@ public class ConController {
 			Map<String,Object> map = new HashMap<String, Object>();
 			map.put("recordId", prid);
 			ConSymptomChn csq = conSymptomChnService.selectByQua(map);
-			System.out.println(csq.getRecordId()+" ");
+			//System.out.println(csq+" ");
 			
 			JSONObject json = new JSONObject();
 			json = JSONObject.fromObject(csq);
@@ -200,7 +201,6 @@ public class ConController {
 		try{
 			System.out.println(consq.getRecordId() + " ");
 			if(null==consq.getCreateTime()||consq.getCreateTime().equals("")){
-				
 				consq.setCreateTime(formatter.format(dt));
 				consq.setUpdateTime(formatter.format(dt));
 				int insertResult = conLifeQuaService.insertSelective(consq);
@@ -235,7 +235,7 @@ public class ConController {
 			Map<String,Object> map = new HashMap<String, Object>();
 			map.put("recordId", prid);
 			ConSelfQue csq = conSelfQueService.selectByQua(map);
-			System.out.println(csq.getRecordId()+" ");
+			//System.out.println(csq.getRecordId()+" ");
 			
 			JSONObject json = new JSONObject();
 			json = JSONObject.fromObject(csq);
@@ -293,7 +293,7 @@ public class ConController {
 			Map<String,Object> map = new HashMap<String, Object>();
 			map.put("recordId", prid);
 			ConHealthQue csq = conHealthQueService.selectByQua(map);
-			System.out.println(csq.getRecordId()+" ");
+			//System.out.println(csq.getRecordId()+" ");
 			
 			JSONObject json = new JSONObject();
 			json = JSONObject.fromObject(csq);
@@ -335,6 +335,54 @@ public class ConController {
 				}
 				System.out.println("update"+consq.getTicketId()+"/"+consq.getRecordId()+" result : "+updateResult);
 			}						
+			
+			ResponseUtil.write(response, json);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	//ConSymptomQue Find
+	@RequestMapping("/findConAnorectalManometry")
+	public void findConAnorectalManometry(HttpServletRequest request,HttpServletResponse response){
+		System.out.println("constipation conSymptomQue Find ... ");
+		try{
+			String prid = new String(request.getParameter("pid").getBytes("iso8859-1"),"utf-8");
+			System.out.println("PRID " + prid);
+			Map<String,Object> map = new HashMap<String, Object>();
+			map.put("recordId", prid);
+			ConAnorectalManometry csq = conAnorectalManometryService.selectByQua(map);
+			
+			JSONObject json = new JSONObject();
+			json = JSONObject.fromObject(csq);
+
+			System.out.println("json: " + json.toString());
+			ResponseUtil.write(response, json);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	//ConSymptomQue Save
+	@RequestMapping("/saveConAnorectalManometry")
+	public void saveConAnorectalManometry(HttpServletRequest request,HttpServletResponse response,ConAnorectalManometry consq){
+		System.out.println("constipation conSymptomQue Find ... ");
+		Date dt = new Date();
+		JSONObject json = new JSONObject();
+		try{
+			//System.out.println(consq.getRecordId() + " ");
+			if(null==consq.getCheckDate()||consq.getCheckDate().equals("")){
+				consq.setCheckDate(null);
+			}
+			if(null==consq.getCreateTime()||consq.getCreateTime().equals("")){
+				consq.setCreateTime(formatter.format(dt));
+				consq.setUpdateTime(formatter.format(dt));				
+			}
+			int updateResult = conAnorectalManometryService.updateByPrimaryKeySelective(consq);
+			if(updateResult>0){
+				json.put("success", true);
+			}else{
+				json.put("success", false);
+			}
+			System.out.println("update"+consq.getTicketId()+"/"+consq.getRecordId()+" result : "+updateResult);						
 			
 			ResponseUtil.write(response, json);
 		}catch(Exception e){

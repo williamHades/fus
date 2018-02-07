@@ -32,41 +32,7 @@
         		//获取patientRecord Id
         		var pid =  getUrlParam("pid");
         		//后台获取
-        		$.getJSON("${pageContext.request.contextPath}/gerd/findGerSymptomChn.action",{pid:pid},function(data){
-        			//set from fields value
-        			for (var key in data){
-        				$("#"+key).val("");
-        			}
-        			for (var key in data){
-        				alert(key + " - " + data[key])
-        				if(key =="cbasic"){
-        				}else if(key =="patientSex"){
-        					$("input[name=patientSex][value="+data.patientSex+"]").prop("checked",true);//value=34的radio被选中
-        				}else if(key =="patientEducation"){
-        					$("input[name=patientEducation][value="+data.patientEducation+"]").prop("checked",true);//value=34的radio被选中
-        				}else if(key =="patientMarried"){
-        					$("input[name=patientMarried][value="+data.patientMarried+"]").prop("checked",true);//value=34的radio被选中
-        				}else if(key =="patientChild"){
-        					$("input[name=patientChild][value="+data.patientChild+"]").prop("checked",true);//value=34的radio被选中
-        				}else if(key =="patientEconomy"){
-        					$("input[name=patientEconomy][value="+data.patientEconomy+"]").prop("checked",true);//value=34的radio被选中
-        				}else{
-        					$("#"+key).val(data[key]);
-        				}
-				    }
-				    /* if(data.patientGroup==2){
-				    	$("#con").show();
-				    	$("#ger").hide();
-				    	//alert("check 2");
-				    	$("#patientGroup").removeAttr('checked'); 
-				    	$("input[id=patientGroup][value=2]").prop("checked",true);//value=34的radio被选中
-				    }else{
-				    	$("#con").hide();
-				    	$("ger").show();
-				    	$("input[id=patientGroup][value=1]").prop("checked",true);//value=34的radio被选中
-				    } */
-        			$("#recordId").val(pid);
-        		});
+        		initGerSChnRecord(pid);
         	});
         </script>
 	</head>
@@ -79,6 +45,13 @@
 				<legend>胃食管反流病中医相关症状条目</legend>
 				<div class="layui-field-box">
 				<form class="layui-form" action="">
+					<div class="layui-form-item" >
+						<input type="text" id="recordId" name="recordId" class="layui-input">
+						<input type="text" id="createTime" name="createTime" class="layui-input" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" >
+						<input type="text" id="updateTime" name="updateTime" class="layui-input" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" >
+						<input type="hidden" id="ticketId" name="ticketId" class="layui-input">
+									
+					</div>
 					<table class="layui-table">
 						<thead>
 							<tr>
@@ -97,6 +70,7 @@
 							<tr>
 								<td align="center" class="layui-form-bg-gray">反酸</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
+								<td style="display:none" ><input type="radio" id="sourRegurgitation" name="sourRegurgitation" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="sourRegurgitation" name="sourRegurgitation" value="1" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="sourRegurgitation" name="sourRegurgitation" value="2" title="偶有，&lt;4次/日" ></td>
 								<td><input type="radio" id="sourRegurgitation" name="sourRegurgitation" value="3" title="时有，4-10次/日" ></td>
@@ -105,6 +79,7 @@
 							<tr>
 								<td align="center" class="layui-form-bg-gray">嗳气</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
+								<td style="display:none" ><input type="radio" id="ructusTimes" name="ructusTimes" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="ructusTimes" name="ructusTimes" value="1" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="ructusTimes" name="ructusTimes" value="2" title="偶有，&lt;4次/日"></td>
 								<td><input type="radio" id="ructusTimes" name="ructusTimes" value="3" title="时有，4-10次/日"></td>
@@ -113,6 +88,7 @@
                             <tr>
                               <td rowspan="2" align="center" class="layui-form-bg-gray">烧心</td>
                               <td align="center" class="layui-form-bg-gray">频率</td>
+                              <td style="display:none" ><input type="radio" id="heartBurnTimes" name="heartBurnTimes" value="" title="0分" >&nbsp;</td>
                               <td><input type="radio" id="heartBurnTimes" name="heartBurnTimes" value="1" title="0分" >&nbsp;</td>
 							  <td><input type="radio" id="heartBurnTimes" name="heartBurnTimes" value="2" title="＞3天发作1次，时作时止"></td>
 							  <td><input type="radio" id="heartBurnTimes" name="heartBurnTimes" value="3" title="2-3天发作1次，发作频繁"></td>
@@ -120,14 +96,16 @@
                             </tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">持续时间</td>
-								<td><input type="radio" id="ructusLasttime" name="ructusLasttime" value="1" title="0分" >&nbsp;</td>
-							    <td><input type="radio" id="ructusLasttime" name="ructusLasttime" value="2" title="1小时内可缓解"></td>
-							    <td><input type="radio" id="ructusLasttime" name="ructusLasttime" value="3" title="1-3小时内可缓解"></td>
-							    <td><input type="radio" id="ructusLasttime" name="ructusLasttime" value="4" title="＞3小时才缓解甚至一整天不能缓解"></td>
+								<td style="display:none" ><input type="radio" id="heartBurnLasttime" name="heartBurnLasttime" value="" title="0分" >&nbsp;</td>
+								<td><input type="radio" id="heartBurnLasttime" name="heartBurnLasttime" value="1" title="0分" >&nbsp;</td>
+							    <td><input type="radio" id="heartBurnLasttime" name="heartBurnLasttime" value="2" title="1小时内可缓解"></td>
+							    <td><input type="radio" id="heartBurnLasttime" name="heartBurnLasttime" value="3" title="1-3小时内可缓解"></td>
+							    <td><input type="radio" id="heartBurnLasttime" name="heartBurnLasttime" value="4" title="＞3小时才缓解甚至一整天不能缓解"></td>
 							</tr>
                             <tr>
                               <td rowspan="2" align="center" class="layui-form-bg-gray">胸背疼痛</td>
                               <td align="center" class="layui-form-bg-gray">频率</td>
+                              <td style="display:none" ><input type="radio" id="chestBackTimes" name="chestBackTimes" value="" title="0分" >&nbsp;</td>
                               <td><input type="radio" id="chestBackTimes" name="chestBackTimes" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="chestBackTimes" name="chestBackTimes" value="2" title="＞3天发作1次，时作时止"></td>
 							    <td><input type="radio" id="chestBackTimes" name="chestBackTimes" value="3" title="2-3天发作1次，发作频繁"></td>
@@ -135,6 +113,7 @@
                             </tr>
                             <tr>
 								<td align="center" class="layui-form-bg-gray">持续时间</td>
+								<td style="display:none" ><input type="radio" id="chestBackLasttime" name="chestBackLasttime" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="chestBackLasttime" name="chestBackLasttime" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="chestBackLasttime" name="chestBackLasttime" value="2" title="1小时内可缓解"></td>
 							    <td><input type="radio" id="chestBackLasttime" name="chestBackLasttime" value="3" title="1-3小时内可缓解"></td>
@@ -143,6 +122,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">心烦</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
+								<td style="display:none" ><input type="radio" id="vexation" name="vexation" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="vexation" name="vexation" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="vexation" name="vexation" value="2" title="偶有烦躁易急，情绪不宁，可以自控"></td>
 							    <td><input type="radio" id="vexation" name="vexation" value="3" title="经常烦躁易急，有时难以自控"></td>
@@ -151,6 +131,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">胁胀</td>
 								<td align="center" class="layui-form-bg-gray">&nbsp;</td>
+								<td style="display:none" ><input type="radio" id="ribside" name="ribside" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="ribside" name="ribside" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="ribside" name="ribside" value="2" title="微胀，＞3天发作1次，持续半小时可缓解"></td>
 							    <td><input type="radio" id="ribside" name="ribside" value="3" title="较重，2-3天发作1次，持续半小时-2小时可缓解"></td>
@@ -159,6 +140,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">口苦</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
+								<td style="display:none" ><input type="radio" id="bitterMouth" name="bitterMouth" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="bitterMouth" name="bitterMouth" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="bitterMouth" name="bitterMouth" value="2" title="口中似有苦味，偶发"></td>
 							    <td><input type="radio" id="bitterMouth" name="bitterMouth" value="3" title="口中发苦，历时较久，食欲可减，常发"></td>
@@ -167,6 +149,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">嗳腐吞酸</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
+								<td style="display:none" ><input type="radio" id="putridAcid" name="putridAcid" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="putridAcid" name="putridAcid" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="putridAcid" name="putridAcid" value="2" title="＞3天发作1次，腐气不强，短暂即过"></td>
 							    <td><input type="radio" id="putridAcid" name="putridAcid" value="3" title="2-3天发作1次，腐气较重"></td>
@@ -175,6 +158,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">善食易饥</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
+								<td style="display:none" ><input type="radio" id="bulimia" name="bulimia" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="bulimia" name="bulimia" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="bulimia" name="bulimia" value="2" title="食后易饥，进食次数较常增1-2次，或食量较常增＜30%"></td>
 							    <td><input type="radio" id="bulimia" name="bulimia" value="3" title="食后易饥，进食次数较常增3-4次，或食量较常增30%-60%"></td>
@@ -183,6 +167,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">胃中嘈杂</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
+								<td style="display:none" ><input type="radio" id="noisyStomach" name="noisyStomach" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="noisyStomach" name="noisyStomach" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="noisyStomach" name="noisyStomach" value="2" title="＞3天发作1次，1小时内可缓解，胃中微嘈，作息不受影响"></td>
 							    <td><input type="radio" id="noisyStomach" name="noisyStomach" value="3" title="2-3天发作1次，1-3小时内可缓解，嘈杂明显，生物作息受影响"></td>
@@ -191,6 +176,7 @@
                             <tr>
                               <td rowspan="2" align="center" class="layui-form-bg-gray">恶心</td>
                               <td align="center" class="layui-form-bg-gray">频率</td>
+                              <td style="display:none" ><input type="radio" id="nauseaTimes" name="nauseaTimes" value="" title="0分" >&nbsp;</td>
                               <td><input type="radio" id="nauseaTimes" name="nauseaTimes" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="nauseaTimes" name="nauseaTimes" value="2" title="＞3天发作1次，时作时止"></td>
 							    <td><input type="radio" id="nauseaTimes" name="nauseaTimes" value="3" title="2-3天发作1次，发作频繁"></td>
@@ -199,6 +185,7 @@
                             <tr>
                               <td align="center" class="layui-form-bg-gray">持续时间</td>
                               <td><input type="radio" id="nauseaLasttime" name="nauseaLasttime" value="1" title="0分" >&nbsp;</td>
+                              <td style="display:none" ><input type="radio" id="nauseaLasttime" name="nauseaLasttime" value="" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="nauseaLasttime" name="nauseaLasttime" value="2" title="1小时内可缓解"></td>
 							    <td><input type="radio" id="nauseaLasttime" name="nauseaLasttime" value="3" title="1-3小时内可缓解"></td>
 							    <td><input type="radio" id="nauseaLasttime" name="nauseaLasttime" value="4" title="＞3小时才缓解甚至一整天不能缓解"></td>
@@ -206,6 +193,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">呕吐痰涎、清水</td>
 								<td align="center" class="layui-form-bg-gray">&nbsp;</td>
+								<td style="display:none" ><input type="radio" id="saliva" name="saliva" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="saliva" name="saliva" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="saliva" name="saliva" value="2" title="＞3天发作1次，量少，＜10ml/次"></td>
 							    <td><input type="radio" id="saliva" name="saliva" value="3" title="2-3天发作1次，量中，10-30ml/次"></td>
@@ -214,6 +202,7 @@
 							<tr>
 								<td align="center" class="layui-form-bg-gray">疲乏</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
+								<td style="display:none" ><input type="radio" id="fatigue" name="fatigue" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="fatigue" name="fatigue" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="fatigue" name="fatigue" value="2" title="精神不振，不喜多言，但能坚持工作或学习"></td>
 							    <td><input type="radio" id="fatigue" name="fatigue" value="3" title="精神疲惫，困倦少言，工作或学习能力下降"></td>
@@ -222,6 +211,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">纳差</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
+								<td style="display:none" ><input type="radio" id="poorAppetite" name="poorAppetite" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="poorAppetite" name="poorAppetite" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="poorAppetite" name="poorAppetite" value="2" title="食欲欠佳，但基本保持原食量"></td>
 							    <td><input type="radio" id="poorAppetite" name="poorAppetite" value="3" title="食欲减退，食量减1/3"></td>
@@ -230,6 +220,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">呃逆</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
+								<td style="display:none" ><input type="radio" id="hiccup" name="hiccup" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="hiccup" name="hiccup" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="hiccup" name="hiccup" value="2" title="偶有，&lt;4次/日"></td>
 							    <td><input type="radio" id="hiccup" name="hiccup" value="3" title="时有，4-10次/日"></td>
@@ -238,6 +229,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">便溏</td>
 								<td align="center" class="layui-form-bg-gray">——</td>
+								<td style="display:none" ><input type="radio" id="looseStool" name="looseStool" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="looseStool" name="looseStool" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="looseStool" name="looseStool" value="2" title="粪质偏溏，不成形，状似烂泥"></td>
 							    <td><input type="radio" id="looseStool" name="looseStool" value="3" title="粪便溏薄，状似稀泥"></td>
@@ -246,6 +238,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">咽部异物感</td>
 								<td align="center" class="layui-form-bg-gray">&nbsp;</td>
+								<td style="display:none" ><input type="radio" id="foreignPharynx" name="foreignPharynx" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="foreignPharynx" name="foreignPharynx" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="foreignPharynx" name="foreignPharynx" value="2" title="咽喉似有异物，吞咽多无影响"></td>
 							    <td><input type="radio" id="foreignPharynx" name="foreignPharynx" value="3" title="咽喉异物感明显，吞咽多无影响"></td>
@@ -254,6 +247,7 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">声嘶</td>
 								<td align="center" class="layui-form-bg-gray">&nbsp;</td>
+								<td style="display:none" ><input type="radio" id="hoarseness" name="hoarseness" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="hoarseness" name="hoarseness" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="hoarseness" name="hoarseness" value="2" title="略有声音发哑"></td>
 							    <td><input type="radio" id="hoarseness" name="hoarseness" value="3" title="声音嘶哑但可忍受"></td>
@@ -262,13 +256,22 @@
                             <tr>
 								<td align="center" class="layui-form-bg-gray">呛咳</td>
 								<td align="center" class="layui-form-bg-gray">&nbsp;</td>
+								<td style="display:none" ><input type="radio" id="bucking" name="bucking" value="" title="0分" >&nbsp;</td>
 								<td><input type="radio" id="bucking" name="bucking" value="1" title="0分" >&nbsp;</td>
 							    <td><input type="radio" id="bucking" name="bucking" value="2" title="偶有咳嗽"></td>
 							    <td><input type="radio" id="bucking" name="bucking" value="3" title="经常呛咳，影响生活作息"></td>
 							    <td><input type="radio" id="bucking" name="bucking" value="4" title="呛咳剧烈，生活作息严重受影响"></td>
 							</tr>
+               
 						</tbody>
-					</table>
+					</table> 
+					
+					<!--  form fields List  end-->
+			        <hr size="1" color="CCCCCC" width="100%">
+			        <div class="layui-input-block" aling="center">   
+		                 <button class="layui-btn" lay-filter="demo1" lay-submit="">保存</button>  
+		                 <button class="layui-btn layui-btn-primary" type="reset">关闭</button>  
+		            </div> 
 					</form>
 				</div>
 			</fieldset>
@@ -301,7 +304,7 @@
 						var re = eval("("+res+")");
 						if(re.success){
 							layer.alert("临床症状调查表提交成功！");
-							alert(parent.name);
+							//alert(parent.name);
 							parent.parent.deleteTab('相关中医症状条目');
 						}else{
 							layer.alert("提交失败，请联系管理员！");
@@ -310,6 +313,35 @@
 					return false;
 				});
 			});
+			function initGerSChnRecord(pid){
+				layui.use(['form', 'layedit', 'laydate','element'], function() {
+					var form = layui.form(),
+					layer = layui.layer,
+					layedit = layui.layedit,
+					element = layui.element();
+					laydate = layui.laydate;
+        		//后台获取
+				$.getJSON("${pageContext.request.contextPath}/gerd/findGerSymptomChn.action",{pid:pid},function(data){
+        			//set from fields value
+        			for (var key in data){
+        				//alert(key + " - " + data[key]);
+        				if(data[key]!=""){
+        					$("#"+key).val(data[key]);
+        				}
+        				if(data[key]!=""){
+        					$("input[name="+key+"][value="+data[key]+"]").prop("checked",true);
+        				}
+        				if(key=="createTime")
+        					$("#createTime").val(data.createTime);
+        				if(key=="updateTime")
+        					$("#updateTime").val(data.updateTime);
+        			}
+        			$("#recordId").val(pid);
+				    form.render('radio');
+        		});
+				form.render('radio');
+				})
+			}
 		</script>
 	</body>
 

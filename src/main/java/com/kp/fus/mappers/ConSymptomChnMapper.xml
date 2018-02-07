@@ -7,6 +7,7 @@
     <result column="record_id" 		jdbcType="VARCHAR" property="recordId" />
     <result column="stool_times" 	jdbcType="VARCHAR" property="stoolTimes" />
     <result column="stool_type" 	jdbcType="VARCHAR" property="stoolType" />
+    <result column="stool_good" 	jdbcType="VARCHAR" property="stoolGood" />
     <result column="cold_afraid" 	jdbcType="VARCHAR" property="coldAfraid" />
     <result column="cold_limb" 		jdbcType="VARCHAR" property="coldLimb" />
     <result column="heave_limb" 	jdbcType="VARCHAR" property="heaveLimb" />
@@ -17,6 +18,7 @@
     <result column="poor_talk" 		jdbcType="VARCHAR" property="poorTalk" />
     <result column="all_hot" 		jdbcType="VARCHAR" property="allHot" />
     <result column="distress" 		jdbcType="VARCHAR" property="distress" />
+    <result column="vexation" 		jdbcType="VARCHAR" property="vexation" />
     <result column="create_time" 	jdbcType="VARCHAR" property="createTime" />
     <result column="update_time" 	jdbcType="VARCHAR" property="updateTime" />
   </resultMap>
@@ -61,6 +63,9 @@
       <if test="stoolType != null">
         stool_type,
       </if>
+      <if test="stoolGood != null">
+        stool_good,
+      </if>
       <if test="coldAfraid != null">
         cold_afraid,
       </if>
@@ -91,6 +96,9 @@
       <if test="distress != null">
         distress,
       </if>
+      <if test="vexation != null">
+        vexation,
+      </if>
       <if test="createTime != null">
         create_time,
       </if>
@@ -110,6 +118,9 @@
       </if>
       <if test="stoolType != null">
         #{stoolType,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolGood != null">
+        #{stoolGood,jdbcType=VARCHAR},
       </if>
       <if test="coldAfraid != null">
         #{coldAfraid,jdbcType=VARCHAR},
@@ -141,6 +152,9 @@
       <if test="distress != null">
         #{distress,jdbcType=VARCHAR},
       </if>
+      <if test="vexation != null">
+        #{vexation,jdbcType=VARCHAR},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=VARCHAR},
       </if>
@@ -163,6 +177,9 @@
       </if>
       <if test="stoolType != null">
         stool_type = #{stoolType,jdbcType=VARCHAR},
+      </if>
+      <if test="stoolGood != null">
+        stool_good = #{stoolGood,jdbcType=VARCHAR},
       </if>
       <if test="coldAfraid != null">
         cold_afraid = #{coldAfraid,jdbcType=VARCHAR},
@@ -194,6 +211,9 @@
       <if test="distress != null">
         distress = #{distress,jdbcType=VARCHAR},
       </if>
+      <if test="vexation != null">
+        vexation = #{vexation,jdbcType=VARCHAR},
+      </if>
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=VARCHAR},
       </if>
@@ -205,6 +225,7 @@
     set 
       stool_times = #{stoolTimes,jdbcType=VARCHAR},
       stool_type = #{stoolType,jdbcType=VARCHAR},
+      stool_good = #{stoolGood,jdbcType=VARCHAR},
       cold_afraid = #{coldAfraid,jdbcType=VARCHAR},
       cold_limb = #{coldLimb,jdbcType=VARCHAR},
       heave_limb = #{heaveLimb,jdbcType=VARCHAR},
@@ -215,6 +236,7 @@
       poor_talk = #{poorTalk,jdbcType=VARCHAR},
       all_hot = #{allHot,jdbcType=VARCHAR},
       distress = #{distress,jdbcType=VARCHAR},
+      vexation = #{vexation,jdbcType=VARCHAR},
       update_time = #{updateTime,jdbcType=VARCHAR}
     where record_id = #{recordId,jdbcType=INTEGER}
   </update>

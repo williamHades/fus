@@ -89,6 +89,9 @@
   <insert id="insertSelective" parameterType="com.kp.fus.model.ConHealthQue">
     insert into con_health_que
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        record_id,
+      </if>
       <if test="c10001 != null">
         c10001,
       </if>
@@ -205,6 +208,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        #{recordId,jdbcType=VARCHAR},
+      </if>
       <if test="c10001 != null">
         #{c10001,jdbcType=VARCHAR},
       </if>

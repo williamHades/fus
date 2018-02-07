@@ -5,6 +5,7 @@
     <id column="id" 					jdbcType="INTEGER" property="id" />
     <result column="ticket_id" 			jdbcType="VARCHAR" property="ticketId" />
     <result column="record_id" 			jdbcType="VARCHAR" property="recordId" />
+    <result column="patient_name" 		jdbcType="VARCHAR" property="patientName" />
     <result column="patient_no" 		jdbcType="INTEGER" property="patientNo" />
     <result column="patient_sex" 		jdbcType="INTEGER" property="patientSex" />
     <result column="patient_age" 		jdbcType="INTEGER" property="patientAge" />
@@ -61,7 +62,7 @@
   </delete>
   <insert id="insert" parameterType="com.kp.fus.model.ConSymptomQue">
     insert into con_symptom_que (id, ticket_id, record_id, 
-      patient_no, patient_sex, patient_age, 
+      patient_name, patient_no, patient_sex, patient_age, 
       patient_career, patient_contact, site_home, 
       site_work, patient_education, patient_married, 
       patient_child, patient_economy, patient_pay_mode, 
@@ -77,7 +78,7 @@
       remark, create_time, update_time
       )
     values (#{id,jdbcType=INTEGER}, #{ticketId,jdbcType=VARCHAR}, #{recordId,jdbcType=VARCHAR}, 
-      #{patientNo,jdbcType=INTEGER}, #{patientSex,jdbcType=INTEGER}, #{patientAge,jdbcType=INTEGER}, 
+      #{patientName,jdbcType=INTEGER}, #{patientNo,jdbcType=INTEGER}, #{patientSex,jdbcType=INTEGER}, #{patientAge,jdbcType=INTEGER}, 
       #{patientCareer,jdbcType=VARCHAR}, #{patientContact,jdbcType=VARCHAR}, #{siteHome,jdbcType=VARCHAR}, 
       #{siteWork,jdbcType=VARCHAR}, #{patientEducation,jdbcType=VARCHAR}, #{patientMarried,jdbcType=VARCHAR}, 
       #{patientChild,jdbcType=VARCHAR}, #{patientEconomy,jdbcType=VARCHAR}, #{patientPayMode,jdbcType=VARCHAR}, 
@@ -101,6 +102,9 @@
       </if>
       <if test="recordId != null">
         record_id,
+      </if>
+      <if test="patientName != null">
+        patient_name,
       </if>
       <if test="patientNo != null">
         patient_no,
@@ -168,7 +172,7 @@
       <if test="preCheck != null">
         pre_check,
       </if>
-      <if test="preCheckTime != null || preCheckTime != ''">
+      <if test="preCheckTime != ''">
         pre_check_time,
       </if>
       <if test="preCheckResult != null">
@@ -207,22 +211,22 @@
       <if test="balloonTestTime != null">
         balloon_test_time,
       </if>
-      <if test="biofeedbackStartTime != null || biofeedbackStartTime != ''">
+      <if test="biofeedbackStartTime != ''">
         biofeedback_start_time,
       </if>
       <if test="biofeedbackCourse != null">
         biofeedback_course,
       </if>
-      <if test="biofeedbackCourseStart != null || biofeedbackCourseStart != ''">
+      <if test="biofeedbackCourseStart != ''">
         biofeedback_course_start,
       </if>
       <if test="remark != null">
         remark,
       </if>
-      <if test="createTime != null">
+      <if test="createTime != ''">
         create_time,
       </if>
-      <if test="updateTime != null">
+      <if test="updateTime != ''">
         update_time,
       </if>
     </trim>
@@ -232,6 +236,9 @@
       </if>
       <if test="recordId != null">
         #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientName != null">
+        #{patientName,jdbcType=VARCHAR},
       </if>
       <if test="patientNo != null">
         #{patientNo,jdbcType=INTEGER},
@@ -299,7 +306,7 @@
       <if test="preCheck != null">
         #{preCheck,jdbcType=VARCHAR},
       </if>
-      <if test="preCheckTime != null || preCheckTime != ''">
+      <if test="preCheckTime != ''">
         #{preCheckTime,jdbcType=VARCHAR},
       </if>
       <if test="preCheckResult != null">
@@ -338,22 +345,22 @@
       <if test="balloonTestTime != null">
         #{balloonTestTime,jdbcType=VARCHAR},
       </if>
-      <if test="biofeedbackStartTime != null || biofeedbackStartTime != ''">
+      <if test="biofeedbackStartTime != ''">
         #{biofeedbackStartTime,jdbcType=VARCHAR},
       </if>
       <if test="biofeedbackCourse != null">
         #{biofeedbackCourse,jdbcType=VARCHAR},
       </if>
-      <if test="biofeedbackCourseStart != null || biofeedbackCourseStart != ''">
+      <if test="biofeedbackCourseStart != ''">
         #{biofeedbackCourseStart,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null || createTime != ''">
+      <if test="createTime != ''">
         #{createTime,jdbcType=VARCHAR},
       </if>
-      <if test="updateTime != null || updateTime != ''">
+      <if test="updateTime != ''">
         #{updateTime,jdbcType=VARCHAR},
       </if>
     </trim>
@@ -361,6 +368,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.kp.fus.model.ConSymptomQue">
     update con_symptom_que
     <set>
+      <if test="patientName != null">
+        patient_name = #{patientName,jdbcType=VARCHAR},
+      </if>
       <if test="patientNo != null">
         patient_no = #{patientNo,jdbcType=INTEGER},
       </if>
@@ -487,6 +497,7 @@
   <update id="updateByPrimaryKey" parameterType="com.kp.fus.model.ConSymptomQue">
     update con_symptom_que
     set 
+      patient_name = #{patientName,jdbcType=INTEGER},
       patient_no = #{patientNo,jdbcType=INTEGER},
       patient_sex = #{patientSex,jdbcType=INTEGER},
       patient_age = #{patientAge,jdbcType=INTEGER},

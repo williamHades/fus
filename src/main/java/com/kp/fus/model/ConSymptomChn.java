@@ -10,6 +10,8 @@ public class ConSymptomChn {
 
     private String stoolType;
 
+    private String stoolGood;
+    
     private String coldAfraid;
 
     private String coldLimb;
@@ -29,7 +31,9 @@ public class ConSymptomChn {
     private String allHot;
 
     private String distress;
-
+    
+    private String vexation;
+    
     private String createTime;
 
     private String updateTime;
@@ -168,5 +172,21 @@ public class ConSymptomChn {
 
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	public String getStoolGood() {
+		return stoolGood;
+	}
+
+	public void setStoolGood(String stoolGood) {
+		this.stoolGood = stoolGood;
+	}
+
+	public String getVexation() {
+		return vexation;
+	}
+
+	public void setVexation(String vexation) {
+		this.vexation = vexation;
 	}
 }
