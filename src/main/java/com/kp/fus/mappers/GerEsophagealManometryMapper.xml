@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kp.fus.dao.GerEsophagealManometryDao" >
+  <resultMap id="GerEsophagealManometryResult" type="com.kp.fus.model.GerEsophagealManometry" >
+    <result column="id" 											property="id" 										jdbcType="INTEGER" />
+    <result column="uuid" 											property="uuid" 									jdbcType="VARCHAR" />
+    <result column="ticket_id" 										property="ticketId" 								jdbcType="VARCHAR" />
+    <result column="record_id" 										property="recordId" 								jdbcType="VARCHAR" />
+    <result column="patient_name" 									property="patientName" 								jdbcType="VARCHAR" />
+    <result column="patient_sex" 									property="patientSex" 								jdbcType="VARCHAR" />
+    <result column="doctor_name" 									property="doctorName" 								jdbcType="VARCHAR" />
+    <result column="patinet_age" 									property="patinetAge" 								jdbcType="VARCHAR" />
+    <result column="patient_operator" 								property="patientOperator" 							jdbcType="VARCHAR" />
+    <result column="patient_tall" 									property="patientTall" 								jdbcType="VARCHAR" />
+    <result column="introduce_doctor" 								property="introduceDoctor" 							jdbcType="VARCHAR" />
+    <result column="check_date" 									property="checkDate" 								jdbcType="VARCHAR" />
+    <result column="les_near_end" 									property="lesNearEnd" 								jdbcType="VARCHAR" />
+    <result column="les_long" 										property="lesLong" 									jdbcType="VARCHAR" />
+    <result column="les_esophageal_length" 							property="lesEsophagealLength" 						jdbcType="VARCHAR" />
+    <result column="les_intraperitoneal_length" 					property="lesIntraperitonealLength" 				jdbcType="VARCHAR" />
+    <result column="hiatal_hernia_flag" 							property="hiatalHerniaFlag" 						jdbcType="VARCHAR" />
+    <result column="les_resting_pressure_min" 						property="lesRestingPressureMin" 					jdbcType="VARCHAR" />
+    <result column="les_resting_pressure_average" 					property="lesRestingPressureAverage"				jdbcType="VARCHAR" />
+    <result column="les_resting_pressure_left" 						property="lesRestingPressureLeft" 					jdbcType="VARCHAR" />
+    <result column="ues_resting_pressure_average" 					property="uesRestingPressureAverage"				jdbcType="VARCHAR" />
+    <result column="ues_resting_pressure_left" 						property="uesRestingPressureLeft" 					jdbcType="VARCHAR" />
+    <result column="swallowing_number" 								property="swallowingNumber" 						jdbcType="VARCHAR" />
+    <result column="evaluate_ues3n" 								property="evaluateUes3n" 							jdbcType="VARCHAR" />
+    <result column="pressure_peak_average" 							property="pressurePeakAverage"  					jdbcType="VARCHAR" />
+    <result column="evaluate_les3t11" 								property="evaluateLes3t11"  						jdbcType="VARCHAR" />
+    <result column="percentage_peristalsis" 						property="percentagePeristalsis"  					jdbcType="VARCHAR" />
+    <result column="synchronous_contraction_percent" 				property="synchronousContractionPercent" 			jdbcType="VARCHAR" />
+    <result column="ineffective_swallowing_percent" 				property="ineffectiveSwallowingPercent" 			jdbcType="VARCHAR" />
+    <result column="amplitude_average" 								property="amplitudeAverage"  						jdbcType="VARCHAR" />
+    <result column="last_time_average" 								property="lastTimeAverage"  						jdbcType="VARCHAR" />
+    <result column="double_swallowing_percent" 						property="doubleSwallowingPercent" 					jdbcType="VARCHAR" />
+    <result column="triple_swallowing_percent" 						property="tripleSwallowingPercent"  				jdbcType="VARCHAR" />
+    <result column="les_speed11t3" 									property="lesSpeed11t3"  							jdbcType="VARCHAR" />
+    <result column="dci_average" 									property="dciAverage"  								jdbcType="VARCHAR" />
+    <result column="cfv_speed" 										property="cfvSpeed"  								jdbcType="VARCHAR" />
+    <result column="ibp_lesr" 										property="ibpLesr"  								jdbcType="VARCHAR" />
+    <result column="ibp_max" 										property="ibpMax"  									jdbcType="VARCHAR" />
+    <result column="chicago_dl_amount" 								property="chicagoDlAmount"  						jdbcType="VARCHAR" />
+    <result column="chicago_ineffective_swallowing_percent" 		property="chicagoIneffectiveSwallowingPercent" 		jdbcType="VARCHAR" />
+    <result column="chicago_esophagus_pressure_percentage" 			property="chicagoEsophagusPressurePercentage" 		jdbcType="VARCHAR" />
+    <result column="chicago_premature_contraction_percentage" 		property="chicagoPrematureContractionPercentage" 	jdbcType="VARCHAR" />
+    <result column="chicago_rapid_contraction_percentage" 			property="chicagoRapidContractionPercentage" 		jdbcType="VARCHAR" />
+    <result column="chicago_large_peristaltic_disruption_percent" 	property="chicagoLargePeristalticDisruptionPercent" jdbcType="VARCHAR" />
+    <result column="chicago_small_peristaltic_disruption_percent" 	property="chicagoSmallPeristalticDisruptionPercent" jdbcType="VARCHAR" />
+    <result column="create_time" 									property="createTime"  								jdbcType="VARCHAR" />
+    <result column="update_time" 									property="updateTime"  								jdbcType="VARCHAR" />
+    <result column="creator" 										property="creator"  								jdbcType="VARCHAR" />
+    <result column="updator" 										property="updator"  								jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectByQua" parameterType="Map" resultMap="GerEsophagealManometryResult">
+    select *  from ger_esophageal_manometry   where 1=1
+    <if test="recordId!=null||recordId!=''">
+    	and record_id = #{recordId}
+    </if>
+  </select>	
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ger_esophageal_manometry  where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kp.fus.model.GerEsophagealManometry" >
+    insert into ger_esophageal_manometry (id, uuid, ticket_id, 
+      record_id, patient_name, patient_sex, 
+      doctor_name, patinet_age, patient_operator, 
+      patient_tall, introduce_doctor, check_date, 
+      les_near_end, les_long, les_esophageal_length, 
+      les_intraperitoneal_length, hiatal_hernia_flag, 
+      les_resting_pressure_min, les_resting_pressure_average, 
+      les_resting_pressure_left, ues_resting_pressure_average, 
+      ues_resting_pressure_left, swallowing_number, 
+      evaluate_ues3n, pressure_peak_average, evaluate_les3t11, 
+      percentage_peristalsis, synchronous_contraction_percent, 
+      ineffective_swallowing_percent, amplitude_average, 
+      last_time_average, double_swallowing_percent, 
+      triple_swallowing_percent, les_speed11t3, 
+      dci_average, cfv_speed, ibp_lesr, 
+      ibp_max, chicago_dl_amount, chicago_ineffective_swallowing_percent, 
+      chicago_esophagus_pressure_percentage, chicago_premature_contraction_percentage, 
+      chicago_rapid_contraction_percentage, chicago_large_peristaltic_disruption_percent, 
+      chicago_small_peristaltic_disruption_percent, create_time, 
+      update_time, creator, updator
+      )
+    values (#{id,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, #{ticketId,jdbcType=VARCHAR}, 
+      #{recordId,jdbcType=VARCHAR}, #{patientName,jdbcType=VARCHAR}, #{patientSex,jdbcType=VARCHAR}, 
+      #{doctorName,jdbcType=VARCHAR}, #{patinetAge,jdbcType=VARCHAR}, #{patientOperator,jdbcType=VARCHAR}, 
+      #{patientTall,jdbcType=VARCHAR}, #{introduceDoctor,jdbcType=VARCHAR}, #{checkDate,jdbcType=TIMESTAMP}, 
+      #{lesNearEnd,jdbcType=VARCHAR}, #{lesLong,jdbcType=VARCHAR}, #{lesEsophagealLength,jdbcType=VARCHAR}, 
+      #{lesIntraperitonealLength,jdbcType=VARCHAR}, #{hiatalHerniaFlag,jdbcType=VARCHAR}, 
+      #{lesRestingPressureMin,jdbcType=VARCHAR}, #{lesRestingPressureAverage,jdbcType=VARCHAR}, 
+      #{lesRestingPressureLeft,jdbcType=VARCHAR}, #{uesRestingPressureAverage,jdbcType=VARCHAR}, 
+      #{uesRestingPressureLeft,jdbcType=VARCHAR}, #{swallowingNumber,jdbcType=VARCHAR}, 
+      #{evaluateUes3n,jdbcType=VARCHAR}, #{pressurePeakAverage,jdbcType=VARCHAR}, #{evaluateLes3t11,jdbcType=VARCHAR}, 
+      #{percentagePeristalsis,jdbcType=VARCHAR}, #{synchronousContractionPercent,jdbcType=VARCHAR}, 
+      #{ineffectiveSwallowingPercent,jdbcType=VARCHAR}, #{amplitudeAverage,jdbcType=VARCHAR}, 
+      #{lastTimeAverage,jdbcType=VARCHAR}, #{doubleSwallowingPercent,jdbcType=VARCHAR}, 
+      #{tripleSwallowingPercent,jdbcType=VARCHAR}, #{lesSpeed11t3,jdbcType=VARCHAR}, 
+      #{dciAverage,jdbcType=VARCHAR}, #{cfvSpeed,jdbcType=VARCHAR}, #{ibpLesr,jdbcType=VARCHAR}, 
+      #{ibpMax,jdbcType=VARCHAR}, #{chicagoDlAmount,jdbcType=VARCHAR}, #{chicagoIneffectiveSwallowingPercent,jdbcType=VARCHAR}, 
+      #{chicagoEsophagusPressurePercentage,jdbcType=VARCHAR}, #{chicagoPrematureContractionPercentage,jdbcType=VARCHAR}, 
+      #{chicagoRapidContractionPercentage,jdbcType=VARCHAR}, #{chicagoLargePeristalticDisruptionPercent,jdbcType=VARCHAR}, 
+      #{chicagoSmallPeristalticDisruptionPercent,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{updator,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kp.fus.model.GerEsophagealManometry" >
+    insert into ger_esophageal_manometry
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uuid != null" >
+        uuid,
+      </if>
+      <if test="ticketId != null" >
+        ticket_id,
+      </if>
+      <if test="recordId != null" >
+        record_id,
+      </if>
+      <if test="patientName != null" >
+        patient_name,
+      </if>
+      <if test="patientSex != null" >
+        patient_sex,
+      </if>
+      <if test="doctorName != null" >
+        doctor_name,
+      </if>
+      <if test="patinetAge != null" >
+        patinet_age,
+      </if>
+      <if test="patientOperator != null" >
+        patient_operator,
+      </if>
+      <if test="patientTall != null" >
+        patient_tall,
+      </if>
+      <if test="introduceDoctor != null" >
+        introduce_doctor,
+      </if>
+      <if test="checkDate != ''" >
+        check_date,
+      </if>
+      <if test="lesNearEnd != null" >
+        les_near_end,
+      </if>
+      <if test="lesLong != null" >
+        les_long,
+      </if>
+      <if test="lesEsophagealLength != null" >
+        les_esophageal_length,
+      </if>
+      <if test="lesIntraperitonealLength != null" >
+        les_intraperitoneal_length,
+      </if>
+      <if test="hiatalHerniaFlag != null" >
+        hiatal_hernia_flag,
+      </if>
+      <if test="lesRestingPressureMin != null" >
+        les_resting_pressure_min,
+      </if>
+      <if test="lesRestingPressureAverage != null" >
+        les_resting_pressure_average,
+      </if>
+      <if test="lesRestingPressureLeft != null" >
+        les_resting_pressure_left,
+      </if>
+      <if test="uesRestingPressureAverage != null" >
+        ues_resting_pressure_average,
+      </if>
+      <if test="uesRestingPressureLeft != null" >
+        ues_resting_pressure_left,
+      </if>
+      <if test="swallowingNumber != null" >
+        swallowing_number,
+      </if>
+      <if test="evaluateUes3n != null" >
+        evaluate_ues3n,
+      </if>
+      <if test="pressurePeakAverage != null" >
+        pressure_peak_average,
+      </if>
+      <if test="evaluateLes3t11 != null" >
+        evaluate_les3t11,
+      </if>
+      <if test="percentagePeristalsis != null" >
+        percentage_peristalsis,
+      </if>
+      <if test="synchronousContractionPercent != null" >
+        synchronous_contraction_percent,
+      </if>
+      <if test="ineffectiveSwallowingPercent != null" >
+        ineffective_swallowing_percent,
+      </if>
+      <if test="amplitudeAverage != null" >
+        amplitude_average,
+      </if>
+      <if test="lastTimeAverage != null" >
+        last_time_average,
+      </if>
+      <if test="doubleSwallowingPercent != null" >
+        double_swallowing_percent,
+      </if>
+      <if test="tripleSwallowingPercent != null" >
+        triple_swallowing_percent,
+      </if>
+      <if test="lesSpeed11t3 != null" >
+        les_speed11t3,
+      </if>
+      <if test="dciAverage != null" >
+        dci_average,
+      </if>
+      <if test="cfvSpeed != null" >
+        cfv_speed,
+      </if>
+      <if test="ibpLesr != null" >
+        ibp_lesr,
+      </if>
+      <if test="ibpMax != null" >
+        ibp_max,
+      </if>
+      <if test="chicagoDlAmount != null" >
+        chicago_dl_amount,
+      </if>
+      <if test="chicagoIneffectiveSwallowingPercent != null" >
+        chicago_ineffective_swallowing_percent,
+      </if>
+      <if test="chicagoEsophagusPressurePercentage != null" >
+        chicago_esophagus_pressure_percentage,
+      </if>
+      <if test="chicagoPrematureContractionPercentage != null" >
+        chicago_premature_contraction_percentage,
+      </if>
+      <if test="chicagoRapidContractionPercentage != null" >
+        chicago_rapid_contraction_percentage,
+      </if>
+      <if test="chicagoLargePeristalticDisruptionPercent != null" >
+        chicago_large_peristaltic_disruption_percent,
+      </if>
+      <if test="chicagoSmallPeristalticDisruptionPercent != null" >
+        chicago_small_peristaltic_disruption_percent,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="updator != null" >
+        updator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uuid != null" >
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="ticketId != null" >
+        #{ticketId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordId != null" >
+        #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientName != null" >
+        #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSex != null" >
+        #{patientSex,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        #{doctorName,jdbcType=VARCHAR},
+      </if>
+      <if test="patinetAge != null" >
+        #{patinetAge,jdbcType=VARCHAR},
+      </if>
+      <if test="patientOperator != null" >
+        #{patientOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="patientTall != null" >
+        #{patientTall,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceDoctor != null" >
+        #{introduceDoctor,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != ''" >
+        #{checkDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lesNearEnd != null" >
+        #{lesNearEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="lesLong != null" >
+        #{lesLong,jdbcType=VARCHAR},
+      </if>
+      <if test="lesEsophagealLength != null" >
+        #{lesEsophagealLength,jdbcType=VARCHAR},
+      </if>
+      <if test="lesIntraperitonealLength != null" >
+        #{lesIntraperitonealLength,jdbcType=VARCHAR},
+      </if>
+      <if test="hiatalHerniaFlag != null" >
+        #{hiatalHerniaFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="lesRestingPressureMin != null" >
+        #{lesRestingPressureMin,jdbcType=VARCHAR},
+      </if>
+      <if test="lesRestingPressureAverage != null" >
+        #{lesRestingPressureAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="lesRestingPressureLeft != null" >
+        #{lesRestingPressureLeft,jdbcType=VARCHAR},
+      </if>
+      <if test="uesRestingPressureAverage != null" >
+        #{uesRestingPressureAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="uesRestingPressureLeft != null" >
+        #{uesRestingPressureLeft,jdbcType=VARCHAR},
+      </if>
+      <if test="swallowingNumber != null" >
+        #{swallowingNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateUes3n != null" >
+        #{evaluateUes3n,jdbcType=VARCHAR},
+      </if>
+      <if test="pressurePeakAverage != null" >
+        #{pressurePeakAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateLes3t11 != null" >
+        #{evaluateLes3t11,jdbcType=VARCHAR},
+      </if>
+      <if test="percentagePeristalsis != null" >
+        #{percentagePeristalsis,jdbcType=VARCHAR},
+      </if>
+      <if test="synchronousContractionPercent != null" >
+        #{synchronousContractionPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="ineffectiveSwallowingPercent != null" >
+        #{ineffectiveSwallowingPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="amplitudeAverage != null" >
+        #{amplitudeAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="lastTimeAverage != null" >
+        #{lastTimeAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="doubleSwallowingPercent != null" >
+        #{doubleSwallowingPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="tripleSwallowingPercent != null" >
+        #{tripleSwallowingPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="lesSpeed11t3 != null" >
+        #{lesSpeed11t3,jdbcType=VARCHAR},
+      </if>
+      <if test="dciAverage != null" >
+        #{dciAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="cfvSpeed != null" >
+        #{cfvSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="ibpLesr != null" >
+        #{ibpLesr,jdbcType=VARCHAR},
+      </if>
+      <if test="ibpMax != null" >
+        #{ibpMax,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoDlAmount != null" >
+        #{chicagoDlAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoIneffectiveSwallowingPercent != null" >
+        #{chicagoIneffectiveSwallowingPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoEsophagusPressurePercentage != null" >
+        #{chicagoEsophagusPressurePercentage,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoPrematureContractionPercentage != null" >
+        #{chicagoPrematureContractionPercentage,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoRapidContractionPercentage != null" >
+        #{chicagoRapidContractionPercentage,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoLargePeristalticDisruptionPercent != null" >
+        #{chicagoLargePeristalticDisruptionPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoSmallPeristalticDisruptionPercent != null" >
+        #{chicagoSmallPeristalticDisruptionPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="updator != null" >
+        #{updator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.kp.fus.model.GerEsophagealManometry" >
+    insert into ger_esophageal_manometry (id, uuid, ticket_id, 
+      record_id, patient_name, patient_sex, 
+      doctor_name, patinet_age, patient_operator, 
+      patient_tall, introduce_doctor, check_date, 
+      les_near_end, les_long, les_esophageal_length, 
+      les_intraperitoneal_length, hiatal_hernia_flag, 
+      les_resting_pressure_min, les_resting_pressure_average, 
+      les_resting_pressure_left, ues_resting_pressure_average, 
+      ues_resting_pressure_left, swallowing_number, 
+      evaluate_ues3n, pressure_peak_average, evaluate_les3t11, 
+      percentage_peristalsis, synchronous_contraction_percent, 
+      ineffective_swallowing_percent, amplitude_average, 
+      last_time_average, double_swallowing_percent, 
+      triple_swallowing_percent, les_speed11t3, 
+      dci_average, cfv_speed, ibp_lesr, 
+      ibp_max, chicago_dl_amount, chicago_ineffective_swallowing_percent, 
+      chicago_esophagus_pressure_percentage, chicago_premature_contraction_percentage, 
+      chicago_rapid_contraction_percentage, chicago_large_peristaltic_disruption_percent, 
+      chicago_small_peristaltic_disruption_percent, create_time, 
+      update_time, creator, updator
+      )
+    values (#{id,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, #{ticketId,jdbcType=VARCHAR}, 
+      #{recordId,jdbcType=VARCHAR}, #{patientName,jdbcType=VARCHAR}, #{patientSex,jdbcType=VARCHAR}, 
+      #{doctorName,jdbcType=VARCHAR}, #{patinetAge,jdbcType=VARCHAR}, #{patientOperator,jdbcType=VARCHAR}, 
+      #{patientTall,jdbcType=VARCHAR}, #{introduceDoctor,jdbcType=VARCHAR}, #{checkDate,jdbcType=TIMESTAMP}, 
+      #{lesNearEnd,jdbcType=VARCHAR}, #{lesLong,jdbcType=VARCHAR}, #{lesEsophagealLength,jdbcType=VARCHAR}, 
+      #{lesIntraperitonealLength,jdbcType=VARCHAR}, #{hiatalHerniaFlag,jdbcType=VARCHAR}, 
+      #{lesRestingPressureMin,jdbcType=VARCHAR}, #{lesRestingPressureAverage,jdbcType=VARCHAR}, 
+      #{lesRestingPressureLeft,jdbcType=VARCHAR}, #{uesRestingPressureAverage,jdbcType=VARCHAR}, 
+      #{uesRestingPressureLeft,jdbcType=VARCHAR}, #{swallowingNumber,jdbcType=VARCHAR}, 
+      #{evaluateUes3n,jdbcType=VARCHAR}, #{pressurePeakAverage,jdbcType=VARCHAR}, #{evaluateLes3t11,jdbcType=VARCHAR}, 
+      #{percentagePeristalsis,jdbcType=VARCHAR}, #{synchronousContractionPercent,jdbcType=VARCHAR}, 
+      #{ineffectiveSwallowingPercent,jdbcType=VARCHAR}, #{amplitudeAverage,jdbcType=VARCHAR}, 
+      #{lastTimeAverage,jdbcType=VARCHAR}, #{doubleSwallowingPercent,jdbcType=VARCHAR}, 
+      #{tripleSwallowingPercent,jdbcType=VARCHAR}, #{lesSpeed11t3,jdbcType=VARCHAR}, 
+      #{dciAverage,jdbcType=VARCHAR}, #{cfvSpeed,jdbcType=VARCHAR}, #{ibpLesr,jdbcType=VARCHAR}, 
+      #{ibpMax,jdbcType=VARCHAR}, #{chicagoDlAmount,jdbcType=VARCHAR}, #{chicagoIneffectiveSwallowingPercent,jdbcType=VARCHAR}, 
+      #{chicagoEsophagusPressurePercentage,jdbcType=VARCHAR}, #{chicagoPrematureContractionPercentage,jdbcType=VARCHAR}, 
+      #{chicagoRapidContractionPercentage,jdbcType=VARCHAR}, #{chicagoLargePeristalticDisruptionPercent,jdbcType=VARCHAR}, 
+      #{chicagoSmallPeristalticDisruptionPercent,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{updator,jdbcType=VARCHAR}
+      )
+     where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kp.fus.model.GerEsophagealManometry" >
+    update ger_esophageal_manometry
+    <set>
+      <if test="patientName != null" >
+        patient_name= #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSex != null" >
+        patient_sex=#{patientSex,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        doctor_name=#{doctorName,jdbcType=VARCHAR},
+      </if>
+      <if test="patinetAge != null" >
+        patinet_age=#{patinetAge,jdbcType=VARCHAR},
+      </if>
+      <if test="patientOperator != null" >
+        patient_operator=#{patientOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="patientTall != null" >
+        patient_tall=#{patientTall,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceDoctor != null" >
+        introduce_doctor=#{introduceDoctor,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != ''" >
+        check_date=#{checkDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lesNearEnd != null" >
+        les_near_end=#{lesNearEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="lesLong != null" >
+        les_long=#{lesLong,jdbcType=VARCHAR},
+      </if>
+      <if test="lesEsophagealLength != null" >
+        les_esophageal_length=#{lesEsophagealLength,jdbcType=VARCHAR},
+      </if>
+      <if test="lesIntraperitonealLength != null" >
+        les_intraperitoneal_length=#{lesIntraperitonealLength,jdbcType=VARCHAR},
+      </if>
+      <if test="hiatalHerniaFlag != null" >
+        hiatal_hernia_flag=#{hiatalHerniaFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="lesRestingPressureMin != null" >
+        les_resting_pressure_min= #{lesRestingPressureMin,jdbcType=VARCHAR},
+      </if>
+      <if test="lesRestingPressureAverage != null" >
+        les_resting_pressure_average=#{lesRestingPressureAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="lesRestingPressureLeft != null" >
+        les_resting_pressure_left= #{lesRestingPressureLeft,jdbcType=VARCHAR},
+      </if>
+      <if test="uesRestingPressureAverage != null" >
+        ues_resting_pressure_average=#{uesRestingPressureAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="uesRestingPressureLeft != null" >
+        ues_resting_pressure_left=#{uesRestingPressureLeft,jdbcType=VARCHAR},
+      </if>
+      <if test="swallowingNumber != null" >
+        swallowing_number= #{swallowingNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateUes3n != null" >
+        evaluate_ues3n=#{evaluateUes3n,jdbcType=VARCHAR},
+      </if>
+      <if test="pressurePeakAverage != null" >
+        pressure_peak_average=#{pressurePeakAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateLes3t11 != null" >
+        evaluate_les3t11=#{evaluateLes3t11,jdbcType=VARCHAR},
+      </if>
+      <if test="percentagePeristalsis != null" >
+        percentage_peristalsis=#{percentagePeristalsis,jdbcType=VARCHAR},
+      </if>
+      <if test="synchronousContractionPercent != null" >
+        synchronous_contraction_percent=#{synchronousContractionPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="ineffectiveSwallowingPercent != null" >
+        ineffective_swallowing_percent=#{ineffectiveSwallowingPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="amplitudeAverage != null" >
+        amplitude_average=#{amplitudeAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="lastTimeAverage != null" >
+        last_time_average=#{lastTimeAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="doubleSwallowingPercent != null" >
+        double_swallowing_percent=#{doubleSwallowingPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="tripleSwallowingPercent != null" >
+        triple_swallowing_percent=#{tripleSwallowingPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="lesSpeed11t3 != null" >
+        les_speed11t3=#{lesSpeed11t3,jdbcType=VARCHAR},
+      </if>
+      <if test="dciAverage != null" >
+        dci_average=#{dciAverage,jdbcType=VARCHAR},
+      </if>
+      <if test="cfvSpeed != null" >
+        cfv_speed= #{cfvSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="ibpLesr != null" >
+        ibp_lesr=#{ibpLesr,jdbcType=VARCHAR},
+      </if>
+      <if test="ibpMax != null" >
+        ibp_max= #{ibpMax,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoDlAmount != null" >
+        chicago_dl_amount=#{chicagoDlAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoIneffectiveSwallowingPercent != null" >
+        chicago_ineffective_swallowing_percent=#{chicagoIneffectiveSwallowingPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoEsophagusPressurePercentage != null" >
+        chicago_esophagus_pressure_percentage=#{chicagoEsophagusPressurePercentage,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoPrematureContractionPercentage != null" >
+        chicago_premature_contraction_percentage=#{chicagoPrematureContractionPercentage,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoRapidContractionPercentage != null" >
+        chicago_rapid_contraction_percentage=#{chicagoRapidContractionPercentage,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoLargePeristalticDisruptionPercent != null" >
+        chicago_large_peristaltic_disruption_percent= #{chicagoLargePeristalticDisruptionPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="chicagoSmallPeristalticDisruptionPercent != null" >
+        chicago_small_peristaltic_disruption_percent=#{chicagoSmallPeristalticDisruptionPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time=#{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time=#{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator=#{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="updator != null" >
+        updator=#{updator,jdbcType=VARCHAR},
+      </if>
+      </set>
+     where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kp.fus.dao.ConAnorectalManometryDao" >
+  <resultMap id="ConAnorectalManometryResult" type="com.kp.fus.model.ConAnorectalManometry" >
+    <result column="id" 									property="id" 								jdbcType="INTEGER" />
+    <result column="ticket_id" 								property="ticketId" 						jdbcType="VARCHAR" />
+    <result column="uuid" 									property="uuid" 							jdbcType="VARCHAR" />
+    <result column="record_id" 								property="recordId" 						jdbcType="VARCHAR" />
+    <result column="patient_name" 							property="patientName" 						jdbcType="VARCHAR" />
+    <result column="patient_sex" 							property="patientSex" 						jdbcType="VARCHAR" />
+    <result column="doctor_name" 							property="doctorName" 						jdbcType="VARCHAR" />
+    <result column="patinet_age" 							property="patinetAge" 						jdbcType="VARCHAR" />
+    <result column="patient_operator" 						property="patientOperator" 					jdbcType="VARCHAR" />
+    <result column="patient_tall" 							property="patientTall" 						jdbcType="VARCHAR" />
+    <result column="check_date" 							property="checkDate" 						jdbcType="VARCHAR" />
+    <result column="anus_sphincter_max_resting_rectal" 		property="anusSphincterMaxRestingRectal" 	jdbcType="VARCHAR" />
+    <result column="anus_sphincter_max_shrink_rectal" 		property="anusSphincterMaxShrinkRectal" 	jdbcType="VARCHAR" />
+    <result column="anus_sphincter_average_resting_rectal" 	property="anusSphincterAverageRestingRectal" jdbcType="VARCHAR" />
+    <result column="anus_sphincter_max_shrink_rectal_abs" 	property="anusSphincterMaxShrinkRectalAbs" 	jdbcType="VARCHAR" />
+    <result column="anus_sphincter_max_resting_abs" 		property="anusSphincterMaxRestingAbs" 		jdbcType="VARCHAR" />
+    <result column="crimp_last_time" 						property="crimpLastTime" 					jdbcType="VARCHAR" />
+    <result column="anus_sphincter_average_resting_abs" 	property="anusSphincterAverageRestingAbs" 	jdbcType="VARCHAR" />
+    <result column="high_press_long" 						property="highPressLong" 					jdbcType="VARCHAR" />
+    <result column="edge_to_center_distance" 				property="edgeToCenterDistance" 			jdbcType="VARCHAR" />
+    <result column="anus_left_press" 						property="anusLeftPress" 					jdbcType="VARCHAR" />
+    <result column="anorectal_inhibitory_reflex" 			property="anorectalInhibitoryReflex" 		jdbcType="VARCHAR" />
+    <result column="anal_relaxation_rate" 					property="analRelaxationRate" 				jdbcType="VARCHAR" />
+    <result column="first_perception_channel" 				property="firstPerceptionChannel" 			jdbcType="VARCHAR" />
+    <result column="rectal_pressure" 						property="rectalPressure" 					jdbcType="VARCHAR" />
+    <result column="defecation_sensation" 					property="defecationSensation" 				jdbcType="VARCHAR" />
+    <result column="anorectal_pressure_difference" 			property="anorectalPressureDifference" 		jdbcType="VARCHAR" />
+    <result column="maximum_tolerance" 						property="maximumTolerance" 				jdbcType="VARCHAR" />
+    <result column="create_time" 							property="createTime" 						jdbcType="VARCHAR" />
+    <result column="update_time" 							property="updateTime" 						jdbcType="VARCHAR" />
+    <result column="creator" 								property="creator" 							jdbcType="VARCHAR" />
+    <result column="updator" 								property="updator" 							jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectByQua" parameterType="Map" resultMap="ConAnorectalManometryResult">
+    select *  from con_anorectal_manometry   where 1=1
+    <if test="recordId!=null||recordId!=''">
+    	and record_id = #{recordId}
+    </if>
+  </select>	
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from con_anorectal_manometry  where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kp.fus.model.ConAnorectalManometry" >
+    insert into con_anorectal_manometry (id, ticket_id, uuid, 
+      record_id, patient_name, patient_sex, 
+      doctor_name, patinet_age, patient_operator, 
+      patient_tall, check_date, anus_sphincter_max_resting_rectal, 
+      anus_sphincter_max_shrink_rectal, anus_sphincter_average_resting_rectal, 
+      anus_sphincter_max_shrink_rectal_abs, anus_sphincter_max_resting_abs, 
+      crimp_last_time, anus_sphincter_average_resting_abs, 
+      high_press_long, edge_to_center_distance, anus_left_press, 
+      anorectal_inhibitory_reflex, anal_relaxation_rate, 
+      first_perception_channel, rectal_pressure, 
+      defecation_sensation, anorectal_pressure_difference, 
+      maximum_tolerance, create_time, update_time, 
+      creator, updator)
+    values (#{id,jdbcType=INTEGER}, #{ticketId,jdbcType=VARCHAR}, #{uuid,jdbcType=VARCHAR}, 
+      #{recordId,jdbcType=VARCHAR}, #{patientName,jdbcType=VARCHAR}, #{patientSex,jdbcType=VARCHAR}, 
+      #{doctorName,jdbcType=VARCHAR}, #{patinetAge,jdbcType=VARCHAR}, #{patientOperator,jdbcType=VARCHAR}, 
+      #{patientTall,jdbcType=VARCHAR}, #{checkDate,jdbcType=TIMESTAMP}, #{anusSphincterMaxRestingRectal,jdbcType=VARCHAR}, 
+      #{anusSphincterMaxShrinkRectal,jdbcType=VARCHAR}, #{anusSphincterAverageRestingRectal,jdbcType=VARCHAR}, 
+      #{anusSphincterMaxShrinkRectalAbs,jdbcType=VARCHAR}, #{anusSphincterMaxRestingAbs,jdbcType=VARCHAR}, 
+      #{crimpLastTime,jdbcType=VARCHAR}, #{anusSphincterAverageRestingAbs,jdbcType=VARCHAR}, 
+      #{highPressLong,jdbcType=VARCHAR}, #{edgeToCenterDistance,jdbcType=VARCHAR}, #{anusLeftPress,jdbcType=VARCHAR}, 
+      #{anorectalInhibitoryReflex,jdbcType=VARCHAR}, #{analRelaxationRate,jdbcType=VARCHAR}, 
+      #{firstPerceptionChannel,jdbcType=VARCHAR}, #{rectalPressure,jdbcType=VARCHAR}, 
+      #{defecationSensation,jdbcType=VARCHAR}, #{anorectalPressureDifference,jdbcType=VARCHAR}, 
+      #{maximumTolerance,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{updator,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kp.fus.model.ConAnorectalManometry" >
+    insert into con_anorectal_manometry
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ticketId != null" >
+        ticket_id,
+      </if>
+      <if test="uuid != null" >
+        uuid,
+      </if>
+      <if test="recordId != null" >
+        record_id,
+      </if>
+      <if test="patientName != null" >
+        patient_name,
+      </if>
+      <if test="patientSex != null" >
+        patient_sex,
+      </if>
+      <if test="doctorName != null" >
+        doctor_name,
+      </if>
+      <if test="patinetAge != null" >
+        patinet_age,
+      </if>
+      <if test="patientOperator != null" >
+        patient_operator,
+      </if>
+      <if test="patientTall != null" >
+        patient_tall,
+      </if>
+      <if test="checkDate != ''" >
+        check_date,
+      </if>
+      <if test="anusSphincterMaxRestingRectal != null" >
+        anus_sphincter_max_resting_rectal,
+      </if>
+      <if test="anusSphincterMaxShrinkRectal != null" >
+        anus_sphincter_max_shrink_rectal,
+      </if>
+      <if test="anusSphincterAverageRestingRectal != null" >
+        anus_sphincter_average_resting_rectal,
+      </if>
+      <if test="anusSphincterMaxShrinkRectalAbs != null" >
+        anus_sphincter_max_shrink_rectal_abs,
+      </if>
+      <if test="anusSphincterMaxRestingAbs != null" >
+        anus_sphincter_max_resting_abs,
+      </if>
+      <if test="crimpLastTime != null" >
+        crimp_last_time,
+      </if>
+      <if test="anusSphincterAverageRestingAbs != null" >
+        anus_sphincter_average_resting_abs,
+      </if>
+      <if test="highPressLong != null" >
+        high_press_long,
+      </if>
+      <if test="edgeToCenterDistance != null" >
+        edge_to_center_distance,
+      </if>
+      <if test="anusLeftPress != null" >
+        anus_left_press,
+      </if>
+      <if test="anorectalInhibitoryReflex != null" >
+        anorectal_inhibitory_reflex,
+      </if>
+      <if test="analRelaxationRate != null" >
+        anal_relaxation_rate,
+      </if>
+      <if test="firstPerceptionChannel != null" >
+        first_perception_channel,
+      </if>
+      <if test="rectalPressure != null" >
+        rectal_pressure,
+      </if>
+      <if test="defecationSensation != null" >
+        defecation_sensation,
+      </if>
+      <if test="anorectalPressureDifference != null" >
+        anorectal_pressure_difference,
+      </if>
+      <if test="maximumTolerance != null" >
+        maximum_tolerance,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="updator != null" >
+        updator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ticketId != null" >
+        #{ticketId,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="recordId != null" >
+        #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientName != null" >
+        #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSex != null" >
+        #{patientSex,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        #{doctorName,jdbcType=VARCHAR},
+      </if>
+      <if test="patinetAge != null" >
+        #{patinetAge,jdbcType=VARCHAR},
+      </if>
+      <if test="patientOperator != null" >
+        #{patientOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="patientTall != null" >
+        #{patientTall,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != ''" >
+        #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="anusSphincterMaxRestingRectal != null" >
+        #{anusSphincterMaxRestingRectal,jdbcType=VARCHAR},
+      </if>
+      <if test="anusSphincterMaxShrinkRectal != null" >
+        #{anusSphincterMaxShrinkRectal,jdbcType=VARCHAR},
+      </if>
+      <if test="anusSphincterAverageRestingRectal != null" >
+        #{anusSphincterAverageRestingRectal,jdbcType=VARCHAR},
+      </if>
+      <if test="anusSphincterMaxShrinkRectalAbs != null" >
+        #{anusSphincterMaxShrinkRectalAbs,jdbcType=VARCHAR},
+      </if>
+      <if test="anusSphincterMaxRestingAbs != null" >
+        #{anusSphincterMaxRestingAbs,jdbcType=VARCHAR},
+      </if>
+      <if test="crimpLastTime != null" >
+        #{crimpLastTime,jdbcType=VARCHAR},
+      </if>
+      <if test="anusSphincterAverageRestingAbs != null" >
+        #{anusSphincterAverageRestingAbs,jdbcType=VARCHAR},
+      </if>
+      <if test="highPressLong != null" >
+        #{highPressLong,jdbcType=VARCHAR},
+      </if>
+      <if test="edgeToCenterDistance != null" >
+        #{edgeToCenterDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="anusLeftPress != null" >
+        #{anusLeftPress,jdbcType=VARCHAR},
+      </if>
+      <if test="anorectalInhibitoryReflex != null" >
+        #{anorectalInhibitoryReflex,jdbcType=VARCHAR},
+      </if>
+      <if test="analRelaxationRate != null" >
+        #{analRelaxationRate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstPerceptionChannel != null" >
+        #{firstPerceptionChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="rectalPressure != null" >
+        #{rectalPressure,jdbcType=VARCHAR},
+      </if>
+      <if test="defecationSensation != null" >
+        #{defecationSensation,jdbcType=VARCHAR},
+      </if>
+      <if test="anorectalPressureDifference != null" >
+        #{anorectalPressureDifference,jdbcType=VARCHAR},
+      </if>
+      <if test="maximumTolerance != null" >
+        #{maximumTolerance,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="updator != null" >
+        #{updator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.kp.fus.model.ConAnorectalManometry" >
+    update con_anorectal_manometry 
+    	set patient_name=#{patientName,jdbcType=VARCHAR}, 
+    	patient_sex=#{patientSex,jdbcType=VARCHAR},
+      	doctor_name=#{doctorName,jdbcType=VARCHAR},
+      	patinet_age=#{patinetAge,jdbcType=VARCHAR}, 
+      	patient_operator=#{patientOperator,jdbcType=VARCHAR},  
+      	patient_tall=#{patientTall,jdbcType=VARCHAR}, 
+      	check_date=#{checkDate,jdbcType=TIMESTAMP}, 
+      	anus_sphincter_max_resting_rectal=#{anusSphincterMaxRestingRectal,jdbcType=VARCHAR},  
+      	anus_sphincter_max_shrink_rectal=#{anusSphincterMaxShrinkRectal,jdbcType=VARCHAR}, 
+      	anus_sphincter_average_resting_rectal=#{anusSphincterAverageRestingRectal,jdbcType=VARCHAR},  
+      	anus_sphincter_max_shrink_rectal_abs=#{anusSphincterMaxShrinkRectalAbs,jdbcType=VARCHAR}, 
+      	anus_sphincter_max_resting_abs=#{anusSphincterMaxRestingAbs,jdbcType=VARCHAR}, 
+      	crimp_last_time=#{crimpLastTime,jdbcType=VARCHAR}, 
+      	anus_sphincter_average_resting_abs=#{anusSphincterAverageRestingAbs,jdbcType=VARCHAR},  
+      	high_press_long=#{highPressLong,jdbcType=VARCHAR}, 
+      	edge_to_center_distance=#{edgeToCenterDistance,jdbcType=VARCHAR}, 
+      	anus_left_press=#{anusLeftPress,jdbcType=VARCHAR},  
+      	anorectal_inhibitory_reflex=#{anorectalInhibitoryReflex,jdbcType=VARCHAR}, 
+      	anal_relaxation_rate=#{analRelaxationRate,jdbcType=VARCHAR}, 
+      	first_perception_channel=#{firstPerceptionChannel,jdbcType=VARCHAR},  
+      	rectal_pressure=#{rectalPressure,jdbcType=VARCHAR},  
+      	defecation_sensation=#{defecationSensation,jdbcType=VARCHAR}, 
+      	anorectal_pressure_difference=#{anorectalPressureDifference,jdbcType=VARCHAR}, 
+      	maximum_tolerance=#{maximumTolerance,jdbcType=VARCHAR}, 
+      	create_time=#{createTime,jdbcType=TIMESTAMP},  
+      	update_time=#{updateTime,jdbcType=TIMESTAMP},  
+      	creator=#{creator,jdbcType=VARCHAR}, 
+      	updator=#{updator,jdbcType=VARCHAR}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kp.fus.model.ConAnorectalManometry" >
+    update con_anorectal_manometry
+    <set>
+      <if test="patientName != null" >
+        patient_name = #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="patientSex != null" >
+        patient_sex = #{patientSex,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        doctor_name = #{doctorName,jdbcType=VARCHAR},
+      </if>
+      <if test="patinetAge != null" >
+        patinet_age = #{patinetAge,jdbcType=VARCHAR},
+      </if>
+      <if test="patientOperator != null" >
+        patient_operator = #{patientOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="patientTall != null" >
+        patient_tall = #{patientTall,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != ''" >
+        check_date = #{checkDate,jdbcType=VARCHAR},
+      </if>
+      <if test="anusSphincterMaxRestingRectal != null" >
+        anus_sphincter_max_resting_rectal = #{anusSphincterMaxRestingRectal,jdbcType=VARCHAR},
+      </if>
+      <if test="anusSphincterMaxShrinkRectal != null" >
+        anus_sphincter_max_shrink_rectal = #{anusSphincterMaxShrinkRectal,jdbcType=VARCHAR},
+      </if>
+      <if test="anusSphincterAverageRestingRectal != null" >
+        anus_sphincter_average_resting_rectal = #{anusSphincterAverageRestingRectal,jdbcType=VARCHAR},
+      </if>
+      <if test="anusSphincterMaxShrinkRectalAbs != null" >
+        anus_sphincter_max_shrink_rectal_abs =  #{anusSphincterMaxShrinkRectalAbs,jdbcType=VARCHAR},
+      </if>
+      <if test="anusSphincterMaxRestingAbs != null" >
+        anus_sphincter_max_resting_abs = #{anusSphincterMaxRestingAbs,jdbcType=VARCHAR},
+      </if>
+      <if test="crimpLastTime != null" >
+        crimp_last_time = #{crimpLastTime,jdbcType=VARCHAR},
+      </if>
+      <if test="anusSphincterAverageRestingAbs != null" >
+        anus_sphincter_average_resting_abs = #{anusSphincterAverageRestingAbs,jdbcType=VARCHAR},
+      </if>
+      <if test="highPressLong != null" >
+        high_press_long = #{highPressLong,jdbcType=VARCHAR},
+      </if>
+      <if test="edgeToCenterDistance != null" >
+        edge_to_center_distance = #{edgeToCenterDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="anusLeftPress != null" >
+        anus_left_press =  #{anusLeftPress,jdbcType=VARCHAR},
+      </if>
+      <if test="anorectalInhibitoryReflex != null" >
+        anorectal_inhibitory_reflex = #{anorectalInhibitoryReflex,jdbcType=VARCHAR},
+      </if>
+      <if test="analRelaxationRate != null" >
+        anal_relaxation_rate =  #{analRelaxationRate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstPerceptionChannel != null" >
+        first_perception_channel = #{firstPerceptionChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="rectalPressure != null" >
+        rectal_pressure = #{rectalPressure,jdbcType=VARCHAR},
+      </if>
+      <if test="defecationSensation != null" >
+        defecation_sensation = #{defecationSensation,jdbcType=VARCHAR},
+      </if>
+      <if test="anorectalPressureDifference != null" >
+        anorectal_pressure_difference = #{anorectalPressureDifference,jdbcType=VARCHAR},
+      </if>
+      <if test="maximumTolerance != null" >
+        maximum_tolerance = #{maximumTolerance,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="updator != null" >
+        updator = #{updator,jdbcType=VARCHAR}
+      </if>
+      </set>
+      where record_id = #{recordId,jdbcType=VARCHAR}
+  </update>
+</mapper>
